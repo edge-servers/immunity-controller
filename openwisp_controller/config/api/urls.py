@@ -11,7 +11,7 @@ def get_api_urls(api_views):
     """
     returns:: all the API urls of the config app
     """
-    if getattr(settings, 'OPENWISP_CONTROLLER_API', True):
+    if getattr(settings, 'IMMUNITY_CONTROLLER_API', True):
         return [
             path(
                 'controller/template/',

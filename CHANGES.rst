@@ -83,7 +83,7 @@ Features
   and `device_name_changed
   <https://github.com/edge-servers/immunity-controller#device_name_changed>`_
   signals
-- Added `OPENWISP_CONTROLLER_DEVICE_NAME_UNIQUE setting
+- Added `IMMUNITY_CONTROLLER_DEVICE_NAME_UNIQUE setting
   <https://github.com/edge-servers/immunity-controller#immunity_controller_device_name_unique>`_
   to conditionally enforce unique device names in an organization
 - Added caching for ``DeviceChecksumView``
@@ -115,11 +115,11 @@ Backward incompatible changes
   1 management tunnel for all the organizations, so different devices
   from any organization will not have the same management IP to avoid
   conflicts. The old behaviour can be restored by setting
-  `OPENWISP_CONTROLLER_SHARED_MANAGEMENT_IP_ADDRESS_SPACE
+  `IMMUNITY_CONTROLLER_SHARED_MANAGEMENT_IP_ADDRESS_SPACE
   <https://github.com/edge-servers/immunity-controller#immunity_controller_shared_management_ip_address_space>`_
   to ``False``
-- ``OPENWISP_CONTROLLER_BACKEND_DEVICE_LIST`` has been renamed
-  to ``OPENWISP_CONTROLLER_CONFIG_BACKEND_FIELD_SHOWN``
+- ``IMMUNITY_CONTROLLER_BACKEND_DEVICE_LIST`` has been renamed
+  to ``IMMUNITY_CONTROLLER_CONFIG_BACKEND_FIELD_SHOWN``
 - ``Device.check_management_ip_changed`` has been changed to private API
   ``Device._check_management_ip_changed``
 
@@ -324,7 +324,7 @@ Changes
 - Changed ``DeviceConnection.failure_reason`` field to ``TextField``,
   this avoids possible exception if ``failed_reason`` is very long,
   which may happen in some corner cases
-- Made Device ``verbose_name`` configurable, see ``OPENWISP_CONTROLLER_DEVICE_VERBOSE_NAME``
+- Made Device ``verbose_name`` configurable, see ``IMMUNITY_CONTROLLER_DEVICE_VERBOSE_NAME``
 - Increased `netjsonconfig <https://github.com/edge-servers/netjsonconfig#netjsonconfig>`__ version to 0.9.x
   (which brings support for new interface types,
   `see the change log of netjsonconfig <http://netjsonconfig.immunity.org/en/latest/general/changelog.html#version-0-9-0-2020-11-18>`_
@@ -364,7 +364,7 @@ Bugfixes
 - Handled device not existing case in ``update_config`` task
 - Fixed auto cert feature failure when device name is too long
 - UI: avoid showing main scrollbar in preview mode
-- Fixed ``OPENWISP_CONTROLLER_BACKEND_DEVICE_LIST = False``
+- Fixed ``IMMUNITY_CONTROLLER_BACKEND_DEVICE_LIST = False``
 - UI fixed advanced mode bugs: positioning is done using css instead of js.
   Removed body scrollbar when in advanced mode.
   Back to normal mode with ESC key.
@@ -373,7 +373,7 @@ Bugfixes
   since now the launch of the task is executed when the
   transaction is committed to the database, also the
   check for other updates in progress must be moved there
-- Fixed ``OPENWISP_CONTROLLER_CONTEXT`` setting getting modified at run time
+- Fixed ``IMMUNITY_CONTROLLER_CONTEXT`` setting getting modified at run time
 - Fixed z-index of preview overlay: the z-index is increased so it's higher
   than the main navigation menu to avoid the possibility of triggering the
   main menu inadvertently

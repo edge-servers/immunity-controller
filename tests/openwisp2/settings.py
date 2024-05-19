@@ -140,9 +140,9 @@ FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 EMAIL_PORT = '1025'  # for testing purposes
 LOGIN_REDIRECT_URL = 'admin:index'
 ACCOUNT_LOGOUT_REDIRECT_URL = LOGIN_REDIRECT_URL
-OPENWISP_ORGANIZATION_USER_ADMIN = True  # tests will fail without this setting
-OPENWISP_ADMIN_DASHBOARD_ENABLED = True
-OPENWISP_CONTROLLER_GROUP_PIE_CHART = True
+IMMUNITY_ORGANIZATION_USER_ADMIN = True  # tests will fail without this setting
+IMMUNITY_ADMIN_DASHBOARD_ENABLED = True
+IMMUNITY_CONTROLLER_GROUP_PIE_CHART = True
 # during development only
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -190,8 +190,8 @@ if not TESTING and SHELL:
     )
 
 DJANGO_LOCI_GEOCODE_STRICT_TEST = False
-OPENWISP_CONTROLLER_CONTEXT = {'vpnserver1': 'vpn.testdomain.com'}
-OPENWISP_USERS_AUTH_API = True
+IMMUNITY_CONTROLLER_CONTEXT = {'vpnserver1': 'vpn.testdomain.com'}
+IMMUNITY_USERS_AUTH_API = True
 
 TEST_RUNNER = 'immunity_utils.tests.TimeLoggingTestRunner'
 
@@ -233,11 +233,11 @@ if os.environ.get('SAMPLE_APP', False):
     )
     # Swapper
     AUTH_USER_MODEL = 'sample_users.User'
-    OPENWISP_USERS_GROUP_MODEL = 'sample_users.Group'
-    OPENWISP_USERS_ORGANIZATION_MODEL = 'sample_users.Organization'
-    OPENWISP_USERS_ORGANIZATIONUSER_MODEL = 'sample_users.OrganizationUser'
-    OPENWISP_USERS_ORGANIZATIONOWNER_MODEL = 'sample_users.OrganizationOwner'
-    OPENWISP_USERS_ORGANIZATIONINVITATION_MODEL = 'sample_users.OrganizationInvitation'
+    IMMUNITY_USERS_GROUP_MODEL = 'sample_users.Group'
+    IMMUNITY_USERS_ORGANIZATION_MODEL = 'sample_users.Organization'
+    IMMUNITY_USERS_ORGANIZATIONUSER_MODEL = 'sample_users.OrganizationUser'
+    IMMUNITY_USERS_ORGANIZATIONOWNER_MODEL = 'sample_users.OrganizationOwner'
+    IMMUNITY_USERS_ORGANIZATIONINVITATION_MODEL = 'sample_users.OrganizationInvitation'
     CONFIG_DEVICE_MODEL = 'sample_config.Device'
     CONFIG_DEVICEGROUP_MODEL = 'sample_config.DeviceGroup'
     CONFIG_CONFIG_MODEL = 'sample_config.Config'
@@ -270,9 +270,9 @@ else:
 
 if os.environ.get('SAMPLE_APP', False) and TESTING:
     # Required for immunity-users tests
-    OPENWISP_ORGANIZATION_USER_ADMIN = True
-    OPENWISP_ORGANIZATION_OWNER_ADMIN = True
-    OPENWISP_USERS_AUTH_API = True
+    IMMUNITY_ORGANIZATION_USER_ADMIN = True
+    IMMUNITY_ORGANIZATION_OWNER_ADMIN = True
+    IMMUNITY_USERS_AUTH_API = True
 
 # local settings must be imported before test runner otherwise they'll be ignored
 try:

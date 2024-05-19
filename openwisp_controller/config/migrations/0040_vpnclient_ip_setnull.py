@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        migrations.swappable_dependency(settings.OPENWISP_IPAM_IPADDRESS_MODEL),
+        migrations.swappable_dependency(settings.IMMUNITY_IPAM_IPADDRESS_MODEL),
         ('config', '0039_wireguard_vxlan_ipam'),
     ]
 
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ),
                 null=True,
                 on_delete=django.db.models.deletion.SET_NULL,
-                to=settings.OPENWISP_IPAM_IPADDRESS_MODEL,
+                to=settings.IMMUNITY_IPAM_IPADDRESS_MODEL,
                 verbose_name='Internal IP',
             ),
         ),
@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 null=True,
                 on_delete=django.db.models.deletion.SET_NULL,
-                to=settings.OPENWISP_IPAM_IPADDRESS_MODEL,
+                to=settings.IMMUNITY_IPAM_IPADDRESS_MODEL,
             ),
         ),
     ]

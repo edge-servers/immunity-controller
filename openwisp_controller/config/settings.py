@@ -8,21 +8,21 @@ logger = logging.getLogger(__name__)
 
 def get_settings_value(option, default):
     if option == 'CONFIG_BACKEND_FIELD_SHOWN' and hasattr(
-        settings, 'OPENWISP_CONTROLLER_BACKEND_DEVICE_LIST'
+        settings, 'IMMUNITY_CONTROLLER_BACKEND_DEVICE_LIST'
     ):
         logger.warn(
-            'OPENWISP_CONTROLLER_BACKEND_DEVICE_LIST is deprecated and will be '
+            'IMMUNITY_CONTROLLER_BACKEND_DEVICE_LIST is deprecated and will be '
             'removed in the future, please use '
-            'OPENWISP_CONTROLLER_CONFIG_BACKEND_FIELD_SHOWN instead.'
+            'IMMUNITY_CONTROLLER_CONFIG_BACKEND_FIELD_SHOWN instead.'
         )
-        return getattr(settings, 'OPENWISP_CONTROLLER_BACKEND_DEVICE_LIST', default)
+        return getattr(settings, 'IMMUNITY_CONTROLLER_BACKEND_DEVICE_LIST', default)
     if hasattr(settings, f'NETJSONCONFIG_{option}'):
         logger.warn(
             f'NETJSONCONFIG_{option} setting is deprecated. It will be removed '
-            f'in the future, please use OPENWISP_CONTROLLER_{option} instead.'
+            f'in the future, please use IMMUNITY_CONTROLLER_{option} instead.'
         )
         return getattr(settings, f'NETJSONCONFIG_{option}')
-    return getattr(settings, f'OPENWISP_CONTROLLER_{option}', default)
+    return getattr(settings, f'IMMUNITY_CONTROLLER_{option}', default)
 
 
 BACKENDS = get_settings_value(
@@ -49,7 +49,7 @@ CONSISTENT_REGISTRATION = get_settings_value('CONSISTENT_REGISTRATION', True)
 REGISTRATION_SELF_CREATION = get_settings_value('REGISTRATION_SELF_CREATION', True)
 
 CONTEXT = get_settings_value('CONTEXT', {})
-assert isinstance(CONTEXT, dict), 'OPENWISP_CONTROLLER_CONTEXT must be a dictionary'
+assert isinstance(CONTEXT, dict), 'IMMUNITY_CONTROLLER_CONTEXT must be a dictionary'
 DEFAULT_AUTO_CERT = get_settings_value('DEFAULT_AUTO_CERT', True)
 CERT_PATH = get_settings_value('CERT_PATH', '/etc/x509')
 COMMON_NAME_FORMAT = get_settings_value('COMMON_NAME_FORMAT', '{mac_address}-{name}')

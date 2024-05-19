@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        migrations.swappable_dependency(settings.OPENWISP_IPAM_SUBNET_MODEL),
+        migrations.swappable_dependency(settings.IMMUNITY_IPAM_SUBNET_MODEL),
         ('config', '0037_alter_taggedtemplate'),
     ]
 
@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 help_text='Subnet IP addresses used by VPN clients, if applicable',
                 null=True,
                 on_delete=django.db.models.deletion.SET_NULL,
-                to=settings.OPENWISP_IPAM_SUBNET_MODEL,
+                to=settings.IMMUNITY_IPAM_SUBNET_MODEL,
                 verbose_name='Subnet',
             ),
         ),

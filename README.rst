@@ -585,7 +585,7 @@ Global variables
 ~~~~~~~~~~~~~~~~
 
 Variables can also be defined globally using the
-`OPENWISP_CONTROLLER_CONTEXT <#immunity-controller-context>`_ setting.
+`IMMUNITY_CONTROLLER_CONTEXT <#immunity-controller-context>`_ setting.
 
 Template default values
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -803,7 +803,7 @@ Let's explore to define new custom commands
 to help users perform additional management actions
 without having to be Linux/Unix experts.
 
-We can do so by using the ``OPENWISP_CONTROLLER_USER_COMMANDS`` django setting.
+We can do so by using the ``IMMUNITY_CONTROLLER_USER_COMMANDS`` django setting.
 
 The following example defines a simple command that can ``ping`` an input
 ``destination_address`` through a network interface, ``interface_name``.
@@ -818,7 +818,7 @@ The following example defines a simple command that can ``ping`` an input
             command += f' -I {interface_name}'
         return command
 
-    OPENWISP_CONTROLLER_USER_COMMANDS = [
+    IMMUNITY_CONTROLLER_USER_COMMANDS = [
         (
             'ping',
             {
@@ -852,7 +852,7 @@ in the GIF below:
    :target: https://github.com/edge-servers/immunity-controller/tree/docs/docs/ping_command_example.gif
    :alt: Adding a "ping" command
 
-The ``OPENWISP_CONTROLLER_USER_COMMANDS`` setting takes a ``list`` of ``tuple``
+The ``IMMUNITY_CONTROLLER_USER_COMMANDS`` setting takes a ``list`` of ``tuple``
 each containing two elements. The first element of the tuple should contain an
 identifier for the command and the second element should contain a ``dict``
 defining configuration of the command.
@@ -928,7 +928,7 @@ You can use these functions to register or unregister commands
 from your code.
 
 **Note**: These functions are to be used as an alternative to the
-`"OPENWISP_CONTROLLER_USER_COMMANDS" <#immunity-controller-user-commands>`_
+`"IMMUNITY_CONTROLLER_USER_COMMANDS" <#immunity-controller-user-commands>`_
 when `developing custom modules based on immunity-controller
 <#extending-immunity-controller>`_ or when developing custom third party
 apps.
@@ -1001,7 +1001,7 @@ important points:
 - If a device does not have a configuration defined yet, but it is assigned
   to a group which has templates defined, the system will automatically
   create a configuration for it using the default backend specified in
-  `OPENWISP_CONTROLLER_DEFAULT_BACKEND <#OPENWISP_CONTROLLER_DEFAULT_BACKEND>`_ setting.
+  `IMMUNITY_CONTROLLER_DEFAULT_BACKEND <#IMMUNITY_CONTROLLER_DEFAULT_BACKEND>`_ setting.
 
 **Note:** the list of templates shown in the edit group page do not
 contain templates flagged as "default" or "required" to avoid redundancy
@@ -1030,7 +1030,7 @@ structured metadata field (which can be accessed via the REST API).
 
 The metadata field allows custom structure and validation to standardize
 information across all groups using the
-`"OPENWISP_CONTROLLER_DEVICE_GROUP_SCHEMA" <#immunity-controller-device-group-schema>`_
+`"IMMUNITY_CONTROLLER_DEVICE_GROUP_SCHEMA" <#immunity-controller-device-group-schema>`_
 setting.
 
 **Note:** *Group configuration variables* and *Group metadata* serves different purposes.
@@ -2677,7 +2677,7 @@ Settings
 You can change the values for the following variables in
 ``settings.py`` to configure your instance of immunity-controller.
 
-``OPENWISP_SSH_AUTH_TIMEOUT``
+``IMMUNITY_SSH_AUTH_TIMEOUT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-------------+
@@ -2690,7 +2690,7 @@ You can change the values for the following variables in
 
 Configure timeout to wait for an authentication response when establishing a SSH connection.
 
-``OPENWISP_SSH_BANNER_TIMEOUT``
+``IMMUNITY_SSH_BANNER_TIMEOUT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-------------+
@@ -2703,7 +2703,7 @@ Configure timeout to wait for an authentication response when establishing a SSH
 
 Configure timeout to wait for the banner to be presented when establishing a SSH connection.
 
-``OPENWISP_SSH_COMMAND_TIMEOUT``
+``IMMUNITY_SSH_COMMAND_TIMEOUT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-------------+
@@ -2716,7 +2716,7 @@ Configure timeout to wait for the banner to be presented when establishing a SSH
 
 Configure timeout on blocking read/write operations when executing a command in a SSH connection.
 
-``OPENWISP_SSH_CONNECTION_TIMEOUT``
+``IMMUNITY_SSH_CONNECTION_TIMEOUT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-------------+
@@ -2729,7 +2729,7 @@ Configure timeout on blocking read/write operations when executing a command in 
 
 Configure timeout for the TCP connect when establishing a SSH connection.
 
-``OPENWISP_CONNECTORS``
+``IMMUNITY_CONNECTORS``
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+------------------------------------------------------------------------------------------------+
@@ -2747,7 +2747,7 @@ Configure timeout for the TCP connect when establishing a SSH connection.
 Available connector classes. Connectors are python classes that specify ways
 in which OpenWISP can connect to devices in order to launch commands.
 
-``OPENWISP_UPDATE_STRATEGIES``
+``IMMUNITY_UPDATE_STRATEGIES``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+----------------------------------------------------------------------------------------+
@@ -2770,7 +2770,7 @@ of a device is changed.
 It's possible to write custom update strategies and add them to this
 setting to make them available in OpenWISP.
 
-``OPENWISP_CONFIG_UPDATE_MAPPING``
+``IMMUNITY_CONFIG_UPDATE_MAPPING``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+--------------------------------------------------------------------+
@@ -2779,7 +2779,7 @@ setting to make them available in OpenWISP.
 | **default**: | .. code-block:: python                                             |
 |              |                                                                    |
 |              |   {                                                                |
-|              |     'netjsonconfig.OpenWrt': OPENWISP_UPDATE_STRATEGIES[0][0],     |
+|              |     'netjsonconfig.OpenWrt': IMMUNITY_UPDATE_STRATEGIES[0][0],     |
 |              |   }                                                                |
 +--------------+--------------------------------------------------------------------+
 
@@ -2787,7 +2787,7 @@ A dictionary that maps configuration backends to update strategies in order to
 automatically determine the update strategy of a device connection if the
 update strategy field is left blank by the user.
 
-``OPENWISP_CONTROLLER_BACKENDS``
+``IMMUNITY_CONTROLLER_BACKENDS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-----------------------------------------------+
@@ -2804,7 +2804,7 @@ update strategy field is left blank by the user.
 Available configuration backends. For more information, see `netjsonconfig backends
 <http://netjsonconfig.immunity.org/en/latest/general/basics.html#backend>`_.
 
-``OPENWISP_CONTROLLER_VPN_BACKENDS``
+``IMMUNITY_CONTROLLER_VPN_BACKENDS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+----------------------------------------------------------------------------------+
@@ -2831,40 +2831,40 @@ A VPN backend must follow some basic rules in order to be compatible with *immun
   ``config['openvpn']``
 * it SHOULD focus on the server capabilities of the VPN software being used
 
-``OPENWISP_CONTROLLER_DEFAULT_BACKEND``
+``IMMUNITY_CONTROLLER_DEFAULT_BACKEND``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+----------------------------------------+
 | **type**:    | ``str``                                |
 +--------------+----------------------------------------+
-| **default**: | ``OPENWISP_CONTROLLER_BACKENDS[0][0]`` |
+| **default**: | ``IMMUNITY_CONTROLLER_BACKENDS[0][0]`` |
 +--------------+----------------------------------------+
 
 The preferred backend that will be used as initial value when adding new ``Config`` or
 ``Template`` objects in the admin.
 
-This setting defaults to the raw value of the first item in the ``OPENWISP_CONTROLLER_BACKENDS`` setting,
+This setting defaults to the raw value of the first item in the ``IMMUNITY_CONTROLLER_BACKENDS`` setting,
 which is ``netjsonconfig.OpenWrt``.
 
 Setting it to ``None`` will force the user to choose explicitly.
 
-``OPENWISP_CONTROLLER_DEFAULT_VPN_BACKEND``
+``IMMUNITY_CONTROLLER_DEFAULT_VPN_BACKEND``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+--------------------------------------------+
 | **type**:    | ``str``                                    |
 +--------------+--------------------------------------------+
-| **default**: | ``OPENWISP_CONTROLLER_VPN_BACKENDS[0][0]`` |
+| **default**: | ``IMMUNITY_CONTROLLER_VPN_BACKENDS[0][0]`` |
 +--------------+--------------------------------------------+
 
 The preferred backend that will be used as initial value when adding new ``Vpn`` objects in the admin.
 
-This setting defaults to the raw value of the first item in the ``OPENWISP_CONTROLLER_VPN_BACKENDS`` setting,
+This setting defaults to the raw value of the first item in the ``IMMUNITY_CONTROLLER_VPN_BACKENDS`` setting,
 which is ``immunity_controller.vpn_backends.OpenVpn``.
 
 Setting it to ``None`` will force the user to choose explicitly.
 
-``OPENWISP_CONTROLLER_REGISTRATION_ENABLED``
+``IMMUNITY_CONTROLLER_REGISTRATION_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-------------+
@@ -2880,7 +2880,7 @@ This feature is enabled by default.
 Autoregistration must be supported on the devices in order to work, see `immunity-config automatic
 registration <https://github.com/edge-servers/immunity-config#automatic-registration>`_ for more information.
 
-``OPENWISP_CONTROLLER_CONSISTENT_REGISTRATION``
+``IMMUNITY_CONTROLLER_CONSISTENT_REGISTRATION``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-------------+
@@ -2898,7 +2898,7 @@ Autoregistration must be enabled also on the devices in order to work, see `immu
 consistent key generation <https://github.com/edge-servers/immunity-config#consistent-key-generation>`_
 for more information.
 
-``OPENWISP_CONTROLLER_REGISTRATION_SELF_CREATION``
+``IMMUNITY_CONTROLLER_REGISTRATION_SELF_CREATION``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-------------+
@@ -2913,7 +2913,7 @@ Turn this off if you still want to use auto-registration to avoid having to
 manually set the device UUID and key in its configuration file but also want
 to avoid indiscriminate registration of new devices without explicit permission.
 
-``OPENWISP_CONTROLLER_CONTEXT``
+``IMMUNITY_CONTROLLER_CONTEXT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+------------------+
@@ -2924,7 +2924,7 @@ to avoid indiscriminate registration of new devices without explicit permission.
 
 Additional context that is passed to the default context of each device object.
 
-``OPENWISP_CONTROLLER_CONTEXT`` can be used to define system-wide configuration variables.
+``IMMUNITY_CONTROLLER_CONTEXT`` can be used to define system-wide configuration variables.
 
 For more information regarding how to use configuration variables in OpenWISP,
 see `How to use configuration variables <#how-to-use-configuration-variables>`_.
@@ -2933,7 +2933,7 @@ For technical information about how variables are handled in the lower levels
 of OpenWISP, see `netjsonconfig context: configuration variables
 <http://netjsonconfig.immunity.org/en/latest/general/basics.html#context-configuration-variables>`_.
 
-``OPENWISP_CONTROLLER_DEFAULT_AUTO_CERT``
+``IMMUNITY_CONTROLLER_DEFAULT_AUTO_CERT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+---------------------------+
@@ -2964,7 +2964,7 @@ template variables.
 The objects that are automatically created will also be removed when they are not
 needed anymore (eg: when the VPN template is removed from a configuration object).
 
-``OPENWISP_CONTROLLER_CERT_PATH``
+``IMMUNITY_CONTROLLER_CERT_PATH``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+---------------------------+
@@ -2976,7 +2976,7 @@ needed anymore (eg: when the VPN template is removed from a configuration object
 The filesystem path where x509 certificate will be installed when
 downloaded on routers when ``auto_cert`` is being used (enabled by default).
 
-``OPENWISP_CONTROLLER_COMMON_NAME_FORMAT``
+``IMMUNITY_CONTROLLER_COMMON_NAME_FORMAT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+------------------------------+
@@ -2989,13 +2989,13 @@ Defines the format of the ``common_name`` attribute of VPN client certificates
 that are automatically created when using VPN templates which have ``auto_cert``
 set to ``True``. A unique slug generated using `shortuuid <https://github.com/skorokithakis/shortuuid/>`_
 is appended to the common name to introduce uniqueness. Therefore, resulting
-common names will have ``{OPENWISP_CONTROLLER_COMMON_NAME_FORMAT}-{unique-slug}``
+common names will have ``{IMMUNITY_CONTROLLER_COMMON_NAME_FORMAT}-{unique-slug}``
 format.
 
 **Note:** If the ``name`` and ``mac address`` of the device are equal,
 the ``name`` of the device will be omitted from the common name to avoid redundancy.
 
-``OPENWISP_CONTROLLER_MANAGEMENT_IP_DEVICE_LIST``
+``IMMUNITY_CONTROLLER_MANAGEMENT_IP_DEVICE_LIST``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+------------------------------+
@@ -3014,7 +3014,7 @@ detail page.
 You may set this to ``False`` if for some reason the majority of your user
 doesn't care about the management ip address.
 
-``OPENWISP_CONTROLLER_CONFIG_BACKEND_FIELD_SHOWN``
+``IMMUNITY_CONTROLLER_CONFIG_BACKEND_FIELD_SHOWN``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+------------------------------+
@@ -3030,7 +3030,7 @@ If this setting is set to ``False`` these items will be removed from the UI.
 
 Note: This setting affects only the configuration backend and NOT the VPN backend.
 
-``OPENWISP_CONTROLLER_DEVICE_NAME_UNIQUE``
+``IMMUNITY_CONTROLLER_DEVICE_NAME_UNIQUE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-------------+
@@ -3044,7 +3044,7 @@ The query to enforce this is case-insensitive.
 
 Note: For this constraint to be optional, it is enforced on an application level and not on database.
 
-``OPENWISP_CONTROLLER_HARDWARE_ID_ENABLED``
+``IMMUNITY_CONTROLLER_HARDWARE_ID_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-------------+
@@ -3060,7 +3060,7 @@ and in the add/edit device page.
 
 This feature is disabled by default.
 
-``OPENWISP_CONTROLLER_HARDWARE_ID_OPTIONS``
+``IMMUNITY_CONTROLLER_HARDWARE_ID_OPTIONS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+--------------------------------------------------------------+
@@ -3069,7 +3069,7 @@ This feature is disabled by default.
 | **default**: | .. code-block:: python                                       |
 |              |                                                              |
 |              |    {                                                         |
-|              |        'blank': not OPENWISP_CONTROLLER_HARDWARE_ID_ENABLED, |
+|              |        'blank': not IMMUNITY_CONTROLLER_HARDWARE_ID_ENABLED, |
 |              |        'null': True,                                         |
 |              |        'max_length': 32,                                     |
 |              |        'unique': True,                                       |
@@ -3087,7 +3087,7 @@ Options for the model field ``hardware_id``.
 * ``verbose_name``: text for the human readable label of the field
 * ``help_text``: help text to be displayed with the field
 
-``OPENWISP_CONTROLLER_HARDWARE_ID_AS_NAME``
+``IMMUNITY_CONTROLLER_HARDWARE_ID_AS_NAME``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-------------+
@@ -3101,7 +3101,7 @@ their hardware ID instead of their name.
 
 If you still want to reference devices by their name, set this to ``False``.
 
-``OPENWISP_CONTROLLER_DEVICE_VERBOSE_NAME``
+``IMMUNITY_CONTROLLER_DEVICE_VERBOSE_NAME``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+----------------------------+
@@ -3117,9 +3117,9 @@ For example, if we want to change the verbose name to "Hotspot", we could write:
 
 .. code-block:: python
 
-    OPENWISP_CONTROLLER_DEVICE_VERBOSE_NAME = ('Hotspot', 'Hotspots')
+    IMMUNITY_CONTROLLER_DEVICE_VERBOSE_NAME = ('Hotspot', 'Hotspots')
 
-``OPENWISP_CONTROLLER_HIDE_AUTOMATICALLY_GENERATED_SUBNETS_AND_IPS``
+``IMMUNITY_CONTROLLER_HIDE_AUTOMATICALLY_GENERATED_SUBNETS_AND_IPS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-----------+
@@ -3131,7 +3131,7 @@ For example, if we want to change the verbose name to "Hotspot", we could write:
 Setting this to ``True`` will hide subnets and IPs generated using `subnet division rules <#subnet-division-app>`_
 from being displayed on the changelist view of Subnet and IP admin.
 
-``OPENWISP_CONTROLLER_SUBNET_DIVISION_TYPES``
+``IMMUNITY_CONTROLLER_SUBNET_DIVISION_TYPES``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+---------------------------------------------------------------------------------------------------------+
@@ -3150,7 +3150,7 @@ from being displayed on the changelist view of Subnet and IP admin.
 For more information on how to write your own types, read
 `"Custom Subnet Division Rule Types" section of this documentation <#custom-subnet-division-rule-types>`_
 
-``OPENWISP_CONTROLLER_API``
+``IMMUNITY_CONTROLLER_API``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-----------+
@@ -3160,9 +3160,9 @@ For more information on how to write your own types, read
 +--------------+-----------+
 
 Indicates whether the API for Openwisp Controller is enabled or not.
-To disable the API by default add `OPENWISP_CONTROLLER_API = False` in `settings.py` file.
+To disable the API by default add `IMMUNITY_CONTROLLER_API = False` in `settings.py` file.
 
-``OPENWISP_CONTROLLER_API_HOST``
+``IMMUNITY_CONTROLLER_API_HOST``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-----------+
@@ -3173,7 +3173,7 @@ To disable the API by default add `OPENWISP_CONTROLLER_API = False` in `settings
 
 Allows to specify backend URL for API requests, if the frontend is hosted separately.
 
-``OPENWISP_CONTROLLER_USER_COMMANDS``
+``IMMUNITY_CONTROLLER_USER_COMMANDS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+----------+
@@ -3185,7 +3185,7 @@ Allows to specify backend URL for API requests, if the frontend is hosted separa
 Allows to specify a ``list`` of tuples for adding commands as described in
 `'How to define custom commands" <#how-to-define-new-options-in-the-commands-menu>`_ section.
 
-``OPENWISP_CONTROLLER_ORGANIZATION_ENABLED_COMMANDS``
+``IMMUNITY_CONTROLLER_ORGANIZATION_ENABLED_COMMANDS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+------------------------------------------------+
@@ -3207,7 +3207,7 @@ as shown in the following example:
 
 .. code-block:: python
 
-    OPENWISP_CONTROLLER_ORGANIZATION_ENABLED_COMMANDS = {
+    IMMUNITY_CONTROLLER_ORGANIZATION_ENABLED_COMMANDS = {
         '__all__': '*',
         # Organization UUID: # Tuple of enabled commands
         '7448a190-6e65-42bf-b8ea-bb6603e593a5': ('reboot', 'change_password'),
@@ -3217,7 +3217,7 @@ In the example above, the organization with UUID ``7448a190-6e65-42bf-b8ea-bb660
 will allow to send only commands of type ``reboot`` and ``change_password``,
 while all the other organizations will have all command types enabled.
 
-``OPENWISP_CONTROLLER_DEVICE_GROUP_SCHEMA``
+``IMMUNITY_CONTROLLER_DEVICE_GROUP_SCHEMA``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+------------------------------------------+
@@ -3228,7 +3228,7 @@ while all the other organizations will have all command types enabled.
 
 Allows specifying JSONSchema used for validating meta-data of `Device Group <#device-groups>`__.
 
-``OPENWISP_CONTROLLER_SHARED_MANAGEMENT_IP_ADDRESS_SPACE``
+``IMMUNITY_CONTROLLER_SHARED_MANAGEMENT_IP_ADDRESS_SPACE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+----------+
@@ -3251,7 +3251,7 @@ reset to empty state to avoid potential conflicts.
 Set this to ``False`` if every organization has its dedicated management
 tunnel with a dedicated address space that is reachable by the OpenWISP server.
 
-``OPENWISP_CONTROLLER_MANAGEMENT_IP_ONLY``
+``IMMUNITY_CONTROLLER_MANAGEMENT_IP_ONLY``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-------------+
@@ -3267,7 +3267,7 @@ If the devices are connecting to your OpenWISP instance using a shared layer2
 network, hence the OpenWSP server can reach the devices using the ``last_ip``
 field, you can set this to ``False``.
 
-``OPENWISP_CONTROLLER_DSA_OS_MAPPING``
+``IMMUNITY_CONTROLLER_DSA_OS_MAPPING``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+----------+
@@ -3281,7 +3281,7 @@ for DSA interfaces (Distributed Switch Architecture) introduced in OpenWrt 21 by
 reading the ``os`` field of the ``Device`` object. However, if the firmware you
 are using has a custom firmware identifier, the system will not be able to figure
 out whether it should use the new syntax and it will default to
-`OPENWISP_CONTROLLER_DSA_DEFAULT_FALLBACK <#immunity_controller_dsa_default_fallback>`_.
+`IMMUNITY_CONTROLLER_DSA_DEFAULT_FALLBACK <#immunity_controller_dsa_default_fallback>`_.
 
 If you want to make sure the system can parse your custom firmware
 identifier properly, you can follow the example below.
@@ -3295,7 +3295,7 @@ Example:
 
 .. code-block:: python
 
-    OPENWISP_CONTROLLER_DSA_OS_MAPPING = {
+    IMMUNITY_CONTROLLER_DSA_OS_MAPPING = {
         'netjsonconfig.OpenWrt': {
             # OpenWrt >=21.02 configuration syntax will be used for
             # these OS identifiers.
@@ -3308,7 +3308,7 @@ Example:
 
 **Note**: The OS identifier should be a regular expression as shown in above example.
 
-``OPENWISP_CONTROLLER_DSA_DEFAULT_FALLBACK``
+``IMMUNITY_CONTROLLER_DSA_DEFAULT_FALLBACK``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+----------+
@@ -3321,7 +3321,7 @@ The value of this setting decides whether to use DSA syntax
 (OpenWrt >=21 configuration syntax) if immunity-controller fails
 to make that decision automatically.
 
-``OPENWISP_CONTROLLER_GROUP_PIE_CHART``
+``IMMUNITY_CONTROLLER_GROUP_PIE_CHART``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-----------+
@@ -3338,7 +3338,7 @@ Allows to show a pie chart like the one in the screenshot.
 Active groups are groups which have at least one device in them,
 while emtpy groups do not have any device assigned.
 
-``OPENWISP_CONTROLLER_API_TASK_RETRY_OPTIONS``
+``IMMUNITY_CONTROLLER_API_TASK_RETRY_OPTIONS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+-----------+
@@ -3349,7 +3349,7 @@ while emtpy groups do not have any device assigned.
 
 .. code-block:: python
 
-    # default value of OPENWISP_CONTROLLER_API_TASK_RETRY_OPTIONS:
+    # default value of IMMUNITY_CONTROLLER_API_TASK_RETRY_OPTIONS:
 
     dict(
         max_retries=5, # total number of retries
@@ -4331,12 +4331,12 @@ for that device.
                 cls.provision_receiver(device, created=True)
 
 After creating a class for your custom rule type, you will need to set
-`OPENWISP_CONTROLLER_SUBNET_DIVISION_TYPES <#immunity-controller-subnet-division-types>`_
+`IMMUNITY_CONTROLLER_SUBNET_DIVISION_TYPES <#immunity-controller-subnet-division-types>`_
 setting as follows:
 
 .. code-block:: python
 
-    OPENWISP_CONTROLLER_SUBNET_DIVISION_TYPES = (                                                                                           |
+    IMMUNITY_CONTROLLER_SUBNET_DIVISION_TYPES = (                                                                                           |
        ('immunity_controller.subnet_division.rule_types.vpn.VpnSubnetDivisionRuleType', 'VPN'),
        ('immunity_controller.subnet_division.rule_types.device.DeviceSubnetDivisionRuleType', 'Device'),
        ('mycontroller.sample_subnet_division.rules_types.custom.CustomRuleType', 'Custom Rule'),

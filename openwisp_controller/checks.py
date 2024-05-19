@@ -6,7 +6,7 @@ from . import settings as app_settings
 
 def check_cors_configuration(app_configs, **kwargs):
     errors = []
-    if not app_settings.OPENWISP_CONTROLLER_API_HOST:
+    if not app_settings.IMMUNITY_CONTROLLER_API_HOST:
         return errors
 
     if not (
@@ -19,7 +19,7 @@ def check_cors_configuration(app_configs, **kwargs):
                 hint=(
                     '"django-cors-headers" is either not installed or improperly '
                     'configured. CORS configuration is required for using '
-                    '"OPENWISP_CONTROLLER_API_HOST" settings. '
+                    '"IMMUNITY_CONTROLLER_API_HOST" settings. '
                     ' Configure equivalent CORS rules on your server '
                     'if you are not using "django-cors-headers".'
                 ),
@@ -33,7 +33,7 @@ def check_immunity_controller_ctx_processor(app_config, **kwargs):
     errors = []
     ctx_processor = 'immunity_controller.context_processors.controller_api_settings'
 
-    if not app_settings.OPENWISP_CONTROLLER_API_HOST:
+    if not app_settings.IMMUNITY_CONTROLLER_API_HOST:
         return errors
 
     if not (ctx_processor in settings.TEMPLATES[0]['OPTIONS']['context_processors']):
@@ -43,7 +43,7 @@ def check_immunity_controller_ctx_processor(app_config, **kwargs):
                 hint=(
                     f'"{ctx_processor} is absent from context processors.'
                     'It is required to be added in TEMPLATES["context_processor"] '
-                    'for "OPENWISP_CONTROLLER_API_HOST" to work properly.'
+                    'for "IMMUNITY_CONTROLLER_API_HOST" to work properly.'
                 ),
                 obj='Settings',
             )

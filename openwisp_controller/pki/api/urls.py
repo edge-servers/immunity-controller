@@ -10,7 +10,7 @@ def get_pki_api_urls(api_views):
     """
     returns:: all the API urls of the PKI app
     """
-    if getattr(settings, 'OPENWISP_CONTROLLER_PKI_API', True):
+    if getattr(settings, 'IMMUNITY_CONTROLLER_PKI_API', True):
         return [
             path('controller/ca/', api_views.ca_list, name='ca_list'),
             path('controller/ca/<str:pk>/', api_views.ca_detail, name='ca_detail'),

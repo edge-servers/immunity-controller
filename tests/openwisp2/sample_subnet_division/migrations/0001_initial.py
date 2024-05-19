@@ -19,8 +19,8 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        migrations.swappable_dependency(settings.OPENWISP_IPAM_SUBNET_MODEL),
-        migrations.swappable_dependency(settings.OPENWISP_IPAM_IPADDRESS_MODEL),
+        migrations.swappable_dependency(settings.IMMUNITY_IPAM_SUBNET_MODEL),
+        migrations.swappable_dependency(settings.IMMUNITY_IPAM_IPADDRESS_MODEL),
         ('sample_config', '0003_name_unique_per_organization'),
     ]
 
@@ -64,7 +64,7 @@ class Migration(migrations.Migration):
                     'master_subnet',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=settings.OPENWISP_IPAM_SUBNET_MODEL,
+                        to=settings.IMMUNITY_IPAM_SUBNET_MODEL,
                     ),
                 ),
                 (
@@ -104,7 +104,7 @@ class Migration(migrations.Migration):
                     'organization',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=settings.OPENWISP_USERS_ORGANIZATION_MODEL,
+                        to=settings.IMMUNITY_USERS_ORGANIZATION_MODEL,
                         verbose_name='organization',
                     ),
                 ),
@@ -141,7 +141,7 @@ class Migration(migrations.Migration):
                         null=True,
                         blank=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=settings.OPENWISP_IPAM_IPADDRESS_MODEL,
+                        to=settings.IMMUNITY_IPAM_IPADDRESS_MODEL,
                     ),
                 ),
                 (
@@ -158,7 +158,7 @@ class Migration(migrations.Migration):
                         null=True,
                         blank=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=settings.OPENWISP_IPAM_SUBNET_MODEL,
+                        to=settings.IMMUNITY_IPAM_SUBNET_MODEL,
                     ),
                 ),
             ],

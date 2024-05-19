@@ -9,8 +9,8 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.CONFIG_CONFIG_MODEL),
-        migrations.swappable_dependency(settings.OPENWISP_IPAM_IPADDRESS_MODEL),
-        migrations.swappable_dependency(settings.OPENWISP_IPAM_SUBNET_MODEL),
+        migrations.swappable_dependency(settings.IMMUNITY_IPAM_IPADDRESS_MODEL),
+        migrations.swappable_dependency(settings.IMMUNITY_IPAM_SUBNET_MODEL),
         ('subnet_division', '0002_default_group_migration'),
     ]
 
@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=settings.OPENWISP_IPAM_IPADDRESS_MODEL,
+                to=settings.IMMUNITY_IPAM_IPADDRESS_MODEL,
             ),
         ),
         migrations.AlterField(
@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=settings.OPENWISP_IPAM_SUBNET_MODEL,
+                to=settings.IMMUNITY_IPAM_SUBNET_MODEL,
             ),
         ),
     ]

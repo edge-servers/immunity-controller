@@ -244,7 +244,7 @@ class TestCommandInlines(TestAdminMixin, CreateConnectionsMixin, TestCase):
 
     @patch.object(
         module_settings,
-        'OPENWISP_CONTROLLER_API_HOST',
+        'IMMUNITY_CONTROLLER_API_HOST',
         'https://example.com',
     )
     def test_notification_host_setting(self, ctx_processors=[]):

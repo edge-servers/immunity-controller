@@ -276,14 +276,14 @@ class ConfigConfig(AppConfig):
         Adds ingore notification widget from immunity-notifications to DeviceAdmin.
         """
         obj_notification_widget = getattr(
-            settings, 'OPENWISP_NOTIFICATIONS_IGNORE_ENABLED_ADMIN', []
+            settings, 'IMMUNITY_NOTIFICATIONS_IGNORE_ENABLED_ADMIN', []
         )
         device_admin = 'immunity_controller.config.admin.DeviceAdmin'
         if device_admin not in obj_notification_widget:
             obj_notification_widget.append(device_admin)
             setattr(
                 settings,
-                'OPENWISP_NOTIFICATIONS_IGNORE_ENABLED_ADMIN',
+                'IMMUNITY_NOTIFICATIONS_IGNORE_ENABLED_ADMIN',
                 obj_notification_widget,
             )
 
