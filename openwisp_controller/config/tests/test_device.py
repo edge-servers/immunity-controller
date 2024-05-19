@@ -313,7 +313,7 @@ class TestDevice(
     def test_device_get_system_context(self):
         org = self._get_org()
         OrganizationConfigSettings.objects.create(
-            organization=org, context={'SSID': 'OpenWISP'}
+            organization=org, context={'SSID': 'Immunity'}
         )
         device_group = self._create_device_group(
             organization=org, context={'radio': 'radio0'}
@@ -322,7 +322,7 @@ class TestDevice(
         self._create_config(context={'test': 'name'}, device=d)
         d.refresh_from_db()
         system_context = d.get_system_context()
-        self.assertEqual(system_context['SSID'], 'OpenWISP')
+        self.assertEqual(system_context['SSID'], 'Immunity')
         self.assertEqual(system_context['radio'], 'radio0')
         self.assertNotIn('test', system_context.keys())
 

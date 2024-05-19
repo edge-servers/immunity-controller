@@ -169,7 +169,7 @@ class TestVpn(BaseTestVpn, TestCase):
             country_code='IT',
             state='RM',
             city='Rome',
-            organization_name='OpenWISP',
+            organization_name='Immunity',
             email='test@test.com',
             common_name='immunity.org',
         )

@@ -1,6 +1,6 @@
 ---
 
-name: OpenWISP Controller CI Build
+name: Immunity Controller CI Build
 
 on:
   push:

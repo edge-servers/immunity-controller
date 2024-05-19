@@ -233,7 +233,7 @@ class TestDeviceAdmin(
         config_backend_select = Select(
             self.web_driver.find_element(by=By.NAME, value='config-0-backend')
         )
-        config_backend_select.select_by_visible_text('OpenWISP Firmware 1.x')
+        config_backend_select.select_by_visible_text('Immunity Firmware 1.x')
         try:
             WebDriverWait(self.web_driver, 1).until(
                 EC.invisibility_of_element_located(

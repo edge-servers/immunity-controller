@@ -45,7 +45,7 @@ setup(
     license="GPL3",
     author="Federico Capoano",
     author_email="federico.capoano@gmail.com",
-    description="OpenWISP 2 Controller",
+    description="Immunity 2 Controller",
     long_description=open("README.rst").read(),
     url="http://immunity.org",
     download_url="https://github.com/edge-servers/immunity-controller/releases",

@@ -51,7 +51,7 @@ class OpenWrt(Ssh):
 class OpenWisp1(Ssh):
     """
     Dummy legacy backend.
-    Used for migrating OpenWISP 1 systems to OpenWISP 2.
+    Used for migrating Immunity 1 systems to Immunity 2.
     """
 
     def update_config(self):  # pragma: no cover

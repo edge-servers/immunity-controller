@@ -83,7 +83,7 @@ class UpdateLastIpMixin(object):
         # This can happen when management interfaces are using DHCP
         # and they get a new address which was previously used by another
         # device that may now be offline. Without this, two devices will
-        # have the same management_ip which will confuse OpenWISP.
+        # have the same management_ip which will confuse Immunity.
         if not device.management_ip:
             return
         where = Q(management_ip=device.management_ip)

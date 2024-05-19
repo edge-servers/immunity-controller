@@ -23,7 +23,7 @@ class ConnectionConfig(AppConfig):
     verbose_name = _('Network Device Credentials')
     # List of reasons for which notifications should
     # not be generated if a device connection errors out.
-    # Intended to be used internally by OpenWISP to
+    # Intended to be used internally by Immunity to
     # ignore notifications generated due to connectivity issues.
     _ignore_connection_notification_reasons = []
 

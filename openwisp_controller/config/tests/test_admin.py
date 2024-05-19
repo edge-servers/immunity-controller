@@ -49,7 +49,7 @@ Group = load_model('immunity_users', 'Group')
 
 class TestImportExportMixin:
     """
-    Reused in OpenWISP Monitoring
+    Reused in Immunity Monitoring
     """
 
     resource_fields = [

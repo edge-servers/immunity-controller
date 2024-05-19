@@ -100,7 +100,7 @@ class TestTemplate(
         # ensure OpenWRT device has only the default OpenWRT backend
         self.assertEqual(c1.templates.count(), 1)
         self.assertEqual(c1.templates.first().id, t1.id)
-        # ensure OpenWISP device has only the default OpenWISP backend
+        # ensure Immunity device has only the default Immunity backend
         self.assertEqual(c2.templates.count(), 1)
         self.assertEqual(c2.templates.first().id, t2.id)
 

@@ -1,8 +1,8 @@
 immunity-controller
 ===================
 
-.. image:: https://github.com/edge-servers/immunity-controller/workflows/OpenWISP%20Controller%20CI%20Build/badge.svg?branch=master
-   :target: https://github.com/edge-servers/immunity-controller/actions?query=workflow%3A%22OpenWISP+Controller+CI+Build%22
+.. image:: https://github.com/edge-servers/immunity-controller/workflows/Immunity%20Controller%20CI%20Build/badge.svg?branch=master
+   :target: https://github.com/edge-servers/immunity-controller/actions?query=workflow%3A%22Immunity+Controller+CI+Build%22
    :alt: CI build status
 
 .. image:: https://coveralls.io/repos/immunity/immunity-controller/badge.svg
@@ -35,18 +35,18 @@ immunity-controller
 
 ------------
 
-**Need a quick overview?** `Try the OpenWISP Demo <https://immunity.org/demo.html>`_.
+**Need a quick overview?** `Try the Immunity Demo <https://immunity.org/demo.html>`_.
 
-OpenWISP Controller is a configuration manager that allows to automate several
+Immunity Controller is a configuration manager that allows to automate several
 networking tasks like adoption, provisioning, management VPN configuration,
 X509 certificates automatic generation, revocation of x509 certificates and
 a lot more features.
 
-OpenWISP is not only an application designed for end users, but can also be
+Immunity is not only an application designed for end users, but can also be
 used as a framework on which custom network automation solutions can be built
 on top of its building blocks.
 
-Other popular building blocks that are part of the OpenWISP ecosystem are:
+Other popular building blocks that are part of the Immunity ecosystem are:
 
 - `immunity-monitoring <https://github.com/edge-servers/immunity-monitoring>`_:
   provides device status monitoring, collection of metrics, charts, alerts,
@@ -66,16 +66,16 @@ Other popular building blocks that are part of the OpenWISP ecosystem are:
 - `immunity-notifications <https://github.com/edge-servers/immunity-notifications>`_:
   allows users to be aware of important events happening in the network.
 
-**For a more complete overview of the OpenWISP modules and architecture**,
+**For a more complete overview of the Immunity modules and architecture**,
 see the
-`OpenWISP Architecture Overview
+`Immunity Architecture Overview
 <https://immunity.io/docs/general/architecture.html>`_.
 
 .. image:: https://raw.githubusercontent.com/immunity/immunity22-docs/master/assets/design/immunity-logo-black.svg
   :target: http://immunity.org
-  :alt: OpenWISP
+  :alt: Immunity
 
-**Want to help OpenWISP?** `Find out how to help us grow here
+**Want to help Immunity?** `Find out how to help us grow here
 <http://immunity.io/docs/general/help-us.html>`_.
 
 ------------
@@ -89,14 +89,14 @@ see the
 Project Structure & main features
 ----------------------------------
 
-OpenWISP Controller is a python package consisting of four django apps:
+Immunity Controller is a python package consisting of four django apps:
 
 Config App
 ~~~~~~~~~~
 
 * **configuration management** for embedded devices supporting different firmwares:
     - `OpenWRT <http://openwrt.org>`_
-    - `OpenWISP Firmware <https://github.com/edge-servers/OpenWISP-Firmware>`_
+    - `Immunity Firmware <https://github.com/edge-servers/Immunity-Firmware>`_
     - support for additional firmware can be added by `specifying custom backends <#netjsonconfig-backends>`_
 * **configuration editor** based on `JSON-Schema editor <https://github.com/jdorn/json-editor>`_
 * **advanced edit mode**: edit `NetJSON  <http://netjson.org>`_ *DeviceConfiguration* objects for maximum flexibility
@@ -124,7 +124,7 @@ the administration dashboard, it also adds different endpoints to the
 Connection App
 ~~~~~~~~~~~~~~
 
-This app allows OpenWISP Controller to use different protocols to reach network devices.
+This app allows Immunity Controller to use different protocols to reach network devices.
 Currently, the default connnection protocols are SSH and SNMP, but the protocol
 mechanism is extensible and more protocols can be implemented if needed.
 
@@ -318,7 +318,7 @@ Install and run on docker
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 NOTE: This Docker image is for development purposes only.
-For the official OpenWISP Docker images, see: `docker-immunity
+For the official Immunity Docker images, see: `docker-immunity
 <https://github.com/edge-servers/docker-immunity>`_.
 
 Build from the Dockerfile:
@@ -676,13 +676,13 @@ The default values can then be overridden at
 How to configure push updates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Follow the procedure described below to enable secure SSH access from OpenWISP to your
+Follow the procedure described below to enable secure SSH access from Immunity to your
 devices, this is required to enable push updates (whenever the configuration is changed,
-OpenWISP will trigger the update in the background) and/or
+Immunity will trigger the update in the background) and/or
 `firmware upgrades (via the additional module immunity-firmware-upgrader)
 <https://github.com/edge-servers/immunity-firmware-upgrader>`_.
 
-**Note**: If you have installed OpenWISP with `immunity22 Ansbile role <https://galaxy.ansible.com/immunity/immunity22>`_
+**Note**: If you have installed Immunity with `immunity22 Ansbile role <https://galaxy.ansible.com/immunity/immunity22>`_
 then you can skip the following steps. The Ansible role automatically creates a
 default template to update ``authorized_keys`` on networking devices using the
 default access credentials.
@@ -691,7 +691,7 @@ default access credentials.
 ###################
 
 First of all, we need to generate the SSH key which will be
-used by OpenWISP to access the devices, to do so, you can use the following command:
+used by Immunity to access the devices, to do so, you can use the following command:
 
 .. code-block:: shell
 
@@ -709,13 +709,13 @@ If you are managing devices with OpenWrt < 21, then you will need to use RSA key
 
     echo './sshkey' | ssh-keygen -t rsa -b 4096 -C "immunity"
 
-2. Save SSH private key in OpenWISP (access credentials)
+2. Save SSH private key in Immunity (access credentials)
 ########################################################
 
 .. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/add-ssh-credentials-private-key.png
-  :alt: add SSH private key as access credential in OpenWISP
+  :alt: add SSH private key as access credential in Immunity
 
-From the first page of OpenWISP click on "Access credentials", then click
+From the first page of Immunity click on "Access credentials", then click
 on the **"ADD ACCESS CREDENTIALS"** button in the upper right corner
 (alternatively, go to the following URL: ``/admin/connection/credentials/add/``).
 
@@ -732,13 +732,13 @@ The credentials just created will be automatically enabled for all the devices i
 #####################################
 
 .. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/add-authorized-ssh-keys-template.png
-  :alt: Add authorized SSH public keys template to OpenWISP (OpenWRT)
+  :alt: Add authorized SSH public keys template to Immunity (OpenWRT)
 
-Now we need to instruct your devices to allow OpenWISP accessing via SSH,
+Now we need to instruct your devices to allow Immunity accessing via SSH,
 in order to do this we need to add the contents of the public key file created in step 1
 (``sshkey.pub``) in the file ``/etc/dropbear/authorized_keys`` on the devices, the
-recommended way to do this is to create a configuration template in OpenWISP:
-from the first page of OpenWISP, click on "Templates", then and click on the
+recommended way to do this is to create a configuration template in Immunity:
+from the first page of Immunity, click on "Templates", then and click on the
 **"ADD TEMPLATE"** button in the upper right corner (alternatively, go to the following URL:
 ``/admin/config/template/add/``).
 
@@ -756,14 +756,14 @@ Now hit save.
 
 Once you have performed the 3 steps above, you can test it as follows:
 
-1. Ensure there's at least one device turned on and connected to OpenWISP, ensure
+1. Ensure there's at least one device turned on and connected to Immunity, ensure
    this device has the "SSH Authorized Keys" assigned to it.
-2. Ensure the celery worker of OpenWISP Controller is running (eg: ``ps aux | grep celery``)
+2. Ensure the celery worker of Immunity Controller is running (eg: ``ps aux | grep celery``)
 3. SSH into the device and wait (maximum 2 minutes) until ``/etc/dropbear/authorized_keys``
    appears as specified in the template.
 4. While connected via SSH to the device run the following command in the console:
-   ``logread -f``, now try changing the device name in OpenWISP
-5. Shortly after you change the name in OpenWISP, you should see some output in the
+   ``logread -f``, now try changing the device name in Immunity
+5. Shortly after you change the name in Immunity, you should see some output in the
    SSH console indicating another SSH access and the configuration update being performed.
 
 Sending Commands to Devices
@@ -921,7 +921,7 @@ The example above includes a callable(``ping_command_callable``) for
 Registering / Unregistering Commands
 ####################################
 
-OpenWISP Controller provides registering and unregistering commands
+Immunity Controller provides registering and unregistering commands
 through utility functions ``immunity_controller.connection.commands.register_command``
 and ``immunity_notifications.types.unregister_notification_type``.
 You can use these functions to register or unregister commands
@@ -1093,10 +1093,10 @@ organization.
    ``wireguard-server.mydomain.com`` (update this to point to your
    WireGuard VPN server).
 3. Select ``WireGuard`` from the dropdown as **VPN Backend**.
-4. When using WireGuard, OpenWISP takes care of managing IP addresses
+4. When using WireGuard, Immunity takes care of managing IP addresses
    (assigning an IP address to each VPN peer). You can create a new subnet or
    select an existing one from the dropdown menu. You can also assign an
-   **Internal IP** to the WireGuard Server or leave it empty for OpenWISP to
+   **Internal IP** to the WireGuard Server or leave it empty for Immunity to
    configure. This IP address will be used by the WireGuard interface on
    server.
 5. We have set the **Webhook Endpoint** as ``https://wireguard-server.mydomain.com:8081/trigger-update``
@@ -1118,7 +1118,7 @@ organization.
 .. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-tutorial/vpn-server-2.png
    :alt: WireGuard VPN server configuration example 2
 
-7. After clicking on **Save and continue editing**, you will see that OpenWISP
+7. After clicking on **Save and continue editing**, you will see that Immunity
    has automatically created public and private key for WireGuard server in
    **System Defined Variables** along with internal IP address information.
 
@@ -1131,10 +1131,10 @@ organization.
 If you haven't already setup WireGuard on your VPN server, this will be a good
 time do so. We recommend using the `ansible-wireguard-immunity <https://github.com/edge-servers/ansible-wireguard-immunity>`_
 role for installing WireGuard since it also installs scripts that allows
-OpenWISP to manage WireGuard VPN server.
+Immunity to manage WireGuard VPN server.
 
 Pay attention to the VPN server attributes used in your playbook. It should be same as
-VPN server configuration in OpenWISP.
+VPN server configuration in Immunity.
 
 3. Create VPN client template for WireGuard VPN Server
 ######################################################
@@ -1147,7 +1147,7 @@ VPN server configuration in OpenWISP.
 4. Select the correct VPN server from the dropdown for the **VPN** field. Here
    it is ``Wireguard``.
 5. Ensure that **Automatic tunnel provisioning** is checked. This will make
-   OpenWISP to automatically generate public and private keys and provision IP
+   Immunity to automatically generate public and private keys and provision IP
    address for each WireGuard VPN client.
 6. After clicking on **Save and continue editing** button, you will see details
    of *Wireguard* VPN server in **System Defined Variables**. The template
@@ -1162,7 +1162,7 @@ VPN server configuration in OpenWISP.
 ##########################################
 
 **Note**: This step assumes that you already have a device registered on
-OpenWISP. Register or create a device before proceeding.
+Immunity. Register or create a device before proceeding.
 
 1. Open the **Configuration** tab of the concerned device.
 2. Select the *WireGuard Client* template.
@@ -1174,7 +1174,7 @@ OpenWISP. Register or create a device before proceeding.
 .. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-tutorial/device-configuration.png
    :alt: WireGuard VPN device configuration example
 
-**Voila!** You have successfully configured OpenWISP to manage WireGuard
+**Voila!** You have successfully configured Immunity to manage WireGuard
 tunnels for your devices.
 
 How to setup VXLAN over WireGuard tunnels
@@ -1196,10 +1196,10 @@ organization.
    ``wireguard-vxlan-server.mydomain.com`` (update this to point to your
    WireGuard VXLAN VPN server).
 3. Select ``VXLAN over WireGuard`` from the dropdown as **VPN Backend**.
-4. When using VXLAN over WireGuard, OpenWISP takes care of managing IP addresses
+4. When using VXLAN over WireGuard, Immunity takes care of managing IP addresses
    (assigning an IP address to each VPN peer). You can create a new subnet or
    select an existing one from the dropdown menu. You can also assign an
-   **Internal IP** to the WireGuard Server or leave it empty for OpenWISP to
+   **Internal IP** to the WireGuard Server or leave it empty for Immunity to
    configure. This IP address will be used by the WireGuard interface on
    server.
 5. We have set the **Webhook Endpoint** as ``https://wireguard-vxlan-server.mydomain.com:8081/trigger-update``
@@ -1221,7 +1221,7 @@ organization.
 .. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-vxlan-tutorial/vpn-server-2.png
    :alt: WireGuard VPN VXLAN server configuration example 2
 
-7. After clicking on **Save and continue editing**, you will see that OpenWISP
+7. After clicking on **Save and continue editing**, you will see that Immunity
    has automatically created public and private key for WireGuard server in
    **System Defined Variables** along with internal IP address information.
 
@@ -1234,10 +1234,10 @@ organization.
 If you haven't already setup WireGuard on your VPN server, this will be a good
 time do so. We recommend using the `ansible-wireguard-immunity <https://github.com/edge-servers/ansible-wireguard-immunity>`_
 role for installing WireGuard since it also installs scripts that allows
-OpenWISP to manage WireGuard VPN server along with VXLAN tunnels.
+Immunity to manage WireGuard VPN server along with VXLAN tunnels.
 
 Pay attention to the VPN server attributes used in your playbook. It should be same as
-VPN server configuration in OpenWISP.
+VPN server configuration in Immunity.
 
 3. Create VPN client template for WireGuard VXLAN VPN Server
 ############################################################
@@ -1250,7 +1250,7 @@ VPN server configuration in OpenWISP.
 4. Select the correct VPN server from the dropdown for the **VPN** field. Here
    it is ``Wireguard VXLAN``.
 5. Ensure that **Automatic tunnel provisioning** is checked. This will make
-   OpenWISP to automatically generate public and private keys and provision IP
+   Immunity to automatically generate public and private keys and provision IP
    address for each WireGuard VPN client along with VXLAN Network Indentifier(VNI).
 6. After clicking on **Save and continue editing** button, you will see details
    of *Wireguard VXLAN* VPN server in **System Defined Variables**. The template
@@ -1265,7 +1265,7 @@ VPN server configuration in OpenWISP.
 ################################################
 
 **Note**: This step assumes that you already have a device registered on
-OpenWISP. Register or create a device before proceeding.
+Immunity. Register or create a device before proceeding.
 
 1. Open the **Configuration** tab of the concerned device.
 2. Select the *WireGuard VXLAN Client* template.
@@ -1277,7 +1277,7 @@ OpenWISP. Register or create a device before proceeding.
 .. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-vxlan-tutorial/device-configuration.png
    :alt: WireGuard VXLAN VPN device configuration example
 
-**Voila!** You have successfully configured OpenWISP to manage VXLAN over
+**Voila!** You have successfully configured Immunity to manage VXLAN over
 WireGuard tunnels for your devices.
 
 How to setup ZeroTier Tunnels
@@ -1304,11 +1304,11 @@ from the `official website <https://www.zerotier.com/download/>`_.
 2. We will set **Name** of this VPN server ``ZeroTier`` and **Host** as
    ``my-zerotier-server.mydomain.com:9993`` (update this to point to your ZeroTier VPN server).
 3. Select ``ZeroTier`` from the dropdown as **VPN Backend**.
-4. When using ZeroTier, OpenWISP takes care of managing IP addresses
+4. When using ZeroTier, Immunity takes care of managing IP addresses
    (assigning an IP address to each VPN clients (Zerotier network members).
    You can create a new subnet or select an existing one from the dropdown menu.
    You can also assign an **Internal IP** to the Zerotier controller or
-   leave it empty for OpenWISP to configure. This IP address will be used
+   leave it empty for Immunity to configure. This IP address will be used
    to assign it to the Zerotier controller running on the server.
 5. Set the **Webhook AuthToken**, this will be ZeroTier authorization token which you
    can obtain by running the following command on the ZeroTier controller:
@@ -1329,7 +1329,7 @@ from the `official website <https://www.zerotier.com/download/>`_.
 .. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/zerotier-tutorial/vpn-server-4.png
    :alt: ZeroTier VPN server configuration example 4
 
-6. After clicking on **Save and continue editing**, OpenWISP automatically detects
+6. After clicking on **Save and continue editing**, Immunity automatically detects
    the node address of the Zerotier controller and creates a Zerotier network.
    The **network_id**  of this network can be viewed in the **System Defined Variables**
    section, where it also provides internal IP address information.
@@ -1348,7 +1348,7 @@ from the `official website <https://www.zerotier.com/download/>`_.
 4. Select the correct VPN server from the dropdown for the **VPN** field. Here
    it is ``ZeroTier``.
 5. Ensure that the **Automatic tunnel provisioning** option is checked.
-   This will enable OpenWISP to automatically provision an IP address and
+   This will enable Immunity to automatically provision an IP address and
    ZeroTier identity secrets (used for assigning member IDs) for each ZeroTier VPN client.
 6. After clicking on **Save and continue editing** button, you will see details
    of *ZeroTier* VPN server in **System Defined Variables**. The template
@@ -1356,7 +1356,7 @@ from the `official website <https://www.zerotier.com/download/>`_.
    accordingly. We will use the automatically generated VPN client configuration
    for this example.
 
-**Note:** OpenWISP uses `zerotier-idtool
+**Note:** Immunity uses `zerotier-idtool
 <https://github.com/zerotier/ZeroTierOne/blob/dev/doc/zerotier-idtool.1.md>`_
 to manage **ZeroTier identity secrets**. Please make sure that you have
 `ZeroTier package installed <https://www.zerotier.com/download/>`_ on the server.
@@ -1368,7 +1368,7 @@ to manage **ZeroTier identity secrets**. Please make sure that you have
 #########################################
 
 **Note**: This step assumes that you already have a device registered on
-OpenWISP. Register or create a device before proceeding.
+Immunity. Register or create a device before proceeding.
 
 1. Open the **Configuration** tab of the concerned device.
 2. Select the *ZeroTier Client* template.
@@ -1386,7 +1386,7 @@ OpenWISP. Register or create a device before proceeding.
 .. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/zerotier-tutorial/device-configuration-2.png
    :alt: ZeroTier VPN device configuration example 2
 
-**Voila!** You have successfully configured OpenWISP
+**Voila!** You have successfully configured Immunity
 to manage ZeroTier tunnels for your devices.
 
 How to configure automatic provisioning of subnets and IPs
@@ -2745,7 +2745,7 @@ Configure timeout for the TCP connect when establishing a SSH connection.
 +--------------+------------------------------------------------------------------------------------------------+
 
 Available connector classes. Connectors are python classes that specify ways
-in which OpenWISP can connect to devices in order to launch commands.
+in which Immunity can connect to devices in order to launch commands.
 
 ``IMMUNITY_UPDATE_STRATEGIES``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2768,7 +2768,7 @@ This operation is launched in a background worker when the configuration
 of a device is changed.
 
 It's possible to write custom update strategies and add them to this
-setting to make them available in OpenWISP.
+setting to make them available in Immunity.
 
 ``IMMUNITY_CONFIG_UPDATE_MAPPING``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2797,7 +2797,7 @@ update strategy field is left blank by the user.
 |              |                                               |
 |              |   (                                           |
 |              |     ('netjsonconfig.OpenWrt', 'OpenWRT'),     |
-|              |     ('netjsonconfig.OpenWisp', 'OpenWISP'),   |
+|              |     ('netjsonconfig.OpenWisp', 'Immunity'),   |
 |              |   )                                           |
 +--------------+-----------------------------------------------+
 
@@ -2926,11 +2926,11 @@ Additional context that is passed to the default context of each device object.
 
 ``IMMUNITY_CONTROLLER_CONTEXT`` can be used to define system-wide configuration variables.
 
-For more information regarding how to use configuration variables in OpenWISP,
+For more information regarding how to use configuration variables in Immunity,
 see `How to use configuration variables <#how-to-use-configuration-variables>`_.
 
 For technical information about how variables are handled in the lower levels
-of OpenWISP, see `netjsonconfig context: configuration variables
+of Immunity, see `netjsonconfig context: configuration variables
 <http://netjsonconfig.immunity.org/en/latest/general/basics.html#context-configuration-variables>`_.
 
 ``IMMUNITY_CONTROLLER_DEFAULT_AUTO_CERT``
@@ -3249,7 +3249,7 @@ other device who declared the same IP in the past will have the field
 reset to empty state to avoid potential conflicts.
 
 Set this to ``False`` if every organization has its dedicated management
-tunnel with a dedicated address space that is reachable by the OpenWISP server.
+tunnel with a dedicated address space that is reachable by the Immunity server.
 
 ``IMMUNITY_CONTROLLER_MANAGEMENT_IP_ONLY``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3263,7 +3263,7 @@ tunnel with a dedicated address space that is reachable by the OpenWISP server.
 By default, only the management IP will be used to establish connection
 with the devices.
 
-If the devices are connecting to your OpenWISP instance using a shared layer2
+If the devices are connecting to your Immunity instance using a shared layer2
 network, hence the OpenWSP server can reach the devices using the ``last_ip``
 field, you can set this to ``False``.
 
@@ -3276,7 +3276,7 @@ field, you can set this to ``False``.
 | **default**: | ``{}``   |
 +--------------+----------+
 
-OpenWISP Controller can figure out whether it should use the new OpenWrt syntax
+Immunity Controller can figure out whether it should use the new OpenWrt syntax
 for DSA interfaces (Distributed Switch Architecture) introduced in OpenWrt 21 by
 reading the ``os`` field of the ``Device`` object. However, if the firmware you
 are using has a custom firmware identifier, the system will not be able to figure
@@ -3289,7 +3289,7 @@ identifier properly, you can follow the example below.
 For the sake of the example, the OS identifier ``MyCustomFirmware 2.0``
 corresponds to ``OpenWrt 19.07``, while ``MyCustomFirmware 2.1`` corresponds to
 ``OpenWrt 21.02``. Configuring this setting as indicated below will allow
-OpenWISP to supply the right syntax automatically.
+Immunity to supply the right syntax automatically.
 
 Example:
 
@@ -3612,7 +3612,7 @@ It is only emitted for ``Vpn`` object with **WireGuard** or
 Extending immunity-controller
 -----------------------------
 
-One of the core values of the OpenWISP project is
+One of the core values of the Immunity project is
 `Software Reusability <http://immunity.io/docs/general/values.html#software-reusability-means-long-term-sustainability>`_,
 for this reason *immunity-controller* provides a set of base classes
 which can be imported, extended and reused to create derivative apps.
@@ -4346,7 +4346,7 @@ Registering new notification types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can define your own notification types using
-``register_notification_type`` function from OpenWISP Notifications.
+``register_notification_type`` function from Immunity Notifications.
 
 For more information, see the relevant `documentation section about
 registering notification types in immunity-notifications
@@ -4360,7 +4360,7 @@ to send notifications for this type.
 Contributing
 ------------
 
-Please refer to the `OpenWISP contributing guidelines <http://immunity.io/docs/developer/contributing.html>`_.
+Please refer to the `Immunity contributing guidelines <http://immunity.io/docs/developer/contributing.html>`_.
 
 Changelog
 ---------
@@ -4375,4 +4375,4 @@ See `LICENSE <https://github.com/edge-servers/immunity-controller/blob/master/LI
 Support
 -------
 
-See `OpenWISP Support Channels <http://immunity.org/support.html>`_.
+See `Immunity Support Channels <http://immunity.org/support.html>`_.

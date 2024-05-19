@@ -81,7 +81,7 @@ class ApiTestMixin:
         'description': 'Group for APs of default organization',
         'organization': 'None',
         'meta_data': {'captive_portal_url': 'https://example.com'},
-        'context': {'SSID': 'OpenWISP'},
+        'context': {'SSID': 'Immunity'},
         'templates': [],
     }
 

@@ -18,7 +18,7 @@ DEFAULT_UPDATE_STRATEGIES = (
     ('immunity_controller.connection.connectors.openwrt.ssh.OpenWrt', 'OpenWRT SSH'),
     (
         'immunity_controller.connection.connectors.openwrt.ssh.OpenWisp1',
-        'OpenWISP 1.x SSH',
+        'Immunity 1.x SSH',
     ),
 )
 

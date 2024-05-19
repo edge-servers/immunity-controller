@@ -205,8 +205,8 @@ Bugfixes
 - Fixed configuration editor raising validation error when using variables in
   fields with ``maxLength`` set
 - Fixed connection notifications reporting outdated status
-- Fixed migrations referencing non-swappable OpenWISP modules that
-  broke OpenWISP's extensibility
+- Fixed migrations referencing non-swappable Immunity modules that
+  broke Immunity's extensibility
 - Fixed bugs in restoring deleted devices using ``django-reversion``
 - Fixed cloning of shared templates
 - Disallowed blank values for ``key_length`` or ``digest`` fields for ``CA``
@@ -290,11 +290,11 @@ Features
 - Added flat JSON widget for configuration variables
 - Added JSON Schema widget to credentials admin
 - Added ``device_registered`` signal
-- Added `OpenWISP Notifications <https://github.com/edge-servers/immunity-notifications#immunity-notifications>`_
+- Added `Immunity Notifications <https://github.com/edge-servers/immunity-notifications#immunity-notifications>`_
   module as a dependency, which brings support for
   web and email notifications for important events
 - Allow using a different device model in update_config:
-  his allows `OpenWISP Monitoring <https://github.com/edge-servers/immunity-monitoring#immunity-monitoring>`_
+  his allows `Immunity Monitoring <https://github.com/edge-servers/immunity-monitoring#immunity-monitoring>`_
   to override the ``can_be_updated`` method to take into account the monitoring status,
   so that push updates won't be attempted
 - Added notifications for changes of ``is_working`` status of credentials

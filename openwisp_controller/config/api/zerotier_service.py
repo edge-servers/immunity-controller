@@ -53,7 +53,7 @@ class ZerotierService:
     def _add_routes_and_ip_assignment(self, config):
         """
         Adds ZeroTier network routes
-        and IP assignmentpools through OpenWISP subnet
+        and IP assignmentpools through Immunity subnet
 
         Params:
             config (dict): ZeroTier network config dict
