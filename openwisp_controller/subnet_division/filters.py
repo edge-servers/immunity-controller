@@ -3,13 +3,13 @@ from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 from swapper import load_model
 
-from openwisp_utils.admin_theme.filters import AutocompleteFilter, SimpleInputFilter
+from immunity_utils.admin_theme.filters import AutocompleteFilter, SimpleInputFilter
 
 from . import settings as app_settings
 
 SubnetDivisionIndex = load_model('subnet_division', 'SubnetDivisionIndex')
 SubnetDivisionRule = load_model('subnet_division', 'SubnetDivisionRule')
-Subnet = load_model('openwisp_ipam', 'Subnet')
+Subnet = load_model('immunity_ipam', 'Subnet')
 Vpn = load_model('config', 'Vpn')
 
 

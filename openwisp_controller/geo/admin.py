@@ -12,7 +12,7 @@ from django_loci.base.admin import (
 )
 from swapper import load_model
 
-from openwisp_users.multitenancy import MultitenantOrgFilter
+from immunity_users.multitenancy import MultitenantOrgFilter
 
 from ..admin import MultitenantAdminMixin
 from ..config.admin import DeviceAdminExportable

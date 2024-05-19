@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 dump_kwargs={'indent': 4},
                 help_text=(
-                    'Additional <a href="http://netjsonconfig.openwisp.org'
+                    'Additional <a href="http://netjsonconfig.immunity.org'
                     '/en/stable/general/basics.html#context" target="_blank">context '
                     '(configuration variables)</a> in JSON format'
                 ),

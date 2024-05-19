@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from swapper import get_model_name
 from taggit.models import GenericUUIDTaggedItemBase, TagBase, TaggedItemBase
 
-from openwisp_utils.base import UUIDModel
+from immunity_utils.base import UUIDModel
 
 
 class AbstractTemplateTag(TagBase, UUIDModel):

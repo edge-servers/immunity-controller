@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from django_x509.apps import DjangoX509Config
 from swapper import get_model_name
 
-from openwisp_utils.admin_theme.menu import register_menu_group
+from immunity_utils.admin_theme.menu import register_menu_group
 
 if not hasattr(settings, 'DJANGO_X509_CA_MODEL'):
     setattr(settings, 'DJANGO_X509_CA_MODEL', 'pki.Ca')
@@ -12,7 +12,7 @@ if not hasattr(settings, 'DJANGO_X509_CERT_MODEL'):
 
 
 class PkiConfig(DjangoX509Config):
-    name = 'openwisp_controller.pki'
+    name = 'immunity_controller.pki'
     verbose_name = _('Public Key Infrastructure')
 
     def ready(self):

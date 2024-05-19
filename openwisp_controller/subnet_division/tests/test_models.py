@@ -7,20 +7,20 @@ from django.test import TransactionTestCase
 from django.urls import reverse
 from swapper import load_model
 
-from openwisp_controller.config.tests.utils import (
+from immunity_controller.config.tests.utils import (
     TestVpnX509Mixin,
     TestWireguardVpnMixin,
 )
-from openwisp_controller.subnet_division.rule_types.vpn import VpnSubnetDivisionRuleType
-from openwisp_utils.tests import catch_signal
+from immunity_controller.subnet_division.rule_types.vpn import VpnSubnetDivisionRuleType
+from immunity_utils.tests import catch_signal
 
 from .. import tasks
 from ..signals import subnet_provisioned
 from ..utils import get_subnet_division_config_context
 from .helpers import SubnetDivisionTestMixin
 
-Subnet = load_model('openwisp_ipam', 'Subnet')
-IpAddress = load_model('openwisp_ipam', 'IpAddress')
+Subnet = load_model('immunity_ipam', 'Subnet')
+IpAddress = load_model('immunity_ipam', 'IpAddress')
 SubnetDivisionRule = load_model('subnet_division', 'SubnetDivisionRule')
 SubnetDivisionIndex = load_model('subnet_division', 'SubnetDivisionIndex')
 VpnClient = load_model('config', 'VpnClient')
@@ -85,7 +85,7 @@ class TestSubnetDivisionRule(
             'number_of_ips': 2,
             'number_of_subnets': 2,
             'type': (
-                'openwisp_controller.subnet_division.rule_types.'
+                'immunity_controller.subnet_division.rule_types.'
                 'vpn.VpnSubnetDivisionRuleType'
             ),
             'organization': self.org,

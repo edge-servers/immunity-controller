@@ -11,7 +11,7 @@ import swapper
 from django.conf import settings
 from django.db import migrations, models
 
-import openwisp_users.mixins
+import immunity_users.mixins
 
 
 class Migration(migrations.Migration):
@@ -72,7 +72,7 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={'abstract': False},
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='FloorPlan',
@@ -114,7 +114,7 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={'abstract': False},
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='Location',
@@ -209,13 +209,13 @@ class Migration(migrations.Migration):
                     'organization',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
             ],
             options={'abstract': False},
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.AddField(
             model_name='floorplan',
@@ -229,7 +229,7 @@ class Migration(migrations.Migration):
             name='organization',
             field=models.ForeignKey(
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_users', 'Organization'),
+                to=swapper.get_model_name('immunity_users', 'Organization'),
                 verbose_name='organization',
             ),
         ),

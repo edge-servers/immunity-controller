@@ -1,7 +1,7 @@
 from django.utils.translation import gettext_lazy as _
 from django_filters import rest_framework as filters
 
-from openwisp_controller.config.api.filters import (
+from immunity_controller.config.api.filters import (
     DeviceListFilter as BaseDeviceListFilter,
 )
 

@@ -1,4 +1,4 @@
-from openwisp_controller.subnet_division.apps import SubnetDivisionConfig
+from immunity_controller.subnet_division.apps import SubnetDivisionConfig
 
 
 class SampleSubnetDivisionConfig(SubnetDivisionConfig):

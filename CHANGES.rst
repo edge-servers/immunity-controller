@@ -12,10 +12,10 @@ Version 1.0.3 [2022-08-03]
 Bugfixes
 ~~~~~~~~
 
-- `Fixed tests failing due to openwisp-notification>=1.0.2
-  <https://github.com/edge-servers/openwisp-controller/pull/670>`_
+- `Fixed tests failing due to immunity-notification>=1.0.2
+  <https://github.com/edge-servers/immunity-controller/pull/670>`_
 - `Fixed checksum cache is not invalidated on VPN server change
-  <https://github.com/edge-servers/openwisp-controller/issues/667>`_
+  <https://github.com/edge-servers/immunity-controller/issues/667>`_
 
 Version 1.0.2 [2022-07-01]
 --------------------------
@@ -24,22 +24,22 @@ Bugfixes
 ~~~~~~~~
 
 - Fixed `device's "changed" signals emitting on the creation
-  of new device <https://github.com/edge-servers/openwisp-controller/issues/649>`_
+  of new device <https://github.com/edge-servers/immunity-controller/issues/649>`_
 - Fixed *django-reversion's* recovery buttons were hidden from users
   of the "Operator" group in the admin dashboard of ``Certificate`` and ``CA``
   models
 - Removed `hardcoded static URLs
-  <https://github.com/edge-servers/openwisp-controller/issues/660>`_
+  <https://github.com/edge-servers/immunity-controller/issues/660>`_
   which created issues when static files are served using an
   external service (e.g. S3 storage buckets)
 - Fixed `permissions for "Operator" and "Administrator" groups to
   access "OrganizationConfigSettings" objects
-  <https://github.com/edge-servers/openwisp-controller/issues/664>`_
+  <https://github.com/edge-servers/immunity-controller/issues/664>`_
 - Fixed `support for multiple wireguard tunnels on the same devices
-  <https://github.com/edge-servers/openwisp-controller/issues/657>`_
+  <https://github.com/edge-servers/immunity-controller/issues/657>`_
 - Fixed `"/api/v1/controller/device/{id}/" REST API endpoint not
   updating the device's configuration backend
-  <https://github.com/edge-servers/openwisp-controller/issues/658>`_
+  <https://github.com/edge-servers/immunity-controller/issues/658>`_
 
 Version 1.0.1 [2022-05-11]
 --------------------------
@@ -66,32 +66,32 @@ Features
 ~~~~~~~~
 
 - Added support for `remotely executing shell commands on device
-  <https://github.com/edge-servers/openwisp-controller#sending-commands-to-devices>`_
+  <https://github.com/edge-servers/immunity-controller#sending-commands-to-devices>`_
 - Added `automatic provisioning of Subnets and IPs
-  <https://github.com/edge-servers/openwisp-controller#subnet-division-app>`_
+  <https://github.com/edge-servers/immunity-controller#subnet-division-app>`_
 - Added `support for WireGuard and VXLAN tunnels
-  <https://github.com/edge-servers/openwisp-controller#how-to-setup-wireguard-tunnels>`_
+  <https://github.com/edge-servers/immunity-controller#how-to-setup-wireguard-tunnels>`_
 - Added `required templates
-  <https://github.com/edge-servers/openwisp-controller#required-templates>`_
+  <https://github.com/edge-servers/immunity-controller#required-templates>`_
 - Added support for generating configurations for OpenWrt 21
 - Added `REST API
-  <https://github.com/edge-servers/openwisp-controller#rest-api-reference>`_
+  <https://github.com/edge-servers/immunity-controller#rest-api-reference>`_
 - Added dashboard charts for *config status*, *model*, *OS*, *hardware*
   and *location type*
 - Added `management_ip_changed
-  <https://github.com/edge-servers/openwisp-controller#management_ip_changed>`_
+  <https://github.com/edge-servers/immunity-controller#management_ip_changed>`_
   and `device_name_changed
-  <https://github.com/edge-servers/openwisp-controller#device_name_changed>`_
+  <https://github.com/edge-servers/immunity-controller#device_name_changed>`_
   signals
 - Added `OPENWISP_CONTROLLER_DEVICE_NAME_UNIQUE setting
-  <https://github.com/edge-servers/openwisp-controller#openwisp_controller_device_name_unique>`_
+  <https://github.com/edge-servers/immunity-controller#immunity_controller_device_name_unique>`_
   to conditionally enforce unique device names in an organization
 - Added caching for ``DeviceChecksumView``
 - Added support for ED25519 SSH keys in ``Credentials``
 - Added `Device Groups
-  <https://github.com/edge-servers/openwisp-controller#device-groups>`_
+  <https://github.com/edge-servers/immunity-controller#device-groups>`_
   to organize devices of a particular organization
-- Configuration push updates now use the SIGUSR1 signal to reload openwisp-config
+- Configuration push updates now use the SIGUSR1 signal to reload immunity-config
 - The device list admin page now allows to search for location address
 
 Changes
@@ -116,7 +116,7 @@ Backward incompatible changes
   from any organization will not have the same management IP to avoid
   conflicts. The old behaviour can be restored by setting
   `OPENWISP_CONTROLLER_SHARED_MANAGEMENT_IP_ADDRESS_SPACE
-  <https://github.com/edge-servers/openwisp-controller#openwisp_controller_shared_management_ip_address_space>`_
+  <https://github.com/edge-servers/immunity-controller#immunity_controller_shared_management_ip_address_space>`_
   to ``False``
 - ``OPENWISP_CONTROLLER_BACKEND_DEVICE_LIST`` has been renamed
   to ``OPENWISP_CONTROLLER_CONFIG_BACKEND_FIELD_SHOWN``
@@ -142,10 +142,10 @@ Dependencies
 - Upgraded django-x509 to 1.1.x
 - Upgraded django-loci to 1.0.x
 - Upgraded netjsonconfig to 1.0.x
-- Upgraded openwisp-utils to 1.0.x
-- Upgraded openwisp-users to 1.0.x
-- Upgraded openwisp-notifications to 1.0.x
-- Upgraded openwisp-ipam to 1.0.x
+- Upgraded immunity-utils to 1.0.x
+- Upgraded immunity-users to 1.0.x
+- Upgraded immunity-notifications to 1.0.x
+- Upgraded immunity-ipam to 1.0.x
 - Added shortuuid 1.0.x
 - Added netaddr 0.8.x
 - Added django-cache-memoize to 0.1
@@ -154,7 +154,7 @@ Other changes
 ^^^^^^^^^^^^^
 
 - `Reworked implementation of config_modified signal
-  <https://github.com/edge-servers/openwisp-controller#config_modified>`_:
+  <https://github.com/edge-servers/immunity-controller#config_modified>`_:
 
   - the signal is now always emitted on templates changes m2m events,
     also if ``config.status`` is modified, with the differences that
@@ -176,14 +176,14 @@ Other changes
 - Device admin only lists relevant templates, i.e.
   templates that are shared or belong to the device's organization
 - Improved UX of `system-defined variables
-  <https://github.com/edge-servers/openwisp-controller/issues/344>`_
+  <https://github.com/edge-servers/immunity-controller/issues/344>`_
 - Name of ``Vpn``, ``Template`` and ``Credentials`` objects is
   unique only within the same organization and within the shared
   objects
 - Added functionality to configure connection failure reasons
   for which the system should not send notifications.
   Added ``old_failure_reason`` parameter in
-  ``openwisp_controller.connection.signals.is_working_changed`` signal
+  ``immunity_controller.connection.signals.is_working_changed`` signal
 - Allowed searching devices using their location address in Device admin.
 - Removed deprecated ``api/device-location/<pk>`` endpoint
 - Made device name unique per organization instead of unique system wide
@@ -221,20 +221,20 @@ Version 0.8.4 [2021-04-09]
 Bugfixes
 ~~~~~~~~
 
-- Fixed `bug in connection module <https://github.com/edge-servers/openwisp-controller/issues/370>`_
+- Fixed `bug in connection module <https://github.com/edge-servers/immunity-controller/issues/370>`_
   that raised ``UnicodeDecodeError``, improved logging and ignored unicode
   conversion issues
 - Fixed `context loading from default values of templates overwriting system
-  defined variables <https://github.com/edge-servers/openwisp-controller/issues/352>`_
+  defined variables <https://github.com/edge-servers/immunity-controller/issues/352>`_
   in device admin
-- Fixed `default template selection not updating after changing backend field <https://github.com/edge-servers/openwisp-controller/issues/354>`_
+- Fixed `default template selection not updating after changing backend field <https://github.com/edge-servers/immunity-controller/issues/354>`_
   in device admin
 - Fixed JSONSchema widget to enable working with a single schema
-- Fixed `related configuration not getting updated after template "default_values" are changed <https://github.com/edge-servers/openwisp-controller/issues/352>`_
-- Fixed `bug which caused the unsaved changes alert in device admin <https://github.com/edge-servers/openwisp-controller/issues/388>`_
+- Fixed `related configuration not getting updated after template "default_values" are changed <https://github.com/edge-servers/immunity-controller/issues/352>`_
+- Fixed `bug which caused the unsaved changes alert in device admin <https://github.com/edge-servers/immunity-controller/issues/388>`_
   when location of device is present
-- Fixed `bug replacing manually entered device information with empty string <https://github.com/edge-servers/openwisp-controller/issues/425>`_
-- Fixed `multiple requests for fetching default template values in device admin <https://github.com/edge-servers/openwisp-controller/issues/423>`_
+- Fixed `bug replacing manually entered device information with empty string <https://github.com/edge-servers/immunity-controller/issues/425>`_
+- Fixed `multiple requests for fetching default template values in device admin <https://github.com/edge-servers/immunity-controller/issues/423>`_
 
 Security
 ~~~~~~~~
@@ -248,8 +248,8 @@ Version 0.8.3 [2020-12-18]
 Bugfixes
 ~~~~~~~~
 
-- Increased minimum `openwisp-users version to ~=0.5.1
-  <https://github.com/edge-servers/openwisp-users/blob/master/CHANGES.rst#version-051-2020-12-13>`_,
+- Increased minimum `immunity-users version to ~=0.5.1
+  <https://github.com/edge-servers/immunity-users/blob/master/CHANGES.rst#version-051-2020-12-13>`_,
   which fixes an `issue in the production setup <https://github.com/edge-servers/ansible-immunity22/issues/233>`_
 
 Version 0.8.2 [2020-12-11]
@@ -258,7 +258,7 @@ Version 0.8.2 [2020-12-11]
 Bugfixes
 ~~~~~~~~
 
-- Fixed the `bug <https://github.com/edge-servers/openwisp-controller/issues/334>`_
+- Fixed the `bug <https://github.com/edge-servers/immunity-controller/issues/334>`_
   that prevented users from adding/editing access credentials.
 
 Changes
@@ -285,16 +285,16 @@ Version 0.8.0 [2020-11-23]
 Features
 ~~~~~~~~
 
-- Added possibility to `extend openwisp-controller
-  <https://github.com/edge-servers/openwisp-controller#extending-openwisp-controller>`_
+- Added possibility to `extend immunity-controller
+  <https://github.com/edge-servers/immunity-controller#extending-immunity-controller>`_
 - Added flat JSON widget for configuration variables
 - Added JSON Schema widget to credentials admin
 - Added ``device_registered`` signal
-- Added `OpenWISP Notifications <https://github.com/edge-servers/openwisp-notifications#openwisp-notifications>`_
+- Added `OpenWISP Notifications <https://github.com/edge-servers/immunity-notifications#immunity-notifications>`_
   module as a dependency, which brings support for
   web and email notifications for important events
 - Allow using a different device model in update_config:
-  his allows `OpenWISP Monitoring <https://github.com/edge-servers/openwisp-monitoring#openwisp-monitoring>`_
+  his allows `OpenWISP Monitoring <https://github.com/edge-servers/immunity-monitoring#immunity-monitoring>`_
   to override the ``can_be_updated`` method to take into account the monitoring status,
   so that push updates won't be attempted
 - Added notifications for changes of ``is_working`` status of credentials
@@ -302,13 +302,13 @@ Features
   automatically add or remove default values of templates to the configuration context
   (a.k.a. configuration variables) when templates are added or removed from devices
 - UX: added `system defined variables
-  <https://github.com/edge-servers/openwisp-controller#system-defined-variables>`_ section
+  <https://github.com/edge-servers/immunity-controller#system-defined-variables>`_ section
 
 Changes
 ~~~~~~~
 
 - **Backward incompatible**: the code of `django-netjsonconfig <https://github.com/edge-servers/django-netjsonconfig>`_
-  was merged in openwisp-controller to simplify maintenance
+  was merged in immunity-controller to simplify maintenance
 - Changed API of ``device_location`` view for consistency: ``/api/device-location/{id}/``
   becomes ``/api/v1/device/{id}/location/``, the old URL is kept for backward compatibility
   but will be removed in the future
@@ -318,7 +318,7 @@ Changes
 - Admin: Order Device, Template and VPN alphabetically by default
 - Admin: Added ``mac_address`` field to the device list page (``DeviceAdmin.list_display``)
 - Increased ``max_length`` of common name to ``64``
-- Changed the config apply logic to avoid restarting the openwisp-config
+- Changed the config apply logic to avoid restarting the immunity-config
   deamon if the configuration apply procedure is already being run
 - Made template ``config`` field required in most cases
 - Changed ``DeviceConnection.failure_reason`` field to ``TextField``,
@@ -327,7 +327,7 @@ Changes
 - Made Device ``verbose_name`` configurable, see ``OPENWISP_CONTROLLER_DEVICE_VERBOSE_NAME``
 - Increased `netjsonconfig <https://github.com/edge-servers/netjsonconfig#netjsonconfig>`__ version to 0.9.x
   (which brings support for new interface types,
-  `see the change log of netjsonconfig <http://netjsonconfig.openwisp.org/en/latest/general/changelog.html#version-0-9-0-2020-11-18>`_
+  `see the change log of netjsonconfig <http://netjsonconfig.immunity.org/en/latest/general/changelog.html#version-0-9-0-2020-11-18>`_
   for more information)
 - Increased `django-x509 <https://github.com/edge-servers/django-x509#django-x509>`_ version to 0.9.x
 - Increased `django-loci <https://github.com/edge-servers/django-loci#django-loci>`_ version to 0.4.x
@@ -335,12 +335,12 @@ Changes
   geo-coding and reverse geo-coding,
   `see the change log of django-loci <https://github.com/edge-servers/django-loci/blob/master/CHANGES.rst#version-040-2020-11-19>`_
   for more information)
-- Increased `openwisp-users <https://github.com/edge-servers/openwisp-users#openwisp-users>`__ version from 0.2.x to 0.5.x
+- Increased `immunity-users <https://github.com/edge-servers/immunity-users#immunity-users>`__ version from 0.2.x to 0.5.x
   (which brings many interesting improvements to multi-tenancy,
-  `see the change log of openwisp-users <https://github.com/edge-servers/openwisp-users/blob/master/CHANGES.rst#version-050-2020-11-18>`_
+  `see the change log of immunity-users <https://github.com/edge-servers/immunity-users/blob/master/CHANGES.rst#version-050-2020-11-18>`_
   for more information)
 - Increased `django-taggit <https://github.com/jazzband/django-taggit>`_ version to 1.3.x
-- Increased `openwisp-utils <https://github.com/edge-servers/openwisp-utils#openwisp-utils>`__ version to 0.7.x
+- Increased `immunity-utils <https://github.com/edge-servers/immunity-utils#immunity-utils>`__ version to 0.7.x
 - Increased `django-rest-framework-gis <https://github.com/edge-servers/django-rest-framework-gis>`_ version to 0.16.x
 - Added support for django 3.1
 
@@ -495,7 +495,7 @@ Version 0.3.0 [2017-12-17]
 Version 0.2.5 [2017-12-02]
 --------------------------
 
-- `#21 <https://github.com/edge-servers/openwisp-controller/issues/21>`_:
+- `#21 <https://github.com/edge-servers/immunity-controller/issues/21>`_:
   [admin] Added a link to password reset in login form
 
 Version 0.2.4 [2017-11-07]
@@ -506,77 +506,77 @@ Version 0.2.4 [2017-11-07]
 Version 0.2.3 [2017-08-29]
 --------------------------
 
-- `934be13 <https://github.com/edge-servers/openwisp-controller/commit/934be13>`_:
+- `934be13 <https://github.com/edge-servers/immunity-controller/commit/934be13>`_:
   [models] Updated sortedm2m __str__ definition
-- `b76e4e2 <https://github.com/edge-servers/openwisp-controller/commit/b76e4e2>`_:
+- `b76e4e2 <https://github.com/edge-servers/immunity-controller/commit/b76e4e2>`_:
   [requirements] django-netjsonconfig>=0.6.3,<0.7.0
 
 Version 0.2.2 [2017-07-10]
 --------------------------
 
-- `f3dc784 <https://github.com/edge-servers/openwisp-controller/commit/f3dc784>`_:
-  [admin] Moved ``submit_line.html`` to `openwisp-utils
-  <https://github.com/edge-servers/openwisp-utils>`_
+- `f3dc784 <https://github.com/edge-servers/immunity-controller/commit/f3dc784>`_:
+  [admin] Moved ``submit_line.html`` to `immunity-utils
+  <https://github.com/edge-servers/immunity-utils>`_
 
 Version 0.2.1 [2017-07-05]
 --------------------------
 
-- `0064b98 <https://github.com/edge-servers/openwisp-controller/commit/0064b98>`_:
+- `0064b98 <https://github.com/edge-servers/immunity-controller/commit/0064b98>`_:
   [device] Added ``system`` field
-- `c7fe513 <https://github.com/edge-servers/openwisp-controller/commit/c7fe513>`_:
+- `c7fe513 <https://github.com/edge-servers/immunity-controller/commit/c7fe513>`_:
   [docs] Added "Installing for development" section to README
-- `c75fa68 <https://github.com/edge-servers/openwisp-controller/commit/c75fa68>`_:
-  [openwisp-utils] Moved shared logic to `openwisp-utils
-  <https://github.com/edge-servers/openwisp-utils>`_
-- `819cb21 <https://github.com/edge-servers/openwisp-controller/commit/819cb21>`_:
+- `c75fa68 <https://github.com/edge-servers/immunity-controller/commit/c75fa68>`_:
+  [immunity-utils] Moved shared logic to `immunity-utils
+  <https://github.com/edge-servers/immunity-utils>`_
+- `819cb21 <https://github.com/edge-servers/immunity-controller/commit/819cb21>`_:
   [requirements] django-netjsonconfig>=0.6.2,<0.7.0
 
 Version 0.2.0 [2017-05-24]
 --------------------------
 
-- `#3 <https://github.com/edge-servers/openwisp-controller/issues/3>`_:
+- `#3 <https://github.com/edge-servers/immunity-controller/issues/3>`_:
   [feature] Added support for template tags
-- `#7 <https://github.com/edge-servers/openwisp-controller/issues/7>`_:
+- `#7 <https://github.com/edge-servers/immunity-controller/issues/7>`_:
   [feature] Added ``Device`` model
-- `#9 <https://github.com/edge-servers/openwisp-controller/issues/9>`_:
+- `#9 <https://github.com/edge-servers/immunity-controller/issues/9>`_:
   [admin] Load default templates JS logic only when required
-- `298b2a2 <https://github.com/edge-servers/openwisp-controller/commit/298b2a2>`_:
+- `298b2a2 <https://github.com/edge-servers/immunity-controller/commit/298b2a2>`_:
   [admin] Avoid setting ``extra_content`` to mutable object
-- `d173c24 <https://github.com/edge-servers/openwisp-controller/commit/d173c24>`_:
+- `d173c24 <https://github.com/edge-servers/immunity-controller/commit/d173c24>`_:
   [migrations] Squashed ``0001`` and ``0002`` to avoid postgres error
-- `f5fb628 <https://github.com/edge-servers/openwisp-controller/commit/f5fb628>`_:
+- `f5fb628 <https://github.com/edge-servers/immunity-controller/commit/f5fb628>`_:
   [migrations] Updated indexes
-- `6200b7a <https://github.com/edge-servers/openwisp-controller/commit/6200b7a>`_:
+- `6200b7a <https://github.com/edge-servers/immunity-controller/commit/6200b7a>`_:
   [Template] Fixed ``auto_client`` bug
 
 Version 0.1.4 [2017-04-21]
 --------------------------
 
-- `#2 <https://github.com/edge-servers/openwisp-controller/issues/2>`_:
+- `#2 <https://github.com/edge-servers/immunity-controller/issues/2>`_:
   [admin] Added templates in config filter
 
 Version 0.1.3 [2017-03-11]
 --------------------------
 
-- `db77ae7 <https://github.com/edge-servers/openwisp-controller/commit/db77ae7>`_:
+- `db77ae7 <https://github.com/edge-servers/immunity-controller/commit/db77ae7>`_:
   [controller] Added "error: " prefix in error responses
 
 Version 0.1.2 [2017-03-15]
 --------------------------
 
-- `3c61053 <https://github.com/edge-servers/openwisp-controller/commit/3c61053>`_:
+- `3c61053 <https://github.com/edge-servers/immunity-controller/commit/3c61053>`_:
   [admin] Ensure preview button is present
-- `0087483 <https://github.com/edge-servers/openwisp-controller/commit/0087483>`_:
+- `0087483 <https://github.com/edge-servers/immunity-controller/commit/0087483>`_:
   [models] Converted ``OrganizationConfigSettings`` to UUID primary key
 
 Version 0.1.1 [2017-03-10]
 --------------------------
 
-- `cbca4e1 <https://github.com/edge-servers/openwisp-controller/commit/cbca4e1>`_:
-  [users] Fixed integration with `openwisp-users <https://github.com/edge-servers/openwisp-users>`_
+- `cbca4e1 <https://github.com/edge-servers/immunity-controller/commit/cbca4e1>`_:
+  [users] Fixed integration with `immunity-users <https://github.com/edge-servers/immunity-users>`_
 
 Version 0.1.0 [2017-03-08]
 --------------------------
 
-- added multi-tenancy (separation of organizations) to `immunity22 <http://openwisp.org>`_
+- added multi-tenancy (separation of organizations) to `immunity22 <http://immunity.org>`_
 - added email confirmation of new users (via `django-allauth <http://www.intenct.nl/projects/django-allauth/>`_)

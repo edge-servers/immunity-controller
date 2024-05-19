@@ -11,10 +11,10 @@ import swapper
 from django.conf import settings
 from django.db import migrations, models
 
-import openwisp_controller.connection.base.models
-import openwisp_users.mixins
-from openwisp_controller.connection import settings as connection_settings
-from openwisp_controller.connection.commands import COMMAND_CHOICES
+import immunity_controller.connection.base.models
+import immunity_users.mixins
+from immunity_controller.connection import settings as connection_settings
+from immunity_controller.connection.commands import COMMAND_CHOICES
 
 
 class Migration(migrations.Migration):
@@ -97,7 +97,7 @@ class Migration(migrations.Migration):
                         blank=True,
                         null=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -108,8 +108,8 @@ class Migration(migrations.Migration):
                 'abstract': False,
             },
             bases=(
-                openwisp_controller.connection.base.models.ConnectorMixin,
-                openwisp_users.mixins.ValidateOrgMixin,
+                immunity_controller.connection.base.models.ConnectorMixin,
+                immunity_users.mixins.ValidateOrgMixin,
                 models.Model,
             ),
         ),
@@ -199,7 +199,7 @@ class Migration(migrations.Migration):
                 'abstract': False,
             },
             bases=(
-                openwisp_controller.connection.base.models.ConnectorMixin,
+                immunity_controller.connection.base.models.ConnectorMixin,
                 models.Model,
             ),
         ),

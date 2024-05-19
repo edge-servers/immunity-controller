@@ -4,12 +4,12 @@ from django.test import TestCase
 from django.urls import reverse
 from swapper import load_model
 
-from openwisp_controller.config.tests.utils import TestWireguardVpnMixin
-from openwisp_users.tests.utils import TestMultitenantAdminMixin
+from immunity_controller.config.tests.utils import TestWireguardVpnMixin
+from immunity_users.tests.utils import TestMultitenantAdminMixin
 
 from .helpers import SubnetDivisionAdminTestMixin
 
-Subnet = load_model('openwisp_ipam', 'Subnet')
+Subnet = load_model('immunity_ipam', 'Subnet')
 Device = load_model('config', 'Device')
 
 
@@ -19,7 +19,7 @@ class TestSubnetAdmin(
     TestMultitenantAdminMixin,
     TestCase,
 ):
-    ipam_label = 'openwisp_ipam'
+    ipam_label = 'immunity_ipam'
     config_label = 'config'
 
     def test_related_links(self):
@@ -126,7 +126,7 @@ class TestSubnetAdmin(
             subnet2.name,
         )
 
-    @patch('openwisp_controller.subnet_division.settings.HIDE_GENERATED_SUBNETS', True)
+    @patch('immunity_controller.subnet_division.settings.HIDE_GENERATED_SUBNETS', True)
     def test_hide_generated_subnets(self):
         with self.subTest('Test SubnetAdmin'):
             response = self.client.get(
@@ -180,7 +180,7 @@ class TestSubnetAdmin(
 
 
 class TestIPAdmin(SubnetDivisionAdminTestMixin, TestMultitenantAdminMixin, TestCase):
-    ipam_label = 'openwisp_ipam'
+    ipam_label = 'immunity_ipam'
 
     def test_provisioned_ip_readonly_change_view(self):
         ip_id = self.rule.subnetdivisionindex_set.filter(ip__isnull=False).first().ip_id
@@ -196,7 +196,7 @@ class TestIPAdmin(SubnetDivisionAdminTestMixin, TestMultitenantAdminMixin, TestC
 class TestDeviceAdmin(
     SubnetDivisionAdminTestMixin, TestMultitenantAdminMixin, TestCase
 ):
-    ipam_label = 'openwisp_ipam'
+    ipam_label = 'immunity_ipam'
     config_label = 'config'
 
     def test_subnet_filter(self):

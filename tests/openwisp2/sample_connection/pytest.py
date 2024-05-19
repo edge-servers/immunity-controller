@@ -1,4 +1,4 @@
-from openwisp_controller.connection.tests.pytest import (
+from immunity_controller.connection.tests.pytest import (
     TestCommandsConsumer as BaseTestCommandsConsumer,
 )
 

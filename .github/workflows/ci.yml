@@ -69,7 +69,7 @@ jobs:
       run: |
         pip install -U -r requirements-test.txt
 
-    - name: Install openwisp-controller
+    - name: Install immunity-controller
       run: |
         pip install -U -e .
         pip install ${{ matrix.django-version }}

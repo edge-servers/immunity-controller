@@ -1,5 +1,5 @@
-from openwisp_controller.pki.tests.test_admin import TestAdmin as BaseTestAdmin
-from openwisp_controller.pki.tests.test_models import TestModels as BaseTestModels
+from immunity_controller.pki.tests.test_admin import TestAdmin as BaseTestAdmin
+from immunity_controller.pki.tests.test_models import TestModels as BaseTestModels
 
 
 class TestAdmin(BaseTestAdmin):

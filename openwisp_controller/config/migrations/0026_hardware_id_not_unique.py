@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 
-from openwisp_controller.config import settings as app_settings
+from immunity_controller.config import settings as app_settings
 
 
 class Migration(migrations.Migration):

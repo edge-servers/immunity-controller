@@ -5,8 +5,8 @@ import re
 import django.core.validators
 from django.db import migrations
 
-import openwisp_utils.base
-import openwisp_utils.utils
+import immunity_utils.base
+import immunity_utils.utils
 
 
 class Migration(migrations.Migration):
@@ -17,9 +17,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='vpn',
             name='key',
-            field=openwisp_utils.base.KeyField(
+            field=immunity_utils.base.KeyField(
                 db_index=True,
-                default=openwisp_utils.utils.get_random_key,
+                default=immunity_utils.utils.get_random_key,
                 help_text=None,
                 max_length=64,
                 validators=[

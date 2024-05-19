@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404 as base_get_object_or_404
 from django.urls import path, re_path
-from openwisp_notifications.utils import _get_object_link
+from immunity_notifications.utils import _get_object_link
 
 logger = logging.getLogger(__name__)
 
@@ -188,8 +188,8 @@ def get_default_templates_queryset(
         filter only templates belonging to same organization
         or shared templates (with organization=None)
     This function is used in:
-        * openwisp_controller.config.Template.get_default_templates
-        * openwisp_controller.config.views.get_default_templates
+        * immunity_controller.config.Template.get_default_templates
+        * immunity_controller.config.views.get_default_templates
     """
     if queryset is None:
         queryset = model.objects.filter(default=True)

@@ -6,8 +6,8 @@ from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 from swapper import get_model_name, load_model
 
-from openwisp_users.mixins import OrgMixin
-from openwisp_utils.base import KeyField
+from immunity_users.mixins import OrgMixin
+from immunity_utils.base import KeyField
 
 from .. import settings as app_settings
 from ..signals import device_group_changed, device_name_changed, management_ip_changed

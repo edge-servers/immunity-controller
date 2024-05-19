@@ -11,9 +11,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from swapper import load_model
 
-from openwisp_controller.connection.tests.utils import CreateConnectionsMixin
-from openwisp_controller.geo.tests.utils import TestGeoMixin
-from openwisp_utils.test_selenium_mixins import SeleniumTestMixin
+from immunity_controller.connection.tests.utils import CreateConnectionsMixin
+from immunity_controller.geo.tests.utils import TestGeoMixin
+from immunity_utils.test_selenium_mixins import SeleniumTestMixin
 
 Device = load_model('config', 'Device')
 DeviceConnection = load_model('connection', 'DeviceConnection')
@@ -72,7 +72,7 @@ class TestDeviceConnectionInlineAdmin(
         # does not support websockets (channels). This causes multiple errors to
         # be logged when trying to establish a WebSocket connection at SEVERE level,
         # which is problematic because the error for the issue described in
-        # https://github.com/edge-servers/openwisp-controller/issues/681
+        # https://github.com/edge-servers/immunity-controller/issues/681
         # is logged at WARNING level.
         # By checking that there are no WARNING level errors logged in the
         # browser console, we ensure that this issue is not happening.

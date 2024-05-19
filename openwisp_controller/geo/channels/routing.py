@@ -3,7 +3,7 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.security.websocket import AllowedHostsOriginValidator
 from django.urls import path
 from django_loci.channels.base import location_broadcast_path
-from openwisp_notifications.websockets.routing import (
+from immunity_notifications.websockets.routing import (
     get_routes as get_notification_routes,
 )
 

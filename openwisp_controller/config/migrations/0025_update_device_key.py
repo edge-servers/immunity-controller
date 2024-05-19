@@ -5,8 +5,8 @@ import re
 import django.core.validators
 from django.db import migrations
 
-import openwisp_utils.base
-import openwisp_utils.utils
+import immunity_utils.base
+import immunity_utils.utils
 
 
 class Migration(migrations.Migration):
@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='device',
             name='key',
-            field=openwisp_utils.base.KeyField(
+            field=immunity_utils.base.KeyField(
                 blank=True,
                 db_index=True,
                 default=None,

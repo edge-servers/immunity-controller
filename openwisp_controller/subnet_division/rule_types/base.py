@@ -13,8 +13,8 @@ from ..signals import subnet_provisioned
 
 logger = logging.getLogger(__name__)
 
-Subnet = load_model('openwisp_ipam', 'Subnet')
-IpAddress = load_model('openwisp_ipam', 'IpAddress')
+Subnet = load_model('immunity_ipam', 'Subnet')
+IpAddress = load_model('immunity_ipam', 'IpAddress')
 SubnetDivisionRule = load_model('subnet_division', 'SubnetDivisionRule')
 SubnetDivisionIndex = load_model('subnet_division', 'SubnetDivisionIndex')
 VpnClient = load_model('config', 'VpnClient')

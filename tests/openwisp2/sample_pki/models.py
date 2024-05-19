@@ -1,6 +1,6 @@
 from django.db import models
 
-from openwisp_controller.pki.base.models import AbstractCa, AbstractCert
+from immunity_controller.pki.base.models import AbstractCa, AbstractCert
 
 
 class DetailsModel(models.Model):

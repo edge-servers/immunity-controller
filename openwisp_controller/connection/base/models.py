@@ -13,8 +13,8 @@ from jsonfield import JSONField
 from jsonschema.exceptions import ValidationError as SchemaError
 from swapper import get_model_name, load_model
 
-from openwisp_controller.config.base.base import BaseModel
-from openwisp_utils.base import TimeStampedEditableModel
+from immunity_controller.config.base.base import BaseModel
+from immunity_utils.base import TimeStampedEditableModel
 
 from ...base import ShareableOrgMixinUniqueName
 from .. import settings as app_settings
@@ -264,7 +264,7 @@ class AbstractDeviceConnection(ConnectorMixin, TimeStampedEditableModel):
 
     @classmethod
     def get_working_connection(
-        cls, device, connector='openwisp_controller.connection.connectors.ssh.Ssh'
+        cls, device, connector='immunity_controller.connection.connectors.ssh.Ssh'
     ):
         qs = cls.objects.filter(
             device=device,

@@ -10,9 +10,9 @@ logger = logging.getLogger(__name__)
 class OpenWrt(Ssh):
     def update_config(self):
         try:
-            output, exit_code = self.exec_command('openwisp_config --version')
+            output, exit_code = self.exec_command('immunity_config --version')
         except Exception as error:
-            logger.error('Unable to get version of openwisp_config')
+            logger.error('Unable to get version of immunity_config')
             raise error
         else:
             ow_config_version = output.split(' ')[-1]
@@ -24,7 +24,7 @@ class OpenWrt(Ssh):
     def exec_signal_reload(self):
         self.exec_command(
             (
-                'OW_CONFIG_PID=$(ps | grep "openwisp_config" | '
+                'OW_CONFIG_PID=$(ps | grep "immunity_config" | '
                 'grep -v "grep" | awk \'{print $1}\'); '
                 'kill -SIGUSR1 $OW_CONFIG_PID'
             )
@@ -32,10 +32,10 @@ class OpenWrt(Ssh):
 
     def exec_legacy_restart(self):
         _, exit_code = self.exec_command(
-            'test -f /tmp/openwisp/applying_conf', exit_codes=[0, 1]
+            'test -f /tmp/immunity/applying_conf', exit_codes=[0, 1]
         )
         if exit_code == 1:
-            self.exec_command('/etc/init.d/openwisp_config restart')
+            self.exec_command('/etc/init.d/immunity_config restart')
         else:
             logger.info('Configuration already being applied')
 

@@ -8,8 +8,8 @@ from django.test import TestCase
 from django.urls import reverse
 from swapper import load_model
 
-from openwisp_users.tests.utils import TestOrganizationMixin
-from openwisp_utils.tests import capture_any_output, catch_signal
+from immunity_users.tests.utils import TestOrganizationMixin
+from immunity_utils.tests import capture_any_output, catch_signal
 
 from .. import settings as app_settings
 from ..base.config import logger as config_model_logger
@@ -36,7 +36,7 @@ Template = load_model('config', 'Template')
 Vpn = load_model('config', 'Vpn')
 Ca = load_model('django_x509', 'Ca')
 OrganizationConfigSettings = load_model('config', 'OrganizationConfigSettings')
-Organization = load_model('openwisp_users', 'Organization')
+Organization = load_model('immunity_users', 'Organization')
 
 
 class TestController(
@@ -757,9 +757,9 @@ class TestController(
 
         with self.subTest('Test with error reason'):
             error_reason = (
-                'daemon.crit openwisp: Could not apply configuration,'
-                ' openwisp-update-config exit code was 1\n'
-                'daemon.info openwisp: The most recent configuration'
+                'daemon.crit immunity: Could not apply configuration,'
+                ' immunity-update-config exit code was 1\n'
+                'daemon.info immunity: The most recent configuration'
                 ' backup was restored'
             )
             with catch_signal(config_status_changed) as handler:
@@ -957,7 +957,7 @@ class TestController(
     def test_register_failed_rollback(self):
         self._create_org()
         with patch(
-            'openwisp_controller.config.base.config.AbstractConfig.full_clean'
+            'immunity_controller.config.base.config.AbstractConfig.full_clean'
         ) as a:
             a.side_effect = ValidationError(dict())
             options = {
@@ -971,7 +971,7 @@ class TestController(
             self.assertEqual(response.status_code, 400)
             self.assertEqual(Device.objects.count(), 0)
 
-    @patch('openwisp_controller.config.settings.CONSISTENT_REGISTRATION', False)
+    @patch('immunity_controller.config.settings.CONSISTENT_REGISTRATION', False)
     def test_consistent_registration_disabled(self):
         self._create_org()
         response = self.client.post(
@@ -995,7 +995,7 @@ class TestController(
         self.assertEqual(Device.objects.filter(key=TEST_CONSISTENT_KEY).count(), 0)
         self.assertEqual(Device.objects.filter(key=key).count(), 1)
 
-    @patch('openwisp_controller.config.settings.REGISTRATION_ENABLED', False)
+    @patch('immunity_controller.config.settings.REGISTRATION_ENABLED', False)
     def test_registration_disabled(self):
         response = self.client.post(
             self.register_url,
@@ -1008,8 +1008,8 @@ class TestController(
         )
         self.assertEqual(response.status_code, 403)
 
-    @patch('openwisp_controller.config.settings.REGISTRATION_SELF_CREATION', False)
-    @patch('openwisp_controller.config.settings.HARDWARE_ID_ENABLED', True)
+    @patch('immunity_controller.config.settings.REGISTRATION_SELF_CREATION', False)
+    @patch('immunity_controller.config.settings.HARDWARE_ID_ENABLED', True)
     def test_self_creation_disabled(self):
         self._create_org()
         options = {
@@ -1223,7 +1223,7 @@ class TestController(
         )
         self.assertEqual(response.status_code, 200)
 
-    @patch('openwisp_controller.config.settings.REGISTRATION_ENABLED', False)
+    @patch('immunity_controller.config.settings.REGISTRATION_ENABLED', False)
     def test_register_403_disabled_registration_setting(self):
         org = self._get_org()
         response = self.client.post(

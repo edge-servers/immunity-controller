@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from swapper import load_model
 
-from openwisp_users.api.mixins import FilterSerializerByOrgManaged
-from openwisp_utils.api.serializers import ValidatedModelSerializer
+from immunity_users.api.mixins import FilterSerializerByOrgManaged
+from immunity_utils.api.serializers import ValidatedModelSerializer
 
 Command = load_model('connection', 'Command')
 DeviceConnection = load_model('connection', 'DeviceConnection')

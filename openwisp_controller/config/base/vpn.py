@@ -18,7 +18,7 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from swapper import get_model_name
 
-from openwisp_utils.base import KeyField
+from immunity_utils.base import KeyField
 
 from ...base import ShareableOrgMixinUniqueName
 from .. import crypto
@@ -77,7 +77,7 @@ class AbstractVpn(ShareableOrgMixinUniqueName, BaseConfig):
     notes = models.TextField(blank=True)
     # optional, needed for VPNs which do not support automatic IP allocation
     subnet = models.ForeignKey(
-        get_model_name('openwisp_ipam', 'Subnet'),
+        get_model_name('immunity_ipam', 'Subnet'),
         verbose_name=_('Subnet'),
         help_text=_('Subnet IP addresses used by VPN clients, if applicable'),
         blank=True,
@@ -85,7 +85,7 @@ class AbstractVpn(ShareableOrgMixinUniqueName, BaseConfig):
         on_delete=models.SET_NULL,
     )
     ip = models.ForeignKey(
-        get_model_name('openwisp_ipam', 'IpAddress'),
+        get_model_name('immunity_ipam', 'IpAddress'),
         verbose_name=_('Internal IP'),
         help_text=_('Internal IP address of the VPN server interface, if applicable'),
         blank=True,
@@ -797,7 +797,7 @@ class AbstractVpnClient(models.Model):
     auto_cert = models.BooleanField(default=False)
     # optional, needed for VPNs which require setting a specific known IP (wireguard)
     ip = models.ForeignKey(
-        get_model_name('openwisp_ipam', 'IpAddress'),
+        get_model_name('immunity_ipam', 'IpAddress'),
         on_delete=models.SET_NULL,
         blank=True,
         null=True,

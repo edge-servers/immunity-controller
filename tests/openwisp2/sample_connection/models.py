@@ -1,6 +1,6 @@
 from django.db import models
 
-from openwisp_controller.connection.base.models import (
+from immunity_controller.connection.base.models import (
     AbstractCommand,
     AbstractCredentials,
     AbstractDeviceConnection,

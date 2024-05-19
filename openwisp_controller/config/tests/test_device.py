@@ -5,8 +5,8 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 from swapper import load_model
 
-from openwisp_users.tests.utils import TestOrganizationMixin
-from openwisp_utils.tests import AssertNumQueriesSubTestMixin, catch_signal
+from immunity_users.tests.utils import TestOrganizationMixin
+from immunity_utils.tests import AssertNumQueriesSubTestMixin, catch_signal
 
 from .. import settings as app_settings
 from ..signals import device_group_changed, device_name_changed, management_ip_changed
@@ -33,13 +33,13 @@ class TestDevice(
     tests for Device model
     """
 
-    @mock.patch('openwisp_controller.config.settings.HARDWARE_ID_AS_NAME', False)
+    @mock.patch('immunity_controller.config.settings.HARDWARE_ID_AS_NAME', False)
     def test_str_name(self):
         d = Device(name='test')
         self.assertEqual(str(d), 'test')
 
-    @mock.patch('openwisp_controller.config.settings.HARDWARE_ID_ENABLED', True)
-    @mock.patch('openwisp_controller.config.settings.HARDWARE_ID_AS_NAME', True)
+    @mock.patch('immunity_controller.config.settings.HARDWARE_ID_ENABLED', True)
+    @mock.patch('immunity_controller.config.settings.HARDWARE_ID_AS_NAME', True)
     def test_str_hardware_id(self):
         d = Device(name='test', hardware_id='123')
         self.assertEqual(str(d), '123')
@@ -125,8 +125,8 @@ class TestDevice(
     def test_bad_hostnames(self):
         bad_host_name_list = [
             'test device',
-            'openwisp..mydomain.com',
-            'openwisp,mydomain.test',
+            'immunity..mydomain.com',
+            'immunity,mydomain.test',
             '{0}:BB:CC'.format(self.TEST_MAC_ADDRESS),
             'AA:BB:CC:11:22033',
         ]
@@ -147,7 +147,7 @@ class TestDevice(
         c = self._create_config(
             device=d,
             config={
-                'openwisp': [
+                'immunity': [
                     {
                         'config_name': 'controller',
                         'config_value': 'http',
@@ -161,7 +161,7 @@ class TestDevice(
             },
             context={'interval': '60'},
         )
-        self.assertEqual(c.json(dict=True)['openwisp'][0]['interval'], '60')
+        self.assertEqual(c.json(dict=True)['immunity'][0]['interval'], '60')
 
     def test_get_context_with_config(self):
         d = self._create_device()
@@ -174,7 +174,7 @@ class TestDevice(
         d = self._create_device()
         self.assertEqual(d.get_context(), Config(device=d).get_context())
 
-    @mock.patch('openwisp_controller.config.settings.CONSISTENT_REGISTRATION', False)
+    @mock.patch('immunity_controller.config.settings.CONSISTENT_REGISTRATION', False)
     def test_generate_random_key(self):
         d = Device(name='test_generate_key', mac_address='00:11:22:33:44:55')
         self.assertIsNone(d.key)
@@ -184,8 +184,8 @@ class TestDevice(
             d.generate_key(TEST_ORG_SHARED_SECRET),
         )
 
-    @mock.patch('openwisp_controller.config.settings.CONSISTENT_REGISTRATION', True)
-    @mock.patch('openwisp_controller.config.settings.HARDWARE_ID_ENABLED', False)
+    @mock.patch('immunity_controller.config.settings.CONSISTENT_REGISTRATION', True)
+    @mock.patch('immunity_controller.config.settings.HARDWARE_ID_ENABLED', False)
     def test_generate_consistent_key_mac_address(self):
         device = Device(name='test_generate_key', mac_address='00:11:22:33:44:55')
         self.assertIsNone(device.key)
@@ -198,8 +198,8 @@ class TestDevice(
         self.assertEqual(key, expected)
         self.assertEqual(key, device.generate_key(TEST_ORG_SHARED_SECRET))
 
-    @mock.patch('openwisp_controller.config.settings.CONSISTENT_REGISTRATION', True)
-    @mock.patch('openwisp_controller.config.settings.HARDWARE_ID_ENABLED', True)
+    @mock.patch('immunity_controller.config.settings.CONSISTENT_REGISTRATION', True)
+    @mock.patch('immunity_controller.config.settings.HARDWARE_ID_ENABLED', True)
     def test_generate_consistent_key_mac_hardware_id(self):
         d = Device(
             name='test_generate_key',
@@ -254,7 +254,7 @@ class TestDevice(
         }
         self.assertEqual(context_manager.exception.message_dict, expected_error_dict)
 
-    @mock.patch('openwisp_controller.config.settings.DEVICE_NAME_UNIQUE', False)
+    @mock.patch('immunity_controller.config.settings.DEVICE_NAME_UNIQUE', False)
     def test_device_name_organization_not_unique(self):
         org = self._get_org()
         self._create_device(organization=org, name='test.device.name')

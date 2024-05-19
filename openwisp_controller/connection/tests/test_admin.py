@@ -6,7 +6,7 @@ from django.test import TestCase, override_settings
 from django.urls import reverse
 from swapper import load_model
 
-from openwisp_controller.connection.commands import ORGANIZATION_ENABLED_COMMANDS
+from immunity_controller.connection.commands import ORGANIZATION_ENABLED_COMMANDS
 
 from ... import settings as module_settings
 from ...config.tests.test_admin import TestAdmin as TestConfigAdmin
@@ -22,7 +22,7 @@ Device = load_model('config', 'Device')
 Credentials = load_model('connection', 'Credentials')
 DeviceConnection = load_model('connection', 'DeviceConnection')
 Command = load_model('connection', 'Command')
-Group = load_model('openwisp_users', 'Group')
+Group = load_model('immunity_users', 'Group')
 
 
 class TestConnectionAdmin(TestAdminMixin, CreateConnectionsMixin, TestCase):
@@ -123,7 +123,7 @@ class TestConnectionAdmin(TestAdminMixin, CreateConnectionsMixin, TestCase):
         self.assertIn(ssh_schema, response.content.decode('utf8'))
 
     def test_admin_menu_groups(self):
-        # Test menu group (openwisp-utils menu group) for Credentials model
+        # Test menu group (immunity-utils menu group) for Credentials model
         self.client.force_login(self._get_admin())
         models = ['credentials']
         response = self.client.get(reverse('admin:index'))

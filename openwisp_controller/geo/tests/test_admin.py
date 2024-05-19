@@ -5,7 +5,7 @@ from django.urls import reverse
 from django_loci.tests.base.test_admin import BaseTestAdmin
 from swapper import load_model
 
-from openwisp_users.tests.utils import TestOrganizationMixin
+from immunity_users.tests.utils import TestOrganizationMixin
 
 from ...config.tests.test_admin import TestImportExportMixin
 from ...tests.utils import TestAdminMixin
@@ -121,7 +121,7 @@ class TestAdmin(TestAdminMixin, TestGeoMixin, BaseTestAdmin, TestCase):
         )
 
     def test_admin_menu_groups(self):
-        # Test menu group (openwisp-utils menu group) for Location , FloorPlan
+        # Test menu group (immunity-utils menu group) for Location , FloorPlan
 
         self.client.force_login(self._create_admin())
         models = ['location', 'floorplan']

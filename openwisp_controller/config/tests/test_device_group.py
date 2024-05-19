@@ -5,8 +5,8 @@ from django.db.models.signals import post_save
 from django.test import TestCase
 from swapper import load_model
 
-from openwisp_users.tests.utils import TestOrganizationMixin
-from openwisp_utils.tests import catch_signal
+from immunity_users.tests.utils import TestOrganizationMixin
+from immunity_utils.tests import catch_signal
 
 from .. import settings as app_settings
 from ..signals import group_templates_changed

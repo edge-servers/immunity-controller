@@ -5,12 +5,12 @@ from django.db import transaction
 from django.utils.translation import gettext_lazy as _
 from swapper import load_model
 
-from openwisp_utils.tasks import OpenwispCeleryTask
+from immunity_utils.tasks import OpenwispCeleryTask
 
 logger = logging.getLogger(__name__)
 
-Subnet = load_model('openwisp_ipam', 'Subnet')
-IpAddress = load_model('openwisp_ipam', 'IpAddress')
+Subnet = load_model('immunity_ipam', 'Subnet')
+IpAddress = load_model('immunity_ipam', 'IpAddress')
 SubnetDivisionRule = load_model('subnet_division', 'SubnetDivisionRule')
 SubnetDivisionIndex = load_model('subnet_division', 'SubnetDivisionIndex')
 Config = load_model('config', 'Config')

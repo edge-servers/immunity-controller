@@ -6,7 +6,7 @@ from django_loci.base.models import (
 )
 from swapper import get_model_name
 
-from openwisp_users.mixins import OrgMixin, ValidateOrgMixin
+from immunity_users.mixins import OrgMixin, ValidateOrgMixin
 
 
 class BaseLocation(OrgMixin, AbstractLocation):

@@ -11,8 +11,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
 
-from openwisp_users.tests.utils import TestOrganizationMixin
-from openwisp_utils.test_selenium_mixins import SeleniumTestMixin
+from immunity_users.tests.utils import TestOrganizationMixin
+from immunity_utils.test_selenium_mixins import SeleniumTestMixin
 
 from .utils import CreateConfigTemplateMixin
 
@@ -95,7 +95,7 @@ class TestDeviceAdmin(
                 # also changes the ordering of the templates.
                 # Failing to wait for this update could lead to
                 # StaleElementReferenceException like in
-                # https://github.com/edge-servers/openwisp-controller/issues/834
+                # https://github.com/edge-servers/immunity-controller/issues/834
                 EC.text_to_be_present_in_element_value(
                     (By.CSS_SELECTOR, 'input[name="config-0-templates"]'),
                     f'{required_template.id},{default_template.id}',

@@ -29,9 +29,9 @@ def check_cors_configuration(app_configs, **kwargs):
     return errors
 
 
-def check_openwisp_controller_ctx_processor(app_config, **kwargs):
+def check_immunity_controller_ctx_processor(app_config, **kwargs):
     errors = []
-    ctx_processor = 'openwisp_controller.context_processors.controller_api_settings'
+    ctx_processor = 'immunity_controller.context_processors.controller_api_settings'
 
     if not app_settings.OPENWISP_CONTROLLER_API_HOST:
         return errors

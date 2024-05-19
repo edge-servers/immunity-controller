@@ -1,4 +1,4 @@
-from openwisp_controller.config.admin import (
+from immunity_controller.config.admin import (
     DeviceAdmin,
     DeviceGroupAdmin,
     TemplateAdmin,

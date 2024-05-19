@@ -11,7 +11,7 @@ from django.utils.translation import gettext_lazy as _
 from jsonfield import JSONField
 from netjsonconfig.exceptions import ValidationError as SchemaError
 
-from openwisp_utils.base import TimeStampedEditableModel
+from immunity_utils.base import TimeStampedEditableModel
 
 from .. import settings as app_settings
 
@@ -40,7 +40,7 @@ class BaseConfig(BaseModel):
         choices=app_settings.BACKENDS,
         max_length=128,
         help_text=_(
-            'Select <a href="http://netjsonconfig.openwisp.org/en/'
+            'Select <a href="http://netjsonconfig.immunity.org/en/'
             'stable/" target="_blank">netjsonconfig</a> backend'
         ),
     )

@@ -10,8 +10,8 @@ from rest_framework.generics import (
 )
 from swapper import load_model
 
-from openwisp_users.api.mixins import FilterByParentManaged
-from openwisp_users.api.mixins import ProtectedAPIMixin as BaseProtectedAPIMixin
+from immunity_users.api.mixins import FilterByParentManaged
+from immunity_users.api.mixins import ProtectedAPIMixin as BaseProtectedAPIMixin
 
 from ...mixins import ProtectedAPIMixin
 from .serializer import (

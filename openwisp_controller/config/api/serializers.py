@@ -7,8 +7,8 @@ from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 from swapper import load_model
 
-from openwisp_users.api.mixins import FilterSerializerByOrgManaged
-from openwisp_utils.api.serializers import ValidatedModelSerializer
+from immunity_users.api.mixins import FilterSerializerByOrgManaged
+from immunity_utils.api.serializers import ValidatedModelSerializer
 
 from .. import settings as app_settings
 
@@ -17,7 +17,7 @@ Vpn = load_model('config', 'Vpn')
 Device = load_model('config', 'Device')
 DeviceGroup = load_model('config', 'DeviceGroup')
 Config = load_model('config', 'Config')
-Organization = load_model('openwisp_users', 'Organization')
+Organization = load_model('immunity_users', 'Organization')
 
 
 class BaseMeta:
@@ -159,7 +159,7 @@ class DeviceConfigMixin(object):
         ):
             # Do not create Config object if config_data only
             # contains the default value.
-            # See https://github.com/edge-servers/openwisp-controller/issues/699
+            # See https://github.com/edge-servers/immunity-controller/issues/699
             return
         if not device._has_config():
             return self._create_config(device, config_data)

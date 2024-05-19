@@ -8,7 +8,7 @@ def assign_permissions_to_groups(apps, schema_editor):
     operators_and_admins_can_change = ['deviceconnection']
     only_admins_can_manage = ['credentials']
     manage_operations = ['add', 'change', 'delete', 'view']
-    Group = get_swapped_model(apps, 'openwisp_users', 'Group')
+    Group = get_swapped_model(apps, 'immunity_users', 'Group')
 
     try:
         admin = Group.objects.get(name='Administrator')
@@ -39,7 +39,7 @@ def assign_command_permissions_to_groups(apps, schema_editor):
     create_default_permissions(apps, schema_editor)
     admin_operations = ['add', 'change', 'delete', 'view']
     operator_operations = ['add', 'view']
-    Group = get_swapped_model(apps, 'openwisp_users', 'Group')
+    Group = get_swapped_model(apps, 'immunity_users', 'Group')
 
     try:
         admin = Group.objects.get(name='Administrator')

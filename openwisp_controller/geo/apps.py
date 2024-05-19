@@ -5,12 +5,12 @@ from django.utils.translation import gettext_lazy as _
 from django_loci.apps import LociConfig
 from swapper import get_model_name
 
-from openwisp_utils.admin_theme import register_dashboard_chart
-from openwisp_utils.admin_theme.menu import register_menu_group
+from immunity_utils.admin_theme import register_dashboard_chart
+from immunity_utils.admin_theme.menu import register_menu_group
 
 
 class GeoConfig(LociConfig):
-    name = 'openwisp_controller.geo'
+    name = 'immunity_controller.geo'
     label = 'geo'
     verbose_name = _('Geographic Information')
 

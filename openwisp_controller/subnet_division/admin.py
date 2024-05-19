@@ -2,21 +2,21 @@ from django.contrib import admin
 from django.urls import reverse
 from django.utils.html import mark_safe
 from django.utils.translation import gettext_lazy as _
-from openwisp_ipam.admin import IpAddressAdmin as BaseIpAddressAdmin
-from openwisp_ipam.admin import SubnetAdmin as BaseSubnetAdmin
+from immunity_ipam.admin import IpAddressAdmin as BaseIpAddressAdmin
+from immunity_ipam.admin import SubnetAdmin as BaseSubnetAdmin
 from swapper import load_model
 
-from openwisp_controller.config.admin import DeviceAdmin
-from openwisp_users.multitenancy import MultitenantAdminMixin
-from openwisp_utils.admin import HelpTextStackedInline, TimeReadonlyAdminMixin
+from immunity_controller.config.admin import DeviceAdmin
+from immunity_users.multitenancy import MultitenantAdminMixin
+from immunity_utils.admin import HelpTextStackedInline, TimeReadonlyAdminMixin
 
 from . import settings as app_settings
 from .filters import DeviceFilter, SubnetDivisionRuleFilter, SubnetFilter, VpnFilter
 
 SubnetDivisionRule = load_model('subnet_division', 'SubnetDivisionRule')
 SubnetDivisionIndex = load_model('subnet_division', 'SubnetDivisionIndex')
-Subnet = load_model('openwisp_ipam', 'Subnet')
-IpAddress = load_model('openwisp_ipam', 'IpAddress')
+Subnet = load_model('immunity_ipam', 'Subnet')
+IpAddress = load_model('immunity_ipam', 'IpAddress')
 Device = load_model('config', 'Device')
 
 
@@ -32,7 +32,7 @@ class SubnetDivisionRuleInlineAdmin(
             '"Number of IPs" will not be possible.'
         ),
         'documentation_url': (
-            'https://github.com/edge-servers/openwisp-controller'
+            'https://github.com/edge-servers/immunity-controller'
             '#limitations-of-subnet-division'
         ),
     }

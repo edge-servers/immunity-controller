@@ -38,7 +38,7 @@ def subnet_division_vpnclient_auto_ip(vpn_client):
         and vpn_client.vpn.subnet.subnetdivisionrule_set.filter(
             organization_id=vpn_client.config.device.organization,
             type=(
-                'openwisp_controller.subnet_division.rule_types.'
+                'immunity_controller.subnet_division.rule_types.'
                 'vpn.VpnSubnetDivisionRuleType'
             ),
         ).exists()

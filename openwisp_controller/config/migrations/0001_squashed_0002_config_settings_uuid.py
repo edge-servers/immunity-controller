@@ -13,9 +13,9 @@ from django.conf import settings
 from django.db import migrations, models
 from swapper import dependency, get_model_name, split
 
-import openwisp_controller.config.base.template
-import openwisp_utils.base
-import openwisp_utils.utils
+import immunity_controller.config.base.template
+import immunity_utils.base
+import immunity_utils.utils
 
 from .. import settings as app_settings
 from ..sortedm2m.fields import SortedManyToManyField
@@ -51,7 +51,7 @@ class Migration(migrations.Migration):
                             ('netjsonconfig.OpenWisp', 'OpenWISP Firmware 1.x'),
                         ],
                         help_text=(
-                            'Select <a href="http://netjsonconfig.openwisp.org'
+                            'Select <a href="http://netjsonconfig.immunity.org'
                             '/en/stable/" target="_blank">netjsonconfig</a> '
                             'backend'
                         ),
@@ -108,7 +108,7 @@ class Migration(migrations.Migration):
                     'key',
                     models.CharField(
                         db_index=True,
-                        default=openwisp_utils.utils.get_random_key,
+                        default=immunity_utils.utils.get_random_key,
                         help_text=(
                             'unique key that can be used to download the configuration'
                         ),
@@ -156,7 +156,7 @@ class Migration(migrations.Migration):
                     'organization',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=get_model_name('openwisp_users', 'Organization'),
+                        to=get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -192,9 +192,9 @@ class Migration(migrations.Migration):
                 ),
                 (
                     'shared_secret',
-                    openwisp_utils.base.KeyField(
+                    immunity_utils.base.KeyField(
                         db_index=True,
-                        default=openwisp_utils.utils.get_random_key,
+                        default=immunity_utils.utils.get_random_key,
                         help_text='used for automatic registration of devices',
                         max_length=32,
                         unique=True,
@@ -216,7 +216,7 @@ class Migration(migrations.Migration):
                     models.OneToOneField(
                         on_delete=django.db.models.deletion.CASCADE,
                         related_name='config_settings',
-                        to=get_model_name('openwisp_users', 'Organization'),
+                        to=get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -247,7 +247,7 @@ class Migration(migrations.Migration):
                             ('netjsonconfig.OpenWisp', 'OpenWISP Firmware 1.x'),
                         ],
                         help_text=(
-                            'Select <a href="http://netjsonconfig.openwisp.org'
+                            'Select <a href="http://netjsonconfig.immunity.org'
                             '/en/stable/" target="_blank">netjsonconfig</a> backend'
                         ),
                         max_length=128,
@@ -311,7 +311,7 @@ class Migration(migrations.Migration):
                     models.BooleanField(
                         db_index=True,
                         default=(
-                            openwisp_controller.config.base.template.default_auto_cert
+                            immunity_controller.config.base.template.default_auto_cert
                         ),
                         help_text=(
                             'whether x509 client certificates should be automatically '
@@ -327,7 +327,7 @@ class Migration(migrations.Migration):
                         blank=True,
                         null=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=get_model_name('openwisp_users', 'Organization'),
+                        to=get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -419,7 +419,7 @@ class Migration(migrations.Migration):
                         blank=True,
                         null=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=get_model_name('openwisp_users', 'Organization'),
+                        to=get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),

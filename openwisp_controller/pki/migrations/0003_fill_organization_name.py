@@ -7,8 +7,8 @@ from ..models import Ca, Cert
 def forward(apps, schema_editor):
     """
     Fills the organization_name field of the following models:
-        * ``openwisp_controller.pki.Ca``
-        * ``openwisp_controller.pki.Cert``
+        * ``immunity_controller.pki.Ca``
+        * ``immunity_controller.pki.Cert``
     """
     if not schema_editor.connection.alias == 'default':
         return

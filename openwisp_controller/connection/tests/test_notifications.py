@@ -4,13 +4,13 @@ from unittest.mock import patch
 from django.apps.registry import apps
 from django.test import TestCase, TransactionTestCase
 from django.urls import reverse
-from openwisp_notifications.signals import notify
-from openwisp_notifications.types import unregister_notification_type
+from immunity_notifications.signals import notify
+from immunity_notifications.types import unregister_notification_type
 from swapper import load_model
 
 from .utils import CreateConnectionsMixin
 
-Notification = load_model('openwisp_notifications', 'Notification')
+Notification = load_model('immunity_notifications', 'Notification')
 Credentials = load_model('connection', 'Credentials')
 DeviceConnection = load_model('connection', 'DeviceConnection')
 
@@ -22,7 +22,7 @@ class BaseTestNotification:
         self._create_admin()
         self.d = self._create_device()
         self.creds = Credentials.objects.create(
-            connector='openwisp_controller.connection.connectors.ssh.Ssh'
+            connector='immunity_controller.connection.connectors.ssh.Ssh'
         )
 
     def _generic_notification_test(
@@ -61,7 +61,7 @@ class TestNotifications(CreateConnectionsMixin, BaseTestNotification, TestCase):
         app.register_notification_types()
 
     @patch(
-        'openwisp_controller.connection.apps.ConnectionConfig'
+        'immunity_controller.connection.apps.ConnectionConfig'
         '._ignore_connection_notification_reasons',
         ['Unable to connect'],
     )
@@ -133,7 +133,7 @@ class TestNotificationTransaction(
             self.assertEqual(Notification.objects.count(), 0)
 
     @patch(
-        'openwisp_controller.connection.apps.ConnectionConfig'
+        'immunity_controller.connection.apps.ConnectionConfig'
         '._ignore_connection_notification_reasons',
         ['timed out'],
     )

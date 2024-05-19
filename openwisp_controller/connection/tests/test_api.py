@@ -8,8 +8,8 @@ from django.urls import reverse
 from rest_framework.exceptions import ErrorDetail
 from swapper import load_model
 
-from openwisp_controller.tests.utils import TestAdminMixin
-from openwisp_users.tests.test_api import AuthenticationMixin
+from immunity_controller.tests.utils import TestAdminMixin
+from immunity_users.tests.test_api import AuthenticationMixin
 
 from .. import settings as app_settings
 from ..api.views import ListViewPagination
@@ -19,8 +19,8 @@ from .utils import CreateCommandMixin, CreateConnectionsMixin
 Command = load_model('connection', 'Command')
 DeviceConnection = load_model('connection', 'DeviceConnection')
 command_qs = Command.objects.order_by('-created')
-OrganizationUser = load_model('openwisp_users', 'OrganizationUser')
-Group = load_model('openwisp_users', 'Group')
+OrganizationUser = load_model('immunity_users', 'OrganizationUser')
+Group = load_model('immunity_users', 'Group')
 
 
 class TestCommandsAPI(TestCase, AuthenticationMixin, CreateCommandMixin):
@@ -346,7 +346,7 @@ class TestConnectionApi(
     def test_post_credential_list(self):
         path = reverse('connection_api:credential_list')
         data = {
-            'connector': 'openwisp_controller.connection.connectors.ssh.Ssh',
+            'connector': 'immunity_controller.connection.connectors.ssh.Ssh',
             'name': 'Change Test credentials',
             'organization': self._get_org().pk,
             'auto_add': False,
@@ -368,7 +368,7 @@ class TestConnectionApi(
         cred = self._create_credentials()
         path = reverse('connection_api:credential_detail', args=(cred.pk,))
         data = {
-            'connector': 'openwisp_controller.connection.connectors.ssh.Ssh',
+            'connector': 'immunity_controller.connection.connectors.ssh.Ssh',
             'name': 'Change Test credentials',
             'organization': org1.pk,
             'auto_add': False,

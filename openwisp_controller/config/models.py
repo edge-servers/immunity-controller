@@ -44,7 +44,7 @@ class Config(AbstractConfig):
 
 class TemplateTag(AbstractTemplateTag):
     """
-    openwisp-controller TemplateTag model
+    immunity-controller TemplateTag model
     """
 
     class Meta(AbstractTemplateTag.Meta):
@@ -54,7 +54,7 @@ class TemplateTag(AbstractTemplateTag):
 
 class TaggedTemplate(AbstractTaggedTemplate):
     """
-    openwisp-controller TaggedTemplate model
+    immunity-controller TaggedTemplate model
     """
 
     class Meta(AbstractTaggedTemplate.Meta):
@@ -64,7 +64,7 @@ class TaggedTemplate(AbstractTaggedTemplate):
 
 class Template(AbstractTemplate):
     """
-    openwisp-controller Template model
+    immunity-controller Template model
     """
 
     class Meta(AbstractTemplate.Meta):
@@ -74,7 +74,7 @@ class Template(AbstractTemplate):
 
 class Vpn(AbstractVpn):
     """
-    openwisp-controller VPN model
+    immunity-controller VPN model
     """
 
     class Meta(AbstractVpn.Meta):

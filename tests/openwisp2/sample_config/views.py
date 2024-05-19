@@ -1,24 +1,24 @@
 from swapper import load_model
 
-from openwisp_controller.config.controller.views import (
+from immunity_controller.config.controller.views import (
     DeviceChecksumView as BaseDeviceChecksumView,
 )
-from openwisp_controller.config.controller.views import (
+from immunity_controller.config.controller.views import (
     DeviceDownloadConfigView as BaseDeviceDownloadConfigView,
 )
-from openwisp_controller.config.controller.views import (
+from immunity_controller.config.controller.views import (
     DeviceRegisterView as BaseDeviceRegisterView,
 )
-from openwisp_controller.config.controller.views import (
+from immunity_controller.config.controller.views import (
     DeviceReportStatusView as BaseDeviceReportStatusView,
 )
-from openwisp_controller.config.controller.views import (
+from immunity_controller.config.controller.views import (
     DeviceUpdateInfoView as BaseDeviceUpdateInfoView,
 )
-from openwisp_controller.config.controller.views import (
+from immunity_controller.config.controller.views import (
     VpnChecksumView as BaseVpnChecksumView,
 )
-from openwisp_controller.config.controller.views import (
+from immunity_controller.config.controller.views import (
     VpnDownloadConfigView as BaseVpnDownloadConfigView,
 )
 

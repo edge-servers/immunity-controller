@@ -31,12 +31,12 @@ class TestUtilities(TestCase):
                 error = run_check()
                 self.assertIn(error_message, error.hint)
 
-    def test_openwisp_controller_context_processor_check(self):
+    def test_immunity_controller_context_processor_check(self):
         def runcheck():
-            return checks.check_openwisp_controller_ctx_processor(None).pop()
+            return checks.check_immunity_controller_ctx_processor(None).pop()
 
         with self.subTest('Test OPENWISP_CONTROLLER_API_HOST not set'):
-            error = checks.check_openwisp_controller_ctx_processor(None)
+            error = checks.check_immunity_controller_ctx_processor(None)
             self.assertEqual(len(error), 0)
 
         with self.subTest('Test OPENWISP_CONTROLLER_API_HOST configured'):
@@ -54,7 +54,7 @@ class TestUtilities(TestCase):
         'OPENWISP_CONTROLLER_API_HOST',
         'https://example.com',
     )
-    def test_openwisp_controller_context_processor(self):
+    def test_immunity_controller_context_processor(self):
         with override_settings(TEMPLATES=_get_updated_templates_settings()):
             context = {
                 'OPENWISP_CONTROLLER_API_HOST': 'https://example.com',

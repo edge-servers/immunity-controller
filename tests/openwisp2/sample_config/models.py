@@ -1,18 +1,18 @@
 from django.db import models
 
-from openwisp_controller.config.base.config import AbstractConfig
-from openwisp_controller.config.base.device import AbstractDevice
-from openwisp_controller.config.base.device_group import AbstractDeviceGroup
-from openwisp_controller.config.base.multitenancy import (
+from immunity_controller.config.base.config import AbstractConfig
+from immunity_controller.config.base.device import AbstractDevice
+from immunity_controller.config.base.device_group import AbstractDeviceGroup
+from immunity_controller.config.base.multitenancy import (
     AbstractOrganizationConfigSettings,
     AbstractOrganizationLimits,
 )
-from openwisp_controller.config.base.tag import (
+from immunity_controller.config.base.tag import (
     AbstractTaggedTemplate,
     AbstractTemplateTag,
 )
-from openwisp_controller.config.base.template import AbstractTemplate
-from openwisp_controller.config.base.vpn import AbstractVpn, AbstractVpnClient
+from immunity_controller.config.base.template import AbstractTemplate
+from immunity_controller.config.base.vpn import AbstractVpn, AbstractVpnClient
 
 
 class DetailsModel(models.Model):
@@ -51,7 +51,7 @@ class Config(DetailsModel, AbstractConfig):
 
 class TemplateTag(DetailsModel, AbstractTemplateTag):
     """
-    openwisp-controller TemplateTag model
+    immunity-controller TemplateTag model
     """
 
     class Meta(AbstractTemplateTag.Meta):
@@ -60,7 +60,7 @@ class TemplateTag(DetailsModel, AbstractTemplateTag):
 
 class TaggedTemplate(DetailsModel, AbstractTaggedTemplate):
     """
-    openwisp-controller TaggedTemplate model
+    immunity-controller TaggedTemplate model
     """
 
     class Meta(AbstractTaggedTemplate.Meta):
@@ -69,7 +69,7 @@ class TaggedTemplate(DetailsModel, AbstractTaggedTemplate):
 
 class Template(DetailsModel, AbstractTemplate):
     """
-    openwisp-controller Template model
+    immunity-controller Template model
     """
 
     class Meta(AbstractTemplate.Meta):
@@ -78,7 +78,7 @@ class Template(DetailsModel, AbstractTemplate):
 
 class Vpn(DetailsModel, AbstractVpn):
     """
-    openwisp-controller VPN model
+    immunity-controller VPN model
     """
 
     class Meta(AbstractVpn.Meta):

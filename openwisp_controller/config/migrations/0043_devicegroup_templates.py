@@ -3,7 +3,7 @@
 from django.conf import settings
 from django.db import migrations
 
-import openwisp_controller.config.sortedm2m.fields
+import immunity_controller.config.sortedm2m.fields
 
 
 class Migration(migrations.Migration):
@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='devicegroup',
             name='templates',
-            field=openwisp_controller.config.sortedm2m.fields.SortedManyToManyField(
+            field=immunity_controller.config.sortedm2m.fields.SortedManyToManyField(
                 blank=True,
                 help_text=(
                     'These templates are automatically assigned to the devices '

@@ -99,7 +99,7 @@ class Migration(migrations.Migration):
                     'organization',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to='openwisp_users.organization',
+                        to='immunity_users.organization',
                         verbose_name='organization',
                     ),
                 ),

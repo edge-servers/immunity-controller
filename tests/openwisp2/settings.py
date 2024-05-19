@@ -11,8 +11,8 @@ ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'openwisp_utils.db.backends.spatialite',
-        'NAME': os.path.join(BASE_DIR, 'openwisp-controller.db'),
+        'ENGINE': 'immunity_utils.db.backends.spatialite',
+        'NAME': os.path.join(BASE_DIR, 'immunity-controller.db'),
     }
 }
 
@@ -29,23 +29,23 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     # all-auth
     'django.contrib.sites',
-    'openwisp_users.accounts',
+    'immunity_users.accounts',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'django_extensions',
     # immunity22 modules
-    'openwisp_users',
-    'openwisp_controller.config',
-    'openwisp_controller.pki',
-    'openwisp_controller.geo',
-    'openwisp_controller.connection',
-    'openwisp_controller.subnet_division',
-    'openwisp_notifications',
-    'openwisp_ipam',
+    'immunity_users',
+    'immunity_controller.config',
+    'immunity_controller.pki',
+    'immunity_controller.geo',
+    'immunity_controller.connection',
+    'immunity_controller.subnet_division',
+    'immunity_notifications',
+    'immunity_ipam',
     # immunity22 admin theme
     # (must be loaded here)
-    'openwisp_utils.admin_theme',
+    'immunity_utils.admin_theme',
     'admin_auto_filters',
     # admin
     'django.contrib.admin',
@@ -68,13 +68,13 @@ INSTALLED_APPS = [
 ]
 EXTENDED_APPS = ('django_x509', 'django_loci')
 
-AUTH_USER_MODEL = 'openwisp_users.User'
+AUTH_USER_MODEL = 'immunity_users.User'
 SITE_ID = 1
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'openwisp_utils.staticfiles.DependencyFinder',
+    'immunity_utils.staticfiles.DependencyFinder',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +120,7 @@ TEMPLATES = [
         'OPTIONS': {
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
-                'openwisp_utils.loaders.DependencyLoader',
+                'immunity_utils.loaders.DependencyLoader',
                 'django.template.loaders.app_directories.Loader',
             ],
             'context_processors': [
@@ -128,8 +128,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'openwisp_utils.admin_theme.context_processor.menu_groups',
-                'openwisp_notifications.context_processors.notification_api_settings',
+                'immunity_utils.admin_theme.context_processor.menu_groups',
+                'immunity_notifications.context_processors.notification_api_settings',
             ],
         },
     }
@@ -193,43 +193,43 @@ DJANGO_LOCI_GEOCODE_STRICT_TEST = False
 OPENWISP_CONTROLLER_CONTEXT = {'vpnserver1': 'vpn.testdomain.com'}
 OPENWISP_USERS_AUTH_API = True
 
-TEST_RUNNER = 'openwisp_utils.tests.TimeLoggingTestRunner'
+TEST_RUNNER = 'immunity_utils.tests.TimeLoggingTestRunner'
 
 if os.environ.get('SAMPLE_APP', False):
     # Replace Config
-    config_index = INSTALLED_APPS.index('openwisp_controller.config')
-    INSTALLED_APPS.remove('openwisp_controller.config')
+    config_index = INSTALLED_APPS.index('immunity_controller.config')
+    INSTALLED_APPS.remove('immunity_controller.config')
     INSTALLED_APPS.insert(config_index, 'immunity22.sample_config')
     # Replace Pki
-    pki_index = INSTALLED_APPS.index('openwisp_controller.pki')
-    INSTALLED_APPS.remove('openwisp_controller.pki')
+    pki_index = INSTALLED_APPS.index('immunity_controller.pki')
+    INSTALLED_APPS.remove('immunity_controller.pki')
     INSTALLED_APPS.insert(pki_index, 'immunity22.sample_pki')
     # Replace Geo
-    geo_index = INSTALLED_APPS.index('openwisp_controller.geo')
-    INSTALLED_APPS.remove('openwisp_controller.geo')
+    geo_index = INSTALLED_APPS.index('immunity_controller.geo')
+    INSTALLED_APPS.remove('immunity_controller.geo')
     INSTALLED_APPS.insert(geo_index, 'immunity22.sample_geo')
     # Replace Connection
-    connection_index = INSTALLED_APPS.index('openwisp_controller.connection')
-    INSTALLED_APPS.remove('openwisp_controller.connection')
+    connection_index = INSTALLED_APPS.index('immunity_controller.connection')
+    INSTALLED_APPS.remove('immunity_controller.connection')
     INSTALLED_APPS.insert(connection_index, 'immunity22.sample_connection')
     # Replace Openwisp_Users
-    users_index = INSTALLED_APPS.index('openwisp_users')
-    INSTALLED_APPS.remove('openwisp_users')
+    users_index = INSTALLED_APPS.index('immunity_users')
+    INSTALLED_APPS.remove('immunity_users')
     INSTALLED_APPS.insert(users_index, 'immunity22.sample_users')
     # Replace Subnet Division
-    subnet_division_index = INSTALLED_APPS.index('openwisp_controller.subnet_division')
-    INSTALLED_APPS.remove('openwisp_controller.subnet_division')
+    subnet_division_index = INSTALLED_APPS.index('immunity_controller.subnet_division')
+    INSTALLED_APPS.remove('immunity_controller.subnet_division')
     INSTALLED_APPS.insert(subnet_division_index, 'immunity22.sample_subnet_division')
     # Extended apps
     EXTENDED_APPS = (
         'django_x509',
         'django_loci',
-        'openwisp_controller.config',
-        'openwisp_controller.pki',
-        'openwisp_controller.geo',
-        'openwisp_controller.connection',
-        'openwisp_controller.subnet_division',
-        'openwisp_users',
+        'immunity_controller.config',
+        'immunity_controller.pki',
+        'immunity_controller.geo',
+        'immunity_controller.connection',
+        'immunity_controller.subnet_division',
+        'immunity_users',
     )
     # Swapper
     AUTH_USER_MODEL = 'sample_users.User'
@@ -269,7 +269,7 @@ else:
     pass
 
 if os.environ.get('SAMPLE_APP', False) and TESTING:
-    # Required for openwisp-users tests
+    # Required for immunity-users tests
     OPENWISP_ORGANIZATION_USER_ADMIN = True
     OPENWISP_ORGANIZATION_OWNER_ADMIN = True
     OPENWISP_USERS_AUTH_API = True

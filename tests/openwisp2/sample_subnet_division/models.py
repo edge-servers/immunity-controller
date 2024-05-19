@@ -1,6 +1,6 @@
 from django.db import models
 
-from openwisp_controller.subnet_division.base.models import (
+from immunity_controller.subnet_division.base.models import (
     AbstractSubnetDivisionIndex,
     AbstractSubnetDivisionRule,
 )

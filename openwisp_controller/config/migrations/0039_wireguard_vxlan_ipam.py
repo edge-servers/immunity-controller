@@ -4,15 +4,15 @@ import django.utils.timezone
 import swapper
 from django.db import migrations, models
 
-import openwisp_controller.config.base.template
+import immunity_controller.config.base.template
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
         swapper.dependency('pki', 'Ca'),
-        swapper.dependency('openwisp_ipam', 'IpAddress'),
-        swapper.dependency('openwisp_ipam', 'Subnet'),
+        swapper.dependency('immunity_ipam', 'IpAddress'),
+        swapper.dependency('immunity_ipam', 'Subnet'),
         ('config', '0038_vpn_subnet'),
     ]
 
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ),
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_ipam', 'IpAddress'),
+                to=swapper.get_model_name('immunity_ipam', 'IpAddress'),
                 verbose_name='Internal IP',
             ),
         ),
@@ -97,7 +97,7 @@ class Migration(migrations.Migration):
             name='auto_cert',
             field=models.BooleanField(
                 db_index=True,
-                default=openwisp_controller.config.base.template.default_auto_cert,
+                default=immunity_controller.config.base.template.default_auto_cert,
                 help_text=(
                     'whether tunnel specific configuration (cryptographic keys, '
                     'ip addresses, etc) should be automatically generated and '
@@ -129,7 +129,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_ipam', 'IpAddress'),
+                to=swapper.get_model_name('immunity_ipam', 'IpAddress'),
             ),
         ),
     ]

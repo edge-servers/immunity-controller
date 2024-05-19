@@ -9,8 +9,8 @@ import model_utils.fields
 from django.conf import settings
 from django.db import migrations, models
 
-import openwisp_users.mixins
-from openwisp_controller.subnet_division import settings as app_settings
+import immunity_users.mixins
+from immunity_controller.subnet_division import settings as app_settings
 
 
 class Migration(migrations.Migration):
@@ -110,7 +110,7 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={'abstract': False},
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='SubnetDivisionIndex',

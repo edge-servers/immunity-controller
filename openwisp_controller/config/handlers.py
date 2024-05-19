@@ -1,10 +1,10 @@
 from django.db import transaction
 from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
-from openwisp_notifications.signals import notify
+from immunity_notifications.signals import notify
 from swapper import load_model
 
-from openwisp_controller.config.controller.views import DeviceChecksumView
+from immunity_controller.config.controller.views import DeviceChecksumView
 
 from . import tasks
 from .signals import config_status_changed, device_registered
@@ -12,7 +12,7 @@ from .signals import config_status_changed, device_registered
 Config = load_model('config', 'Config')
 Device = load_model('config', 'Device')
 DeviceGroup = load_model('config', 'DeviceGroup')
-Organization = load_model('openwisp_users', 'Organization')
+Organization = load_model('immunity_users', 'Organization')
 Cert = load_model('django_x509', 'Cert')
 
 

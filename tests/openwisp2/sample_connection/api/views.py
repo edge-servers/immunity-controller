@@ -1,19 +1,19 @@
-from openwisp_controller.connection.api.views import (
+from immunity_controller.connection.api.views import (
     CommandDetailsView as BaseCommandDetailsView,
 )
-from openwisp_controller.connection.api.views import (
+from immunity_controller.connection.api.views import (
     CommandListCreateView as BaseCommandListCreateView,
 )
-from openwisp_controller.connection.api.views import (
+from immunity_controller.connection.api.views import (
     CredentialDetailView as BaseCredentialDetailView,
 )
-from openwisp_controller.connection.api.views import (
+from immunity_controller.connection.api.views import (
     CredentialListCreateView as BaseCredentialListCreateView,
 )
-from openwisp_controller.connection.api.views import (
+from immunity_controller.connection.api.views import (
     DeviceConnectionDetailView as BaseDeviceConnectionDetailView,
 )
-from openwisp_controller.connection.api.views import (
+from immunity_controller.connection.api.views import (
     DeviceConnenctionListCreateView as BaseDeviceConnenctionListCreateView,
 )
 

@@ -3,13 +3,13 @@ from django.test import TestCase
 from django.test.client import BOUNDARY, MULTIPART_CONTENT, encode_multipart
 from django.test.testcases import TransactionTestCase
 from django.urls import reverse
-from openwisp_ipam.tests import CreateModelsMixin as CreateIpamModelsMixin
+from immunity_ipam.tests import CreateModelsMixin as CreateIpamModelsMixin
 from swapper import load_model
 
-from openwisp_controller.tests.utils import TestAdminMixin
-from openwisp_users.tests.test_api import AuthenticationMixin
-from openwisp_users.tests.utils import TestOrganizationMixin
-from openwisp_utils.tests import capture_any_output, catch_signal
+from immunity_controller.tests.utils import TestAdminMixin
+from immunity_users.tests.test_api import AuthenticationMixin
+from immunity_users.tests.utils import TestOrganizationMixin
+from immunity_utils.tests import capture_any_output, catch_signal
 
 from .. import settings as app_settings
 from ..signals import group_templates_changed
@@ -28,7 +28,7 @@ Config = load_model('config', 'Config')
 DeviceGroup = load_model('config', 'DeviceGroup')
 DeviceLocation = load_model('geo', 'DeviceLocation')
 Location = load_model('geo', 'Location')
-OrganizationUser = load_model('openwisp_users', 'OrganizationUser')
+OrganizationUser = load_model('immunity_users', 'OrganizationUser')
 
 
 class ApiTestMixin:
@@ -44,7 +44,7 @@ class ApiTestMixin:
         'host': 'vpn.testing.com',
         'organization': None,
         'ca': None,
-        'backend': 'openwisp_controller.vpn_backends.OpenVpn',
+        'backend': 'immunity_controller.vpn_backends.OpenVpn',
         'config': {
             'openvpn': [
                 {
@@ -750,11 +750,11 @@ class TestConfigApi(
 
         with self.subTest('Test filtering using VPN backend'):
             r1 = self.client.get(
-                f'{path}?backend=openwisp_controller.vpn_backends.OpenVpn'
+                f'{path}?backend=immunity_controller.vpn_backends.OpenVpn'
             )
             _assert_vpn_list_filter(response=r1, vpn=vpn1)
             r2 = self.client.get(
-                f'{path}?backend=openwisp_controller.vpn_backends.Wireguard'
+                f'{path}?backend=immunity_controller.vpn_backends.Wireguard'
             )
             _assert_vpn_list_filter(response=r2, vpn=vpn2)
 

@@ -13,12 +13,12 @@ import taggit.managers
 from django.conf import settings
 from django.db import migrations, models
 
-import openwisp_controller.config.base.template
-import openwisp_users.mixins
-import openwisp_utils.base
-import openwisp_utils.utils
-from openwisp_controller.config import settings as app_settings
-from openwisp_controller.config.base.template import default_auto_cert
+import immunity_controller.config.base.template
+import immunity_users.mixins
+import immunity_utils.base
+import immunity_utils.utils
+from immunity_controller.config import settings as app_settings
+from immunity_controller.config.base.template import default_auto_cert
 
 
 class Migration(migrations.Migration):
@@ -70,7 +70,7 @@ class Migration(migrations.Migration):
                             ('netjsonconfig.OpenWisp', 'OpenWISP Firmware 1.x'),
                         ],
                         help_text=(
-                            'Select <a href="http://netjsonconfig.openwisp.org/en/'
+                            'Select <a href="http://netjsonconfig.immunity.org/en/'
                             'stable/" target="_blank">netjsonconfig</a> backend'
                         ),
                         max_length=128,
@@ -125,7 +125,7 @@ class Migration(migrations.Migration):
                         default=dict,
                         dump_kwargs={'ensure_ascii': False, 'indent': 4},
                         help_text=(
-                            'Additional <a href="http://netjsonconfig.openwisp.org'
+                            'Additional <a href="http://netjsonconfig.immunity.org'
                             '/en/stable/general/basics.html#context" target="_blank">'
                             'context (configuration variables)</a> in JSON format'
                         ),
@@ -253,9 +253,9 @@ class Migration(migrations.Migration):
                 ),
                 (
                     'key',
-                    openwisp_utils.base.KeyField(
+                    immunity_utils.base.KeyField(
                         db_index=True,
-                        default=openwisp_utils.utils.get_random_key,
+                        default=immunity_utils.utils.get_random_key,
                         help_text=None,
                         max_length=64,
                         validators=[
@@ -274,13 +274,13 @@ class Migration(migrations.Migration):
                     'backend',
                     models.CharField(
                         choices=[
-                            ('openwisp_controller.vpn_backends.OpenVpn', 'OpenVPN'),
-                            ('openwisp_controller.vpn_backends.Wireguard', 'WireGuard'),
+                            ('immunity_controller.vpn_backends.OpenVpn', 'OpenVPN'),
+                            ('immunity_controller.vpn_backends.Wireguard', 'WireGuard'),
                             (
-                                'openwisp_controller.vpn_backends.VxlanWireguard',
+                                'immunity_controller.vpn_backends.VxlanWireguard',
                                 'VXLAN over WireGuard',
                             ),
-                            ('openwisp_controller.vpn_backends.ZeroTier', 'ZeroTier'),
+                            ('immunity_controller.vpn_backends.ZeroTier', 'ZeroTier'),
                         ],
                         help_text='Select VPN configuration backend',
                         max_length=128,
@@ -333,7 +333,7 @@ class Migration(migrations.Migration):
                         blank=True,
                         null=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -383,7 +383,7 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'VPN servers',
                 'abstract': False,
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='VpnClient',
@@ -441,7 +441,7 @@ class Migration(migrations.Migration):
                         blank=True,
                         null=True,
                         on_delete=django.db.models.deletion.SET_NULL,
-                        to='openwisp_ipam.ipaddress',
+                        to='immunity_ipam.ipaddress',
                     ),
                 ),
                 (
@@ -497,7 +497,7 @@ class Migration(migrations.Migration):
                             ('netjsonconfig.OpenWisp', 'OpenWISP Firmware 1.x'),
                         ],
                         help_text=(
-                            'Select <a href="http://netjsonconfig.openwisp.org/en/'
+                            'Select <a href="http://netjsonconfig.immunity.org/en/'
                             'stable/" target="_blank">netjsonconfig</a> backend'
                         ),
                         max_length=128,
@@ -591,7 +591,7 @@ class Migration(migrations.Migration):
                         blank=True,
                         null=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -626,7 +626,7 @@ class Migration(migrations.Migration):
                 'abstract': False,
                 'unique_together': {('organization', 'name')},
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.AddField(
             model_name='taggedtemplate',
@@ -662,9 +662,9 @@ class Migration(migrations.Migration):
                 ),
                 (
                     'shared_secret',
-                    openwisp_utils.base.KeyField(
+                    immunity_utils.base.KeyField(
                         db_index=True,
-                        default=openwisp_utils.utils.get_random_key,
+                        default=immunity_utils.utils.get_random_key,
                         help_text='used for automatic registration of devices',
                         max_length=32,
                         unique=True,
@@ -687,7 +687,7 @@ class Migration(migrations.Migration):
                     models.OneToOneField(
                         on_delete=django.db.models.deletion.CASCADE,
                         related_name='config_settings',
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -779,7 +779,7 @@ class Migration(migrations.Migration):
                     'organization',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -790,7 +790,7 @@ class Migration(migrations.Migration):
                 'abstract': False,
                 'swappable': 'CONFIG_DEVICEGROUP_MODEL',
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.AlterUniqueTogether(
             name='devicegroup',
@@ -873,7 +873,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     'key',
-                    openwisp_utils.base.KeyField(
+                    immunity_utils.base.KeyField(
                         blank=True,
                         db_index=True,
                         default=None,
@@ -964,7 +964,7 @@ class Migration(migrations.Migration):
                     'organization',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -978,7 +978,7 @@ class Migration(migrations.Migration):
                 'verbose_name': app_settings.DEVICE_VERBOSE_NAME[0],
                 'verbose_name_plural': app_settings.DEVICE_VERBOSE_NAME[1],
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='OrganizationLimits',
@@ -1025,7 +1025,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='config',
             name='templates',
-            field=openwisp_controller.config.sortedm2m.fields.SortedManyToManyField(
+            field=immunity_controller.config.sortedm2m.fields.SortedManyToManyField(
                 blank=True,
                 help_text='configuration templates, applied from first to last',
                 related_name='config_relations',

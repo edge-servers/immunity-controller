@@ -3,14 +3,14 @@ Base admin classes and mixins
 """
 from django.core.exceptions import PermissionDenied
 
-from openwisp_users.multitenancy import (
+from immunity_users.multitenancy import (
     MultitenantAdminMixin as BaseMultitenantAdminMixin,
 )
 
 
 class OrgVersionMixin(object):
     """
-    Base VersionAdmin for openwisp_controller
+    Base VersionAdmin for immunity_controller
     """
 
     def recoverlist_view(self, request, extra_context=None):
@@ -22,7 +22,7 @@ class OrgVersionMixin(object):
 
 class MultitenantAdminMixin(OrgVersionMixin, BaseMultitenantAdminMixin):
     """
-    openwisp_utils.admin.MultitenantAdminMixin + OrgVersionMixin
+    immunity_utils.admin.MultitenantAdminMixin + OrgVersionMixin
     """
 
     pass

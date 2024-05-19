@@ -4,8 +4,8 @@ from django.urls import reverse
 from OpenSSL import crypto
 from swapper import load_model
 
-from openwisp_controller.tests.utils import TestAdminMixin
-from openwisp_users.tests.utils import TestOrganizationMixin
+from immunity_controller.tests.utils import TestAdminMixin
+from immunity_users.tests.utils import TestOrganizationMixin
 
 from .utils import TestPkiMixin
 

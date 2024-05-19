@@ -22,13 +22,13 @@ from django.urls import path, re_path, reverse
 from django.utils.translation import gettext_lazy as _
 from flat_json_widget.widgets import FlatJsonWidget
 from import_export.admin import ImportExportMixin
-from openwisp_ipam.filters import SubnetFilter
+from immunity_ipam.filters import SubnetFilter
 from swapper import load_model
 
-from openwisp_controller.config.views import get_default_values, get_relevant_templates
-from openwisp_users.admin import OrganizationAdmin
-from openwisp_users.multitenancy import MultitenantOrgFilter
-from openwisp_utils.admin import (
+from immunity_controller.config.views import get_default_values, get_relevant_templates
+from immunity_users.admin import OrganizationAdmin
+from immunity_users.multitenancy import MultitenantOrgFilter
+from immunity_utils.admin import (
     AlwaysHasChangedMixin,
     TimeReadonlyAdminMixin,
     UUIDAdmin,
@@ -49,7 +49,7 @@ Device = load_model('config', 'Device')
 DeviceGroup = load_model('config', 'DeviceGroup')
 Template = load_model('config', 'Template')
 Vpn = load_model('config', 'Vpn')
-Organization = load_model('openwisp_users', 'Organization')
+Organization = load_model('immunity_users', 'Organization')
 OrganizationConfigSettings = load_model('config', 'OrganizationConfigSettings')
 OrganizationLimits = load_model('config', 'OrganizationLimits')
 

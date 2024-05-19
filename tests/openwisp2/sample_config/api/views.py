@@ -1,35 +1,35 @@
-from openwisp_controller.config.api.download_views import (
+from immunity_controller.config.api.download_views import (
     DownloadDeviceView as BaseDownloadDeviceView,
 )
-from openwisp_controller.config.api.download_views import (
+from immunity_controller.config.api.download_views import (
     DownloadTemplateconfiguration as BaseDownloadTemplateconfiguration,
 )
-from openwisp_controller.config.api.download_views import (
+from immunity_controller.config.api.download_views import (
     DownloadVpnView as BaseDownloadVpnView,
 )
-from openwisp_controller.config.api.views import (
+from immunity_controller.config.api.views import (
     DeviceDetailView as BaseDeviceDetailView,
 )
-from openwisp_controller.config.api.views import (
+from immunity_controller.config.api.views import (
     DeviceGroupCommonName as BaseDeviceGroupCommonName,
 )
-from openwisp_controller.config.api.views import (
+from immunity_controller.config.api.views import (
     DeviceGroupDetailView as BaseDeviceGroupDetailView,
 )
-from openwisp_controller.config.api.views import (
+from immunity_controller.config.api.views import (
     DeviceGroupListCreateView as BaseDeviceGroupListCreateView,
 )
-from openwisp_controller.config.api.views import (
+from immunity_controller.config.api.views import (
     DeviceListCreateView as BaseDeviceListCreateView,
 )
-from openwisp_controller.config.api.views import (
+from immunity_controller.config.api.views import (
     TemplateDetailView as BaseTemplateDetailView,
 )
-from openwisp_controller.config.api.views import (
+from immunity_controller.config.api.views import (
     TemplateListCreateView as BaseTemplateListCreateView,
 )
-from openwisp_controller.config.api.views import VpnDetailView as BaseVpnDetailView
-from openwisp_controller.config.api.views import (
+from immunity_controller.config.api.views import VpnDetailView as BaseVpnDetailView
+from immunity_controller.config.api.views import (
     VpnListCreateView as BaseVpnListCreateView,
 )
 

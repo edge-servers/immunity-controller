@@ -8,7 +8,7 @@ from django.contrib.auth.models import Permission
 from django.urls import re_path
 from swapper import load_model
 
-from openwisp_users.tests.utils import TestOrganizationMixin
+from immunity_users.tests.utils import TestOrganizationMixin
 
 from ..base.channels_consumer import BaseDeviceConsumer
 from .utils import CreateDeviceMixin

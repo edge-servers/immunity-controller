@@ -3,7 +3,7 @@ from django_x509.base.admin import AbstractCaAdmin, AbstractCertAdmin
 from reversion.admin import VersionAdmin
 from swapper import load_model
 
-from openwisp_users.multitenancy import MultitenantOrgFilter
+from immunity_users.multitenancy import MultitenantOrgFilter
 
 from ..admin import MultitenantAdminMixin
 

@@ -1,4 +1,4 @@
-from openwisp_controller.connection.apps import ConnectionConfig
+from immunity_controller.connection.apps import ConnectionConfig
 
 
 class SampleConnectionConfig(ConnectionConfig):

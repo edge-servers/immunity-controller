@@ -3,7 +3,7 @@
 
 from django.db import migrations
 
-from openwisp_controller.config.migrations import populate_organization_allowed_device
+from immunity_controller.config.migrations import populate_organization_allowed_device
 
 
 class Migration(migrations.Migration):

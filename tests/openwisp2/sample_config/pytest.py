@@ -1,4 +1,4 @@
-from openwisp_controller.config.tests.pytest import (
+from immunity_controller.config.tests.pytest import (
     TestDeviceConsumer as BaseTestDeviceConsumer,
 )
 

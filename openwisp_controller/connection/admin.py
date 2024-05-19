@@ -10,8 +10,8 @@ from django.utils.html import format_html
 from django.utils.timezone import localtime
 from django.utils.translation import gettext_lazy as _
 
-from openwisp_users.multitenancy import MultitenantOrgFilter
-from openwisp_utils.admin import TimeReadonlyAdminMixin
+from immunity_users.multitenancy import MultitenantOrgFilter
+from immunity_utils.admin import TimeReadonlyAdminMixin
 
 from ..admin import MultitenantAdminMixin
 from ..config.admin import DeviceAdmin
@@ -96,7 +96,7 @@ class CommandInline(admin.StackedInline):
     verbose_name_plural = verbose_name
     fields = ['status', 'type', 'input_data', 'output_data', 'created', 'modified']
     readonly_fields = ['input_data', 'output_data']
-    # hack for openwisp-monitoring integration
+    # hack for immunity-monitoring integration
     # TODO: remove when this issue solved:
     # https://github.com/theatlantic/django-nested-admin/issues/128#issuecomment-665833142
     sortable_options = {'disabled': True}

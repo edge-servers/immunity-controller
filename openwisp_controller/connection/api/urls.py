@@ -2,7 +2,7 @@ from django.urls import path
 
 from . import views as api_views
 
-app_name = 'openwisp_controller'
+app_name = 'immunity_controller'
 
 
 def get_api_urls(api_views):

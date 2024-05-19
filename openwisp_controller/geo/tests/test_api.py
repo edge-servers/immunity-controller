@@ -11,13 +11,13 @@ from PIL import Image
 from rest_framework.authtoken.models import Token
 from swapper import load_model
 
-from openwisp_controller.config.tests.utils import (
+from immunity_controller.config.tests.utils import (
     CreateConfigTemplateMixin,
     CreateDeviceMixin,
 )
-from openwisp_controller.tests.utils import TestAdminMixin
-from openwisp_users.tests.utils import TestOrganizationMixin
-from openwisp_utils.tests import AssertNumQueriesSubTestMixin, capture_any_output
+from immunity_controller.tests.utils import TestAdminMixin
+from immunity_users.tests.utils import TestOrganizationMixin
+from immunity_utils.tests import AssertNumQueriesSubTestMixin, capture_any_output
 
 from .utils import TestGeoMixin
 
@@ -25,8 +25,8 @@ Device = load_model('config', 'Device')
 Location = load_model('geo', 'Location')
 FloorPlan = load_model('geo', 'FloorPlan')
 DeviceLocation = load_model('geo', 'DeviceLocation')
-OrganizationUser = load_model('openwisp_users', 'OrganizationUser')
-Group = load_model('openwisp_users', 'Group')
+OrganizationUser = load_model('immunity_users', 'OrganizationUser')
+Group = load_model('immunity_users', 'Group')
 User = get_user_model()
 
 

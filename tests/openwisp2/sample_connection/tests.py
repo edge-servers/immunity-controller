@@ -1,26 +1,26 @@
-from openwisp_controller.connection.tests.test_admin import (
+from immunity_controller.connection.tests.test_admin import (
     TestCommandInlines as BaseTestCommandInlines,
 )
-from openwisp_controller.connection.tests.test_admin import (
+from immunity_controller.connection.tests.test_admin import (
     TestConnectionAdmin as BaseTestConnectionAdmin,
 )
-from openwisp_controller.connection.tests.test_api import (
+from immunity_controller.connection.tests.test_api import (
     TestConnectionApi as BaseTestConnectionApi,
 )
-from openwisp_controller.connection.tests.test_models import (
+from immunity_controller.connection.tests.test_models import (
     TestModels as BaseTestModels,
 )
-from openwisp_controller.connection.tests.test_models import (
+from immunity_controller.connection.tests.test_models import (
     TestModelsTransaction as BaseTestModelsTransaction,
 )
-from openwisp_controller.connection.tests.test_notifications import (
+from immunity_controller.connection.tests.test_notifications import (
     TestNotifications as BaseTestNotifications,
 )
-from openwisp_controller.connection.tests.test_notifications import (
+from immunity_controller.connection.tests.test_notifications import (
     TestNotificationTransaction as BaseTestNotificationTransaction,
 )
-from openwisp_controller.connection.tests.test_ssh import TestSsh as BaseTestSsh
-from openwisp_controller.connection.tests.test_tasks import TestTasks as BaseTestTasks
+from immunity_controller.connection.tests.test_ssh import TestSsh as BaseTestSsh
+from immunity_controller.connection.tests.test_tasks import TestTasks as BaseTestTasks
 
 
 class TestConnectionAdmin(BaseTestConnectionAdmin):

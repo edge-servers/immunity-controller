@@ -10,7 +10,7 @@ import model_utils.fields
 import swapper
 from django.db import migrations, models
 
-import openwisp_users.mixins
+import immunity_users.mixins
 
 from . import assign_devicegroup_permissions_to_groups
 
@@ -74,7 +74,7 @@ class Migration(migrations.Migration):
                     'organization',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -85,7 +85,7 @@ class Migration(migrations.Migration):
                 'abstract': False,
                 'swappable': 'CONFIG_DEVICEGROUP_MODEL',
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.AlterUniqueTogether(
             name='devicegroup',

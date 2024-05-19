@@ -5,7 +5,7 @@ from django.db.utils import DEFAULT_DB_ALIAS
 from django.test.testcases import _AssertNumQueriesContext
 from django.urls import reverse
 
-from openwisp_users.tests.utils import TestMultitenantAdminMixin
+from immunity_users.tests.utils import TestMultitenantAdminMixin
 
 user_model = get_user_model()
 

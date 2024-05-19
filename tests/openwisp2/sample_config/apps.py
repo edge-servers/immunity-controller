@@ -1,4 +1,4 @@
-from openwisp_controller.config.apps import ConfigConfig
+from immunity_controller.config.apps import ConfigConfig
 
 
 class SampleConfigConfig(ConfigConfig):

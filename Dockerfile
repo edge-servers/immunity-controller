@@ -8,18 +8,18 @@ RUN apt update && \
     sqlite3 libsqlite3-dev openssl libssl-dev && \
     rm -rf /var/lib/apt/lists/* /root/.cache/pip/* /tmp/*
 
-COPY requirements-test.txt requirements.txt /opt/openwisp/
-RUN pip install -r /opt/openwisp/requirements.txt && \
-    pip install -r /opt/openwisp/requirements-test.txt && \
+COPY requirements-test.txt requirements.txt /opt/immunity/
+RUN pip install -r /opt/immunity/requirements.txt && \
+    pip install -r /opt/immunity/requirements-test.txt && \
     pip install redis && \
     rm -rf /var/lib/apt/lists/* /root/.cache/pip/* /tmp/*
 
-ADD . /opt/openwisp
-RUN pip install -U /opt/openwisp && \
+ADD . /opt/immunity
+RUN pip install -U /opt/immunity && \
     rm -rf /var/lib/apt/lists/* /root/.cache/pip/* /tmp/*
 
-WORKDIR /opt/openwisp/tests/
-ENV NAME=openwisp-controller \
+WORKDIR /opt/immunity/tests/
+ENV NAME=immunity-controller \
     PYTHONBUFFERED=1
 CMD ["sh", "docker-entrypoint.sh"]
 EXPOSE 8000

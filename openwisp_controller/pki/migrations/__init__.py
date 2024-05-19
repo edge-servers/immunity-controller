@@ -7,7 +7,7 @@ def assign_permissions_to_groups(apps, schema_editor):
     create_default_permissions(apps, schema_editor)
     operators_read_only_admins_manage = ['ca', 'cert']
     manage_operations = ['add', 'change', 'delete']
-    Group = get_swapped_model(apps, 'openwisp_users', 'Group')
+    Group = get_swapped_model(apps, 'immunity_users', 'Group')
 
     try:
         admin = Group.objects.get(name='Administrator')

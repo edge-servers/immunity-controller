@@ -1,4 +1,4 @@
-from openwisp_controller.geo.apps import GeoConfig
+from immunity_controller.geo.apps import GeoConfig
 
 
 class SampleGeoConfig(GeoConfig):

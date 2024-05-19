@@ -1,1 +1,1 @@
-from openwisp_controller.pki import admin  # noqa
+from immunity_controller.pki import admin  # noqa

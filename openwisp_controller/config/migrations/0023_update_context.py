@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 default=dict,
                 dump_kwargs={'ensure_ascii': False, 'indent': 4},
                 help_text=(
-                    'Additional <a href="http://netjsonconfig.openwisp.org'
+                    'Additional <a href="http://netjsonconfig.immunity.org'
                     '/en/stable/general/basics.html#context" target="_blank">'
                     'context (configuration variables)</a> in JSON format'
                 ),

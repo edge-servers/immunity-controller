@@ -4,7 +4,7 @@ from django.db import migrations
 def update_legacy_vpn_backend(apps, schema_editor):
     Vpn = apps.get_model('config', 'Vpn')
     Vpn.objects.filter(backend='django_netjsonconfig.vpn_backends.OpenVpn').update(
-        backend='openwisp_controller.vpn_backends.OpenVpn'
+        backend='immunity_controller.vpn_backends.OpenVpn'
     )
 
 

@@ -82,7 +82,7 @@ class AbstractConfig(BaseConfig):
         default=dict,
         help_text=_(
             'Additional '
-            '<a href="http://netjsonconfig.openwisp.org/'
+            '<a href="http://netjsonconfig.immunity.org/'
             'en/stable/general/basics.html#context" target="_blank">'
             'context (configuration variables)</a> in JSON format'
         ),

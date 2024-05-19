@@ -5,6 +5,6 @@ omit =
     /*/__init__.py
     /setup.py
     /*/migrations/*
-source = openwisp_controller
+source = immunity_controller
 parallel = true
 concurrency = multiprocessing

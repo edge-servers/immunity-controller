@@ -1,4 +1,4 @@
-from openwisp_users.apps import OpenwispUsersConfig
+from immunity_users.apps import OpenwispUsersConfig
 
 
 class SampleUsersConfig(OpenwispUsersConfig):

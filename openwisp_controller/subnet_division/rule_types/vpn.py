@@ -6,7 +6,7 @@ from .base import BaseSubnetDivisionRuleType
 
 Vpn = load_model('config', 'Vpn')
 VpnClient = load_model('config', 'VpnClient')
-Subnet = load_model('openwisp_ipam', 'Subnet')
+Subnet = load_model('immunity_ipam', 'Subnet')
 
 
 class VpnSubnetDivisionRuleType(BaseSubnetDivisionRuleType):

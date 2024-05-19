@@ -2,28 +2,28 @@
 
 set -e
 
-rm -rf ./openwisp_controller/geo/tests/.pytest_cache \
-       ./openwisp_controller/config/tests/.pytest_cache/ \
-       ./openwisp_controller/connection/tests/.pytest_cache/ \
-       ./openwisp_controller/.pytest_cache/ \
+rm -rf ./immunity_controller/geo/tests/.pytest_cache \
+       ./immunity_controller/config/tests/.pytest_cache/ \
+       ./immunity_controller/connection/tests/.pytest_cache/ \
+       ./immunity_controller/.pytest_cache/ \
        ./tests/immunity22/sample_geo/.pytest_cache \
        ./tests/.pytest_cache \
        ./tests/immunity22/.pytest_cache/ \
        ./htmlcov/ 2> /dev/null || true
 
-openwisp-qa-check \
+immunity-qa-check \
   --csslinter \
   --jslinter \
   --migrations-to-ignore "12 0 0 4" \
-  --migration-path "./openwisp_controller/config/migrations
-                  ./openwisp_controller/connection/migrations
-                  ./openwisp_controller/geo/migrations
-                  ./openwisp_controller/pki/migrations
-                  ./openwisp_controller/subnet_division/migrations"
+  --migration-path "./immunity_controller/config/migrations
+                  ./immunity_controller/connection/migrations
+                  ./immunity_controller/geo/migrations
+                  ./immunity_controller/pki/migrations
+                  ./immunity_controller/subnet_division/migrations"
 
 echo ''
 echo 'Running checks for SAMPLE_APP'
-SAMPLE_APP=1 openwisp-qa-check \
+SAMPLE_APP=1 immunity-qa-check \
   --skip-isort \
   --skip-flake8 \
   --skip-black \

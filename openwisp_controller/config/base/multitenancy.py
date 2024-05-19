@@ -6,7 +6,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from jsonfield import JSONField
 
-from openwisp_utils.base import KeyField, UUIDModel
+from immunity_utils.base import KeyField, UUIDModel
 
 from ..exceptions import OrganizationDeviceLimitExceeded
 from ..tasks import bulk_invalidate_config_get_cached_checksum
@@ -15,7 +15,7 @@ from ..tasks import bulk_invalidate_config_get_cached_checksum
 class AbstractOrganizationConfigSettings(UUIDModel):
 
     organization = models.OneToOneField(
-        swapper.get_model_name('openwisp_users', 'Organization'),
+        swapper.get_model_name('immunity_users', 'Organization'),
         verbose_name=_('organization'),
         related_name='config_settings',
         on_delete=models.CASCADE,
@@ -70,7 +70,7 @@ class AbstractOrganizationConfigSettings(UUIDModel):
 
 class AbstractOrganizationLimits(models.Model):
     organization = models.OneToOneField(
-        swapper.get_model_name('openwisp_users', 'Organization'),
+        swapper.get_model_name('immunity_users', 'Organization'),
         verbose_name=_('organization'),
         primary_key=True,
         related_name='config_limits',

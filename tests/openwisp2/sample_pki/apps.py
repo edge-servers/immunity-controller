@@ -1,4 +1,4 @@
-from openwisp_controller.pki.apps import PkiConfig
+from immunity_controller.pki.apps import PkiConfig
 
 
 class SamplePkiConfig(PkiConfig):

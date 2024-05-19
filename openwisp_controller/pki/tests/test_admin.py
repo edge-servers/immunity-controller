@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from swapper import load_model
 
-from openwisp_users.tests.utils import TestOrganizationMixin
+from immunity_users.tests.utils import TestOrganizationMixin
 
 from ...tests.utils import TestAdminMixin
 from .utils import TestPkiMixin
@@ -130,7 +130,7 @@ class TestAdmin(TestPkiMixin, TestAdminMixin, TestOrganizationMixin, TestCase):
         self._test_recoverlist_operator_403(self.app_label, 'cert')
 
     def test_admin_menu_groups(self):
-        # Test menu group (openwisp-utils menu group) for Ca, Cert models
+        # Test menu group (immunity-utils menu group) for Ca, Cert models
         self.client.force_login(self._get_admin())
         models = ['ca', 'cert']
         response = self.client.get(reverse('admin:index'))

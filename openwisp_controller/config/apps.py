@@ -10,14 +10,14 @@ from django.db.models.signals import (
     pre_save,
 )
 from django.utils.translation import gettext_lazy as _
-from openwisp_notifications.types import (
+from immunity_notifications.types import (
     register_notification_type,
     unregister_notification_type,
 )
 from swapper import get_model_name, load_model
 
-from openwisp_utils.admin_theme import register_dashboard_chart
-from openwisp_utils.admin_theme.menu import register_menu_group
+from immunity_utils.admin_theme import register_dashboard_chart
+from immunity_utils.admin_theme.menu import register_menu_group
 
 from . import settings as app_settings
 from .signals import (
@@ -36,7 +36,7 @@ app_settings.HARDWARE_ID_OPTIONS['unique'] = False
 
 
 class ConfigConfig(AppConfig):
-    name = 'openwisp_controller.config'
+    name = 'immunity_controller.config'
     label = 'config'
     verbose_name = _('Network Configuration')
     default_auto_field = 'django.db.models.AutoField'
@@ -59,7 +59,7 @@ class ConfigConfig(AppConfig):
         self.vpnclient_model = load_model('config', 'VpnClient')
         self.org_limits = load_model('config', 'OrganizationLimits')
         self.cert_model = load_model('django_x509', 'Cert')
-        self.org_model = load_model('openwisp_users', 'Organization')
+        self.org_model = load_model('immunity_users', 'Organization')
 
     def connect_signals(self):
         """
@@ -200,7 +200,7 @@ class ConfigConfig(AppConfig):
                     'present on the filesystem of the device.'
                 ),
                 'target_link': (
-                    'openwisp_controller.config.utils'
+                    'immunity_controller.config.utils'
                     '.get_config_error_notification_target_url'
                 ),
             },
@@ -273,12 +273,12 @@ class ConfigConfig(AppConfig):
 
     def add_ignore_notification_widget(self):
         """
-        Adds ingore notification widget from openwisp-notifications to DeviceAdmin.
+        Adds ingore notification widget from immunity-notifications to DeviceAdmin.
         """
         obj_notification_widget = getattr(
             settings, 'OPENWISP_NOTIFICATIONS_IGNORE_ENABLED_ADMIN', []
         )
-        device_admin = 'openwisp_controller.config.admin.DeviceAdmin'
+        device_admin = 'immunity_controller.config.admin.DeviceAdmin'
         if device_admin not in obj_notification_widget:
             obj_notification_widget.append(device_admin)
             setattr(
@@ -460,7 +460,7 @@ class ConfigConfig(AppConfig):
             )
 
     def notification_cache_update(self):
-        from openwisp_notifications.handlers import register_notification_cache_update
+        from immunity_notifications.handlers import register_notification_cache_update
 
         register_notification_cache_update(
             self.device_model,

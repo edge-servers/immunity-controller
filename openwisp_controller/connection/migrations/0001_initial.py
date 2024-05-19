@@ -11,7 +11,7 @@ import swapper
 from django.conf import settings
 from django.db import migrations, models
 
-import openwisp_users.mixins
+import immunity_users.mixins
 
 from .. import settings as app_settings
 
@@ -82,7 +82,7 @@ class Migration(migrations.Migration):
                         blank=True,
                         null=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -91,7 +91,7 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'Access credentials',
                 'verbose_name': 'Access credentials',
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='DeviceConnection',

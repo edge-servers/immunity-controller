@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 from django.test import TestCase
 
-from openwisp_users.tests.utils import TestOrganizationMixin
+from immunity_users.tests.utils import TestOrganizationMixin
 
 from .. import tasks
 

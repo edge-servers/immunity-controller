@@ -2,10 +2,10 @@ from django.db import connections
 from django.db.utils import DEFAULT_DB_ALIAS
 from django.test.testcases import _AssertNumQueriesContext
 from netaddr import IPNetwork
-from openwisp_ipam.tests import CreateModelsMixin as SubnetIpamMixin
+from immunity_ipam.tests import CreateModelsMixin as SubnetIpamMixin
 from swapper import load_model
 
-from openwisp_controller.subnet_division.rule_types.device import (
+from immunity_controller.subnet_division.rule_types.device import (
     DeviceSubnetDivisionRuleType,
 )
 
@@ -14,7 +14,7 @@ from ..rule_types.vpn import VpnSubnetDivisionRuleType
 
 SubnetDivisionRule = load_model('subnet_division', 'SubnetDivisionRule')
 SubnetDivisionIndex = load_model('subnet_division', 'SubnetDivisionIndex')
-Subnet = load_model('openwisp_ipam', 'Subnet')
+Subnet = load_model('immunity_ipam', 'Subnet')
 
 
 class SubnetDivisionTestMixin(CreateConfigTemplateMixin, SubnetIpamMixin):
@@ -122,7 +122,7 @@ class _CustomAssertnumQueriesContext(_AssertNumQueriesContext):
         """
         This method increases the number of expected database
         queries if subnet_division app is enabled. Tests in
-        "openwisp_controller.config" are written assuming
+        "immunity_controller.config" are written assuming
         subnet_division is disabled. Therefore, it is required
         to increase the number of expected queries in those tests.
         """

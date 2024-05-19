@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
-from openwisp_users.mixins import ShareableOrgMixin
+from immunity_users.mixins import ShareableOrgMixin
 
 
 class ShareableOrgMixinUniqueName(ShareableOrgMixin):

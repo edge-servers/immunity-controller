@@ -8,8 +8,8 @@ from django.test.testcases import TransactionTestCase
 from netjsonconfig import OpenWrt
 from swapper import load_model
 
-from openwisp_users.tests.utils import TestOrganizationMixin
-from openwisp_utils.tests import catch_signal
+from immunity_users.tests.utils import TestOrganizationMixin
+from immunity_utils.tests import catch_signal
 
 from .. import settings as app_settings
 from ..base.config import logger as config_model_logger

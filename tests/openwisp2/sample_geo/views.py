@@ -1,25 +1,25 @@
-from openwisp_controller.geo.api.views import (
+from immunity_controller.geo.api.views import (
     DeviceCoordinatesView as BaseDeviceCoordinatesView,
 )
-from openwisp_controller.geo.api.views import (
+from immunity_controller.geo.api.views import (
     DeviceLocationView as BaseDeviceLocationView,
 )
-from openwisp_controller.geo.api.views import (
+from immunity_controller.geo.api.views import (
     FloorPlanDetailView as BaseFloorPlanDetailView,
 )
-from openwisp_controller.geo.api.views import (
+from immunity_controller.geo.api.views import (
     FloorPlanListCreateView as BaseFloorPlanListCreateView,
 )
-from openwisp_controller.geo.api.views import (
+from immunity_controller.geo.api.views import (
     GeoJsonLocationList as BaseGeoJsonLocationList,
 )
-from openwisp_controller.geo.api.views import (
+from immunity_controller.geo.api.views import (
     LocationDetailView as BaseLocationDetailView,
 )
-from openwisp_controller.geo.api.views import (
+from immunity_controller.geo.api.views import (
     LocationDeviceList as BaseLocationDeviceList,
 )
-from openwisp_controller.geo.api.views import (
+from immunity_controller.geo.api.views import (
     LocationListCreateView as BaseLocationListCreateView,
 )
 

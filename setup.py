@@ -4,7 +4,7 @@ import sys
 
 from setuptools import find_packages, setup
 
-from openwisp_controller import get_version
+from immunity_controller import get_version
 
 
 def get_install_requires():
@@ -40,17 +40,17 @@ if sys.argv[-1] == 'publish':
 
 
 setup(
-    name="openwisp-controller",
+    name="immunity-controller",
     version=get_version(),
     license="GPL3",
     author="Federico Capoano",
     author_email="federico.capoano@gmail.com",
     description="OpenWISP 2 Controller",
     long_description=open("README.rst").read(),
-    url="http://openwisp.org",
-    download_url="https://github.com/edge-servers/openwisp-controller/releases",
+    url="http://immunity.org",
+    download_url="https://github.com/edge-servers/immunity-controller/releases",
     platforms=["Platform Independent"],
-    keywords=["django", "netjson", "openwrt", "networking", "openwisp"],
+    keywords=["django", "netjson", "openwrt", "networking", "immunity"],
     packages=find_packages(exclude=['tests*', 'docs*']),
     include_package_data=True,
     zip_safe=False,

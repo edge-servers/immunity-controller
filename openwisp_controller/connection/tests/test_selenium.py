@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from swapper import load_model
 
-from openwisp_utils.test_selenium_mixins import SeleniumTestMixin
+from immunity_utils.test_selenium_mixins import SeleniumTestMixin
 
 from .utils import CreateConnectionsMixin
 

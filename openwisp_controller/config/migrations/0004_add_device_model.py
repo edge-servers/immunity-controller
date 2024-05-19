@@ -10,8 +10,8 @@ import model_utils.fields
 from django.db import migrations, models
 from swapper import get_model_name
 
-import openwisp_utils.base
-import openwisp_utils.utils
+import immunity_utils.base
+import immunity_utils.utils
 
 from .. import settings as app_settings
 
@@ -55,9 +55,9 @@ class Migration(migrations.Migration):
                 ),
                 (
                     'key',
-                    openwisp_utils.base.KeyField(
+                    immunity_utils.base.KeyField(
                         db_index=True,
-                        default=openwisp_utils.utils.get_random_key,
+                        default=immunity_utils.utils.get_random_key,
                         help_text='unique device key',
                         max_length=64,
                         unique=True,
@@ -111,7 +111,7 @@ class Migration(migrations.Migration):
                     'organization',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=get_model_name('openwisp_users', 'Organization'),
+                        to=get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),

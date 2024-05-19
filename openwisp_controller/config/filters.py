@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from swapper import load_model
 
-from openwisp_users.multitenancy import MultitenantRelatedOrgFilter
+from immunity_users.multitenancy import MultitenantRelatedOrgFilter
 
 Config = load_model('config', 'Config')
 

@@ -9,7 +9,7 @@ from django.utils import timezone
 from django.utils.module_loading import import_string
 from swapper import load_model
 
-from openwisp_utils.tests import capture_any_output, catch_signal
+from immunity_utils.tests import capture_any_output, catch_signal
 
 from ...tests.utils import TransactionTestMixin
 from .. import settings as app_settings
@@ -29,8 +29,8 @@ Config = load_model('config', 'Config')
 Device = load_model('config', 'Device')
 Credentials = load_model('connection', 'Credentials')
 DeviceConnection = load_model('connection', 'DeviceConnection')
-Group = load_model('openwisp_users', 'Group')
-Organization = load_model('openwisp_users', 'Organization')
+Group = load_model('immunity_users', 'Group')
+Organization = load_model('immunity_users', 'Organization')
 Command = load_model('connection', 'Command')
 
 _connect_path = 'paramiko.SSHClient.connect'
@@ -753,7 +753,7 @@ HZAAAAgAhZz8ve4sK9Wbopq43Cu2kQDgX4NoA6W+FCmxCKf5AhYIzYQxIqyCazd7MrjCwS""",
             },
         }
         callable_path = (
-            'openwisp_controller.connection.tests.utils.' '_ping_command_callable'
+            'immunity_controller.connection.tests.utils.' '_ping_command_callable'
         )
         dc = self._create_device_connection()
         stderr = 'Destination host unreachable'
@@ -893,18 +893,18 @@ class TestModelsTransaction(TransactionTestMixin, BaseTestModels, TransactionTes
     def test_device_config_update(self, mocked_sleep, mocked_connect):
         def _assert_version_check_command(mocked_exec):
             args, _ = mocked_exec.call_args_list[0]
-            self.assertEqual(args[0], 'openwisp_config --version')
+            self.assertEqual(args[0], 'immunity_config --version')
 
         def _assert_applying_conf_test_command(mocked_exec):
             args, _ = mocked_exec_command.call_args_list[1]
             self.assertEqual(
                 args[0],
-                'test -f /tmp/openwisp/applying_conf',
+                'test -f /tmp/immunity/applying_conf',
             )
 
         conf = self._prepare_conf_object()
 
-        with self.subTest('Unable to get openwisp_config version'):
+        with self.subTest('Unable to get immunity_config version'):
             with mock.patch(_exec_command_path) as mocked_exec_command:
                 mocked_exec_command.return_value = self._exec_command_return_value(
                     exit_code=1
@@ -915,12 +915,12 @@ class TestModelsTransaction(TransactionTestMixin, BaseTestModels, TransactionTes
             conf.refresh_from_db()
             self.assertEqual(conf.status, 'modified')
 
-        with self.subTest('openwisp_config >= 0.6.0a'):
+        with self.subTest('immunity_config >= 0.6.0a'):
             conf.config = '{"dns_servers": []}'
             conf.full_clean()
             with mock.patch(_exec_command_path) as mocked_exec_command:
                 mocked_exec_command.return_value = self._exec_command_return_value(
-                    stdout='openwisp_config 0.6.0a'
+                    stdout='immunity_config 0.6.0a'
                 )
                 conf.save()
                 self.assertEqual(mocked_exec_command.call_count, 2)
@@ -930,12 +930,12 @@ class TestModelsTransaction(TransactionTestMixin, BaseTestModels, TransactionTes
             conf.refresh_from_db()
             self.assertEqual(conf.status, 'modified')
 
-        with self.subTest('openwisp_config < 0.6.0a: exit_code 0'):
+        with self.subTest('immunity_config < 0.6.0a: exit_code 0'):
             conf.config = '{"interfaces": [{"name": "eth00","type": "ethernet"}]}'
             conf.full_clean()
             with mock.patch(_exec_command_path) as mocked_exec_command:
                 mocked_exec_command.return_value = self._exec_command_return_value(
-                    stdout='openwisp_config 0.5.0'
+                    stdout='immunity_config 0.5.0'
                 )
                 conf.save()
                 self.assertEqual(mocked_exec_command.call_count, 2)
@@ -944,17 +944,17 @@ class TestModelsTransaction(TransactionTestMixin, BaseTestModels, TransactionTes
             conf.refresh_from_db()
             self.assertEqual(conf.status, 'modified')
 
-        with self.subTest('openwisp_config < 0.6.0a: exit_code 1'):
+        with self.subTest('immunity_config < 0.6.0a: exit_code 1'):
             conf.config = '{"radios": []}'
             conf.full_clean()
             with mock.patch(_exec_command_path) as mocked_exec_command:
                 stdin, stdout, stderr = self._exec_command_return_value(
-                    stdout='openwisp_config 0.5.0'
+                    stdout='immunity_config 0.5.0'
                 )
                 # An iterable side effect is required for different exit codes:
-                # 1. Checking openwisp_config returns with 0
-                # 2. Testing presence of /tmp/openwisp/applying_conf returns with 1
-                # 3. Restarting openwisp_config returns with 0 exit code
+                # 1. Checking immunity_config returns with 0
+                # 2. Testing presence of /tmp/immunity/applying_conf returns with 1
+                # 3. Restarting immunity_config returns with 0 exit code
                 stdout.channel.recv_exit_status.side_effect = [0, 1, 1]
                 mocked_exec_command.return_value = (stdin, stdout, stderr)
                 conf.save()
@@ -962,7 +962,7 @@ class TestModelsTransaction(TransactionTestMixin, BaseTestModels, TransactionTes
                 _assert_version_check_command(mocked_exec_command)
                 _assert_applying_conf_test_command(mocked_exec_command)
                 args, _ = mocked_exec_command.call_args_list[2]
-                self.assertEqual(args[0], '/etc/init.d/openwisp_config restart')
+                self.assertEqual(args[0], '/etc/init.d/immunity_config restart')
             conf.refresh_from_db()
             # exit code 1 considers the update not successful
             self.assertEqual(conf.status, 'modified')

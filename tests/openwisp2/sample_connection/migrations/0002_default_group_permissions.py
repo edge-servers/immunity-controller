@@ -1,6 +1,6 @@
 from django.db import migrations
 
-from openwisp_controller.connection.migrations import (
+from immunity_controller.connection.migrations import (
     assign_command_permissions_to_groups,
     assign_permissions_to_groups,
 )

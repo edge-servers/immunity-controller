@@ -14,9 +14,9 @@ Command = load_model('connection', 'Command')
 
 
 class TestTasks(CreateConnectionsMixin, TestCase):
-    _mock_execute = 'openwisp_controller.connection.base.models.AbstractCommand.execute'
+    _mock_execute = 'immunity_controller.connection.base.models.AbstractCommand.execute'
     _mock_connect = (
-        'openwisp_controller.connection.base.models.AbstractDeviceConnection.connect'
+        'immunity_controller.connection.base.models.AbstractDeviceConnection.connect'
     )
 
     @mock.patch('logging.Logger.warning')

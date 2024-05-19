@@ -4,21 +4,21 @@
 
 publiccodeYmlVersion: '0.3'
 name: OpenWISP Controller
-url: 'https://github.com/edge-servers/openwisp-controller'
+url: 'https://github.com/edge-servers/immunity-controller'
 developmentStatus: stable
 platforms:
   - linux
 softwareType: standalone/web
 releaseDate: '2022-04-29'
 softwareVersion: 1.0.0
-logo: 'openwisp.org.svg'
+logo: 'immunity.org.svg'
 categories:
   - network-management
 maintenance:
   type: community
   contacts:
     - name: Federico Capoano
-      email: f.capoano@openwisp.io
+      email: f.capoano@immunity.io
     - name: Marco Cappellacci
       email: marco.cappellacci@uniurb.it
 legal:
@@ -35,7 +35,7 @@ it:
 description:
   en:
     genericName: Network Management System
-    documentation: 'http://openwisp.io/docs/'
+    documentation: 'http://immunity.io/docs/'
     shortDescription: A Hackable Network Management System for the 21st Century
     longDescription: >
       OpenWISP is a software platform designed to ease and automate the

@@ -1,41 +1,41 @@
-openwisp-controller
+immunity-controller
 ===================
 
-.. image:: https://github.com/edge-servers/openwisp-controller/workflows/OpenWISP%20Controller%20CI%20Build/badge.svg?branch=master
-   :target: https://github.com/edge-servers/openwisp-controller/actions?query=workflow%3A%22OpenWISP+Controller+CI+Build%22
+.. image:: https://github.com/edge-servers/immunity-controller/workflows/OpenWISP%20Controller%20CI%20Build/badge.svg?branch=master
+   :target: https://github.com/edge-servers/immunity-controller/actions?query=workflow%3A%22OpenWISP+Controller+CI+Build%22
    :alt: CI build status
 
-.. image:: https://coveralls.io/repos/openwisp/openwisp-controller/badge.svg
-   :target: https://coveralls.io/r/openwisp/openwisp-controller
+.. image:: https://coveralls.io/repos/immunity/immunity-controller/badge.svg
+   :target: https://coveralls.io/r/immunity/immunity-controller
    :alt: Test Coverage
 
-.. image:: https://img.shields.io/librariesio/release/github/openwisp/openwisp-controller
-  :target: https://libraries.io/github/openwisp/openwisp-controller#repository_dependencies
+.. image:: https://img.shields.io/librariesio/release/github/immunity/immunity-controller
+  :target: https://libraries.io/github/immunity/immunity-controller#repository_dependencies
   :alt: Dependency monitoring
 
 .. image:: https://img.shields.io/gitter/room/nwjs/nw.js.svg
-   :target: https://gitter.im/openwisp/general
+   :target: https://gitter.im/immunity/general
    :alt: Chat
 
-.. image:: https://badge.fury.io/py/openwisp-controller.svg
-   :target: http://badge.fury.io/py/openwisp-controller
+.. image:: https://badge.fury.io/py/immunity-controller.svg
+   :target: http://badge.fury.io/py/immunity-controller
    :alt: Pypi Version
 
-.. image:: https://pepy.tech/badge/openwisp-controller
-   :target: https://pepy.tech/project/openwisp-controller
+.. image:: https://pepy.tech/badge/immunity-controller
+   :target: https://pepy.tech/project/immunity-controller
    :alt: Downloads
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://pypi.org/project/black/
    :alt: code style: black
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/controller_demo.gif
-   :target: https://github.com/edge-servers/openwisp-controller/tree/docs/docs/controller_demo.gif
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/controller_demo.gif
+   :target: https://github.com/edge-servers/immunity-controller/tree/docs/docs/controller_demo.gif
    :alt: Feature Highlights
 
 ------------
 
-**Need a quick overview?** `Try the OpenWISP Demo <https://openwisp.org/demo.html>`_.
+**Need a quick overview?** `Try the OpenWISP Demo <https://immunity.org/demo.html>`_.
 
 OpenWISP Controller is a configuration manager that allows to automate several
 networking tasks like adoption, provisioning, management VPN configuration,
@@ -48,35 +48,35 @@ on top of its building blocks.
 
 Other popular building blocks that are part of the OpenWISP ecosystem are:
 
-- `openwisp-monitoring <https://github.com/edge-servers/openwisp-monitoring>`_:
+- `immunity-monitoring <https://github.com/edge-servers/immunity-monitoring>`_:
   provides device status monitoring, collection of metrics, charts, alerts,
   possibility to define custom checks
-- `openwisp-firmware-upgrader <https://github.com/edge-servers/openwisp-firmware-upgrader>`_:
+- `immunity-firmware-upgrader <https://github.com/edge-servers/immunity-firmware-upgrader>`_:
   automated firmware upgrades (single devices or mass network upgrades)
-- `openwisp-radius <https://github.com/edge-servers/openwisp-radius>`_:
+- `immunity-radius <https://github.com/edge-servers/immunity-radius>`_:
   based on FreeRADIUS, allows to implement network access authentication systems like
   802.1x WPA2 Enterprise, captive portal authentication, Hotspot 2.0 (802.11u)
-- `openwisp-network-topology <https://github.com/edge-servers/openwisp-network-topology>`_:
+- `immunity-network-topology <https://github.com/edge-servers/immunity-network-topology>`_:
   provides way to collect and visualize network topology data from
   dynamic mesh routing daemons or other network software (eg: OpenVPN);
-  it can be used in conjunction with openwisp-monitoring to get a better idea
+  it can be used in conjunction with immunity-monitoring to get a better idea
   of the state of the network
-- `openwisp-ipam <https://github.com/edge-servers/openwisp-ipam>`_:
+- `immunity-ipam <https://github.com/edge-servers/immunity-ipam>`_:
   allows to manage the assignment of IP addresses used in the network
-- `openwisp-notifications <https://github.com/edge-servers/openwisp-notifications>`_:
+- `immunity-notifications <https://github.com/edge-servers/immunity-notifications>`_:
   allows users to be aware of important events happening in the network.
 
 **For a more complete overview of the OpenWISP modules and architecture**,
 see the
 `OpenWISP Architecture Overview
-<https://openwisp.io/docs/general/architecture.html>`_.
+<https://immunity.io/docs/general/architecture.html>`_.
 
-.. image:: https://raw.githubusercontent.com/openwisp/immunity22-docs/master/assets/design/openwisp-logo-black.svg
-  :target: http://openwisp.org
+.. image:: https://raw.githubusercontent.com/immunity/immunity22-docs/master/assets/design/immunity-logo-black.svg
+  :target: http://immunity.org
   :alt: OpenWISP
 
 **Want to help OpenWISP?** `Find out how to help us grow here
-<http://openwisp.io/docs/general/help-us.html>`_.
+<http://immunity.io/docs/general/help-us.html>`_.
 
 ------------
 
@@ -100,7 +100,7 @@ Config App
     - support for additional firmware can be added by `specifying custom backends <#netjsonconfig-backends>`_
 * **configuration editor** based on `JSON-Schema editor <https://github.com/jdorn/json-editor>`_
 * **advanced edit mode**: edit `NetJSON  <http://netjson.org>`_ *DeviceConfiguration* objects for maximum flexibility
-* `configuration templates <https://openwisp.io/docs/user/templates.html>`_:
+* `configuration templates <https://immunity.io/docs/user/templates.html>`_:
   reduce repetition to the minimum, configure default and required templates
 * `configuration variables <#how-to-use-configuration-variables>`_:
   reference ansible-like variables in the configuration and templates
@@ -108,7 +108,7 @@ Config App
 * **device groups**: add `devices to dedicated groups <#device-groups>`_ to
   ease management of group of devices
 * **simple HTTP resources**: allow devices to automatically download configuration updates
-* **VPN management**: `automatically provision VPN tunnels <#openwisp-controller-default-auto-cert>`_,
+* **VPN management**: `automatically provision VPN tunnels <#immunity-controller-default-auto-cert>`_,
   including cryptographic keys, IP addresses
 * `REST API <#rest-api-reference>`_
 * `Export/Import devices <#exportimport-device-data>`_
@@ -136,7 +136,7 @@ in order perform `push operations <#how-to-configure-push-updates>`__:
 
 - Sending configuration updates.
 - `Executing shell commands <#sending-commands-to-devices>`_.
-- Perform `firmware upgrades via the additional firmware upgrade module <https://github.com/edge-servers/openwisp-firmware-upgrader>`_.
+- Perform `firmware upgrades via the additional firmware upgrade module <https://github.com/edge-servers/immunity-firmware-upgrader>`_.
 - `REST API <#rest-api-reference>`_
 
 The default connection protocol implemented is SSH, but other protocol
@@ -151,8 +151,8 @@ SNMP
 ####
 
 The SNMP connector is useful to collect monitoring information and it's used in
-`openwisp-monitoring`_ for performing checks to collect monitoring information.
-`Read more <https://github.com/edge-servers/openwisp-monitoring/pull/309#discussion_r692566202>`_ on how to use it.
+`immunity-monitoring`_ for performing checks to collect monitoring information.
+`Read more <https://github.com/edge-servers/immunity-monitoring/pull/309#discussion_r692566202>`_ on how to use it.
 
 Geo App
 ~~~~~~~
@@ -189,7 +189,7 @@ Deploy it in production
 See:
 
 - `ansible-immunity22 <https://github.com/edge-servers/ansible-immunity22>`_
-- `docker-openwisp <https://github.com/edge-servers/docker-openwisp>`_
+- `docker-immunity <https://github.com/edge-servers/docker-immunity>`_
 
 Dependencies
 ~~~~~~~~~~~~
@@ -204,7 +204,7 @@ Install from pypi:
 
 .. code-block:: shell
 
-    pip install openwisp-controller
+    pip install immunity-controller
 
 Install development version
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -213,13 +213,13 @@ Install tarball:
 
 .. code-block:: shell
 
-    pip install https://github.com/edge-servers/openwisp-controller/tarball/master
+    pip install https://github.com/edge-servers/immunity-controller/tarball/master
 
 Alternatively you can install via pip using git:
 
 .. code-block:: shell
 
-    pip install -e git+git://github.com/edge-servers/openwisp-controller#egg=openwisp_controller
+    pip install -e git+git://github.com/edge-servers/immunity-controller#egg=immunity_controller
 
 If you want to contribute, follow the instructions in
 `Installing for development <#installing-for-development>`_.
@@ -240,13 +240,13 @@ Fork and clone the forked repository:
 
 .. code-block:: shell
 
-    git clone git://github.com/<your_fork>/openwisp-controller
+    git clone git://github.com/<your_fork>/immunity-controller
 
 Navigate into the cloned repository:
 
 .. code-block:: shell
 
-    cd openwisp-controller/
+    cd immunity-controller/
 
 Launch Redis and PostgreSQL:
 
@@ -318,8 +318,8 @@ Install and run on docker
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 NOTE: This Docker image is for development purposes only.
-For the official OpenWISP Docker images, see: `docker-openwisp
-<https://github.com/edge-servers/docker-openwisp>`_.
+For the official OpenWISP Docker images, see: `docker-immunity
+<https://github.com/edge-servers/docker-immunity>`_.
 
 Build from the Dockerfile:
 
@@ -359,25 +359,25 @@ Please refer
 Setup (integrate in an existing django project)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add ``openwisp_controller`` applications to ``INSTALLED_APPS``:
+Add ``immunity_controller`` applications to ``INSTALLED_APPS``:
 
 .. code-block:: python
 
     INSTALLED_APPS = [
         ...
         # immunity22 modules
-        'openwisp_controller.config',
-        'openwisp_controller.pki',
-        'openwisp_controller.geo',
-        'openwisp_controller.connection',
-        'openwisp_controller.subnet_division', # Optional
-        'openwisp_controller.notifications',
-        'openwisp_users',
-        'openwisp_notifications',
-        'openwisp_ipam',
+        'immunity_controller.config',
+        'immunity_controller.pki',
+        'immunity_controller.geo',
+        'immunity_controller.connection',
+        'immunity_controller.subnet_division', # Optional
+        'immunity_controller.notifications',
+        'immunity_users',
+        'immunity_notifications',
+        'immunity_ipam',
         # immunity22 admin theme
         # (must be loaded here)
-        'openwisp_utils.admin_theme',
+        'immunity_utils.admin_theme',
         'admin_auto_filters',
         'django.contrib.admin',
         'django.forms',
@@ -396,10 +396,10 @@ Other settings needed in ``settings.py``:
     STATICFILES_FINDERS = [
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-        'openwisp_utils.staticfiles.DependencyFinder',
+        'immunity_utils.staticfiles.DependencyFinder',
     ]
 
-    ASGI_APPLICATION = 'openwisp_controller.geo.channels.routing.channel_routing'
+    ASGI_APPLICATION = 'immunity_controller.geo.channels.routing.channel_routing'
     CHANNEL_LAYERS = {
         # in production you should use another channel layer backend
         'default': {'BACKEND': 'channels.layers.InMemoryChannelLayer'},
@@ -413,15 +413,15 @@ Other settings needed in ``settings.py``:
                 'loaders': [
                     'django.template.loaders.filesystem.Loader',
                     'django.template.loaders.app_directories.Loader',
-                    'openwisp_utils.loaders.DependencyLoader',
+                    'immunity_utils.loaders.DependencyLoader',
                 ],
                 'context_processors': [
                     'django.template.context_processors.debug',
                     'django.template.context_processors.request',
                     'django.contrib.auth.context_processors.auth',
                     'django.contrib.messages.context_processors.messages',
-                    'openwisp_utils.admin_theme.context_processor.menu_items',
-                    'openwisp_notifications.context_processors.notification_api_settings',
+                    'immunity_utils.admin_theme.context_processor.menu_items',
+                    'immunity_notifications.context_processors.notification_api_settings',
                 ],
             },
         }
@@ -435,9 +435,9 @@ Add the URLs to your main ``urls.py``:
 
     urlpatterns = [
         # ... other urls in your project ...
-        # openwisp-controller urls
+        # immunity-controller urls
         url(r'^admin/', admin.site.urls),
-        url(r'', include('openwisp_controller.urls')),
+        url(r'', include('immunity_controller.urls')),
     ]
 
 Configure caching (you may use a different cache storage if you want):
@@ -507,7 +507,7 @@ simply rename the templates by prefixing them with numbers, eg:
 Required Templates
 ~~~~~~~~~~~~~~~~~~
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/required-templates.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/required-templates.png
   :alt: Required template example
 
 Required templates are similar to `Default templates <#default-templates>`__
@@ -548,7 +548,7 @@ In the device configuration section you can find a section named
 "Configuration variables" where it is possible to define the configuration
 variables and their values, as shown in the example below:
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/device-context.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/device-context.png
    :alt: context
 
 Predefined device variables
@@ -575,17 +575,17 @@ Organization variables
 Variables can also be defined at the organization level.
 
 You can set the *organization variables* from the organization change page
-``/admin/openwisp_users/organization/<organization-id>/change/``, under the
+``/admin/immunity_users/organization/<organization-id>/change/``, under the
 **Configuration Management Settings**.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/organization-variables.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/organization-variables.png
   :alt: organization variables
 
 Global variables
 ~~~~~~~~~~~~~~~~
 
 Variables can also be defined globally using the
-`OPENWISP_CONTROLLER_CONTEXT <#openwisp-controller-context>`_ setting.
+`OPENWISP_CONTROLLER_CONTEXT <#immunity-controller-context>`_ setting.
 
 Template default values
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -605,7 +605,7 @@ These default values will be overridden by the
 The default values of variables can be manipulated from the section
 "configuration variables" in the edit template page:
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/template-default-values.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/template-default-values.png
   :alt: default values
 
 System defined variables
@@ -616,7 +616,7 @@ are automatically managed by the system (eg: when using templates of
 type VPN-client) are displayed in the admin UI as *System Defined Variables*
 in read-only mode.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/system-defined-variables.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/system-defined-variables.png
    :alt: system defined variables
 
 **Note:** `Group configuration variables <#group-configuration-variables>`__
@@ -679,10 +679,10 @@ How to configure push updates
 Follow the procedure described below to enable secure SSH access from OpenWISP to your
 devices, this is required to enable push updates (whenever the configuration is changed,
 OpenWISP will trigger the update in the background) and/or
-`firmware upgrades (via the additional module openwisp-firmware-upgrader)
-<https://github.com/edge-servers/openwisp-firmware-upgrader>`_.
+`firmware upgrades (via the additional module immunity-firmware-upgrader)
+<https://github.com/edge-servers/immunity-firmware-upgrader>`_.
 
-**Note**: If you have installed OpenWISP with `immunity22 Ansbile role <https://galaxy.ansible.com/openwisp/immunity22>`_
+**Note**: If you have installed OpenWISP with `immunity22 Ansbile role <https://galaxy.ansible.com/immunity/immunity22>`_
 then you can skip the following steps. The Ansible role automatically creates a
 default template to update ``authorized_keys`` on networking devices using the
 default access credentials.
@@ -695,7 +695,7 @@ used by OpenWISP to access the devices, to do so, you can use the following comm
 
 .. code-block:: shell
 
-    echo './sshkey' | ssh-keygen -t ed25519 -C "openwisp"
+    echo './sshkey' | ssh-keygen -t ed25519 -C "immunity"
 
 This will create two files in the current directory, one called ``sshkey`` (the private key) and one called
 ``sshkey.pub`` (the public key).
@@ -707,12 +707,12 @@ If you are managing devices with OpenWrt < 21, then you will need to use RSA key
 
 .. code-block:: shell
 
-    echo './sshkey' | ssh-keygen -t rsa -b 4096 -C "openwisp"
+    echo './sshkey' | ssh-keygen -t rsa -b 4096 -C "immunity"
 
 2. Save SSH private key in OpenWISP (access credentials)
 ########################################################
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/add-ssh-credentials-private-key.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/add-ssh-credentials-private-key.png
   :alt: add SSH private key as access credential in OpenWISP
 
 From the first page of OpenWISP click on "Access credentials", then click
@@ -731,7 +731,7 @@ The credentials just created will be automatically enabled for all the devices i
 3. Add the public key to your devices
 #####################################
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/add-authorized-ssh-keys-template.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/add-authorized-ssh-keys-template.png
   :alt: Add authorized SSH public keys template to OpenWISP (OpenWRT)
 
 Now we need to instruct your devices to allow OpenWISP accessing via SSH,
@@ -778,8 +778,8 @@ By default, there are three options in the **Send Command** dropdown:
 While the first two options are self-explanatory, the **custom command** option
 allows you to execute any command on the device as shown in the example below.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/commands_demo.gif
-   :target: https://github.com/edge-servers/openwisp-controller/tree/docs/docs/commands_demo.gif
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/commands_demo.gif
+   :target: https://github.com/edge-servers/immunity-controller/tree/docs/docs/commands_demo.gif
    :alt: Executing commands on device example
 
 **Note**: in order for this feature to work, a device needs to have at least
@@ -848,8 +848,8 @@ The following example defines a simple command that can ``ping`` an input
 The above code will add the "Ping" command in the user interface as show
 in the GIF below:
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/ping_command_example.gif
-   :target: https://github.com/edge-servers/openwisp-controller/tree/docs/docs/ping_command_example.gif
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/ping_command_example.gif
+   :target: https://github.com/edge-servers/immunity-controller/tree/docs/docs/ping_command_example.gif
    :alt: Adding a "ping" command
 
 The ``OPENWISP_CONTROLLER_USER_COMMANDS`` setting takes a ``list`` of ``tuple``
@@ -922,15 +922,15 @@ Registering / Unregistering Commands
 ####################################
 
 OpenWISP Controller provides registering and unregistering commands
-through utility functions ``openwisp_controller.connection.commands.register_command``
-and ``openwisp_notifications.types.unregister_notification_type``.
+through utility functions ``immunity_controller.connection.commands.register_command``
+and ``immunity_notifications.types.unregister_notification_type``.
 You can use these functions to register or unregister commands
 from your code.
 
 **Note**: These functions are to be used as an alternative to the
-`"OPENWISP_CONTROLLER_USER_COMMANDS" <#openwisp-controller-user-commands>`_
-when `developing custom modules based on openwisp-controller
-<#extending-openwisp-controller>`_ or when developing custom third party
+`"OPENWISP_CONTROLLER_USER_COMMANDS" <#immunity-controller-user-commands>`_
+when `developing custom modules based on immunity-controller
+<#extending-immunity-controller>`_ or when developing custom third party
 apps.
 
 ``register_command``
@@ -970,7 +970,7 @@ for the devices of an organization:
 - Define `group configuration templates <#group-templates>`_.
 - Define `group configuration variables <#group-configuration-variables>`__.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/1.1/device-groups.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/1.1/device-groups.png
   :alt: Device Group example
 
 Group Templates
@@ -1030,7 +1030,7 @@ structured metadata field (which can be accessed via the REST API).
 
 The metadata field allows custom structure and validation to standardize
 information across all groups using the
-`"OPENWISP_CONTROLLER_DEVICE_GROUP_SCHEMA" <#openwisp-controller-device-group-schema>`_
+`"OPENWISP_CONTROLLER_DEVICE_GROUP_SCHEMA" <#immunity-controller-device-group-schema>`_
 setting.
 
 **Note:** *Group configuration variables* and *Group metadata* serves different purposes.
@@ -1041,7 +1041,7 @@ additional data for the devices. Group metadata is not used for configuration ge
 Export/Import Device data
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/1.1/import-export/device-list.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/1.1/import-export/device-list.png
   :alt: Import / Export
 
 The device list page offers two buttons to export and import device data in
@@ -1049,7 +1049,7 @@ different formats.
 
 The export feature respects any filters selected in the device list.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/1.1/import-export/export-page.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/1.1/import-export/export-page.png
   :alt: Export
 
 For importing devices into the system, only the required fields are needed,
@@ -1060,7 +1060,7 @@ UUID ``3cb5e18c-0312-48ab-8dbd-038b8415bd6f``::
     organization_id,name,mac_address
     3cb5e18c-0312-48ab-8dbd-038b8415bd6f,TestImport,00:11:22:09:44:55
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/1.1/import-export/import-page.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/1.1/import-export/import-page.png
   :alt: Import / Export
 
 Organization Limits
@@ -1072,7 +1072,7 @@ Allows configuring following limits for each organization:
 
 You can change the limits from the organization's admin page:
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/1.1/organization-limits.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/1.1/organization-limits.png
   :alt: Organization limits
 
 How to setup WireGuard tunnels
@@ -1112,24 +1112,24 @@ organization.
 6. Under the configuration section, set the name of WireGuard tunnel 1 interface.
    We have used ``wg0`` in this example.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/wireguard-tutorial/vpn-server-1.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-tutorial/vpn-server-1.png
    :alt: WireGuard VPN server configuration example 1
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/wireguard-tutorial/vpn-server-2.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-tutorial/vpn-server-2.png
    :alt: WireGuard VPN server configuration example 2
 
 7. After clicking on **Save and continue editing**, you will see that OpenWISP
    has automatically created public and private key for WireGuard server in
    **System Defined Variables** along with internal IP address information.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/wireguard-tutorial/vpn-server-3.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-tutorial/vpn-server-3.png
    :alt: WireGuard VPN server configuration example 3
 
 2. Deploy Wireguard VPN Server
 ##############################
 
 If you haven't already setup WireGuard on your VPN server, this will be a good
-time do so. We recommend using the `ansible-wireguard-openwisp <https://github.com/edge-servers/ansible-wireguard-openwisp>`_
+time do so. We recommend using the `ansible-wireguard-immunity <https://github.com/edge-servers/ansible-wireguard-immunity>`_
 role for installing WireGuard since it also installs scripts that allows
 OpenWISP to manage WireGuard VPN server.
 
@@ -1155,7 +1155,7 @@ VPN server configuration in OpenWISP.
    accordingly. We will use the automatically generated VPN client configuration
    for this example.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/wireguard-tutorial/template.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-tutorial/template.png
     :alt: WireGuard VPN client template example
 
 4. Apply Wireguard VPN template to devices
@@ -1171,7 +1171,7 @@ OpenWISP. Register or create a device before proceeding.
    private and public key for the WireGuard client on the device along with
    details of WireGuard VPN server.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/wireguard-tutorial/device-configuration.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-tutorial/device-configuration.png
    :alt: WireGuard VPN device configuration example
 
 **Voila!** You have successfully configured OpenWISP to manage WireGuard
@@ -1215,24 +1215,24 @@ organization.
 6. Under the configuration section, set the name of WireGuard tunnel 1 interface.
    We have used ``wg0`` in this example.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/wireguard-vxlan-tutorial/vpn-server-1.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-vxlan-tutorial/vpn-server-1.png
    :alt: WireGuard VPN VXLAN server configuration example 1
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/wireguard-vxlan-tutorial/vpn-server-2.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-vxlan-tutorial/vpn-server-2.png
    :alt: WireGuard VPN VXLAN server configuration example 2
 
 7. After clicking on **Save and continue editing**, you will see that OpenWISP
    has automatically created public and private key for WireGuard server in
    **System Defined Variables** along with internal IP address information.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/wireguard-vxlan-tutorial/vpn-server-3.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-vxlan-tutorial/vpn-server-3.png
    :alt: WireGuard VXLAN VPN server configuration example 3
 
 2. Deploy Wireguard VXLAN VPN Server
 ####################################
 
 If you haven't already setup WireGuard on your VPN server, this will be a good
-time do so. We recommend using the `ansible-wireguard-openwisp <https://github.com/edge-servers/ansible-wireguard-openwisp>`_
+time do so. We recommend using the `ansible-wireguard-immunity <https://github.com/edge-servers/ansible-wireguard-immunity>`_
 role for installing WireGuard since it also installs scripts that allows
 OpenWISP to manage WireGuard VPN server along with VXLAN tunnels.
 
@@ -1258,7 +1258,7 @@ VPN server configuration in OpenWISP.
    accordingly. We will use the automatically generated VPN client configuration
    for this example.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/wireguard-vxlan-tutorial/template.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-vxlan-tutorial/template.png
     :alt: WireGuard VXLAN VPN client template example
 
 4. Apply Wireguard VXLAN VPN template to devices
@@ -1274,7 +1274,7 @@ OpenWISP. Register or create a device before proceeding.
    private and public key for the WireGuard client on the device and details of
    WireGuard VPN server along with VXLAN Network Identifier(VNI) of this device.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/wireguard-vxlan-tutorial/device-configuration.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/wireguard-vxlan-tutorial/device-configuration.png
    :alt: WireGuard VXLAN VPN device configuration example
 
 **Voila!** You have successfully configured OpenWISP to manage VXLAN over
@@ -1317,16 +1317,16 @@ from the `official website <https://www.zerotier.com/download/>`_.
 
         sudo cat /var/lib/zerotier-one/authtoken.secret
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/zerotier-tutorial/vpn-server-1.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/zerotier-tutorial/vpn-server-1.png
    :alt: ZeroTier VPN server configuration example 1
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/zerotier-tutorial/vpn-server-2.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/zerotier-tutorial/vpn-server-2.png
    :alt: ZeroTier VPN server configuration example 2
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/zerotier-tutorial/vpn-server-3.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/zerotier-tutorial/vpn-server-3.png
    :alt: ZeroTier VPN server configuration example 3
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/zerotier-tutorial/vpn-server-4.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/zerotier-tutorial/vpn-server-4.png
    :alt: ZeroTier VPN server configuration example 4
 
 6. After clicking on **Save and continue editing**, OpenWISP automatically detects
@@ -1334,7 +1334,7 @@ from the `official website <https://www.zerotier.com/download/>`_.
    The **network_id**  of this network can be viewed in the **System Defined Variables**
    section, where it also provides internal IP address information.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/zerotier-tutorial/vpn-server-5.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/zerotier-tutorial/vpn-server-5.png
    :alt: ZeroTier VPN server configuration example 5
 
 3. Create VPN client template for ZeroTier VPN Server
@@ -1361,7 +1361,7 @@ from the `official website <https://www.zerotier.com/download/>`_.
 to manage **ZeroTier identity secrets**. Please make sure that you have
 `ZeroTier package installed <https://www.zerotier.com/download/>`_ on the server.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/zerotier-tutorial/template.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/zerotier-tutorial/template.png
     :alt: ZeroTier VPN client template example
 
 4. Apply ZeroTier VPN template to devices
@@ -1376,14 +1376,14 @@ OpenWISP. Register or create a device before proceeding.
    in the **System Defined Variables** section. These entries will include **zerotier_member_id**, **identity_secret**,
    and the internal **IP address** of the ZeroTier client (network member) on the device, along with details of the VPN server.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/zerotier-tutorial/device-configuration-1.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/zerotier-tutorial/device-configuration-1.png
    :alt: ZeroTier VPN device configuration example 1
 
 4. Once the configuration is successfully applied to the device, you will notice a new ZeroTier interface
    that is up and running. This interface will have the name ``owzt89f498`` (where ``owzt`` is followed
    by the last six hexadecimal characters of the ZeroTier **network ID**).
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/zerotier-tutorial/device-configuration-2.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/zerotier-tutorial/device-configuration-2.png
    :alt: ZeroTier VPN device configuration example 2
 
 **Voila!** You have successfully configured OpenWISP
@@ -1402,7 +1402,7 @@ Create a master subnet under which automatically generated subnets will be provi
 
 **Note**: Choose the size of the subnet appropriately considering your use case.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/subnet-division-rule/subnet.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/subnet-division-rule/subnet.png
   :alt: Creating a master subnet example
 
 On the same page, add a **subnet division rule** that will be used to provision subnets
@@ -1432,7 +1432,7 @@ the same subnet for which the subnet division rule is created.
 **Note:** This rule will only work for **WireGuard** and **VXLAN over WireGuard**
 VPN servers.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/subnet-division-rule/subnet-division-rule.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/subnet-division-rule/subnet-division-rule.png
   :alt: Creating a subnet division rule example
 
 In this example, **VPN subnet division rule** is used.
@@ -1443,7 +1443,7 @@ In this example, **VPN subnet division rule** is used.
 Now create a VPN Server and choose the previously created **master subnet** as the subnet for
 this VPN Server.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/subnet-division-rule/vpn-server.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/subnet-division-rule/vpn-server.png
   :alt: Creating a VPN Server example
 
 3. Create a VPN Client Template
@@ -1452,7 +1452,7 @@ this VPN Server.
 Create a template, setting the **Type** field to **VPN Client** and **VPN** field to use the
 previously created VPN Server.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/subnet-division-rule/vpn-client.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/subnet-division-rule/vpn-client.png
   :alt: Creating a VPN Client template example
 
 **Note**: You can also check the **Enable by default** field if you want to automatically
@@ -1463,13 +1463,13 @@ apply this template to devices that will register in future.
 
 With everything in place, you can now apply the VPN Client Template to devices.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/subnet-division-rule/apply-template-to-device.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/subnet-division-rule/apply-template-to-device.png
   :alt: Adding template to device example
 
 After saving the device, you should see all provisioned Subnets and IPs for this device
 under `System Defined Variables <#system-defined-variables>`_.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/subnet-division-rule/system-defined-variables.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/subnet-division-rule/system-defined-variables.png
   :alt: Provisioned Subnets and IPs available as System Defined Variables example
 
 Voila! You can now use these variables in configuration of the device. Refer to `How to use configuration variables <#how-to-use-configuration-variables>`_
@@ -1548,14 +1548,14 @@ REST API Reference
 Live documentation
 ~~~~~~~~~~~~~~~~~~
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/live-docu-api.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/live-docu-api.png
 
 A general live API documentation (following the OpenAPI specification) at ``/api/v1/docs/``.
 
 Browsable web interface
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/browsable-api-ui.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/browsable-api-ui.png
 
 Additionally, opening any of the endpoints `listed below <#list-of-endpoints>`_
 directly in the browser will show the `browsable API interface of Django-REST-Framework
@@ -1565,8 +1565,8 @@ which makes it even easier to find out the details of each endpoint.
 Authentication
 ~~~~~~~~~~~~~~
 
-See openwisp-users: `authenticating with the user token
-<https://github.com/edge-servers/openwisp-users#authenticating-with-the-user-token>`_.
+See immunity-users: `authenticating with the user token
+<https://github.com/edge-servers/immunity-users#authenticating-with-the-user-token>`_.
 
 When browsing the API via the `Live documentation <#live-documentation>`_
 or the `Browsable web page <#browsable-web-interface>`_, you can also use
@@ -2465,8 +2465,8 @@ List VPNs
 
 You can filter a list of vpns based
 on their backend using the ``backend``
-(e.g openwisp_controller.vpn_backends.OpenVpn
-or openwisp_controller.vpn_backends.Wireguard).
+(e.g immunity_controller.vpn_backends.OpenVpn
+or immunity_controller.vpn_backends.Wireguard).
 
 .. code-block:: text
 
@@ -2675,7 +2675,7 @@ Settings
 --------
 
 You can change the values for the following variables in
-``settings.py`` to configure your instance of openwisp-controller.
+``settings.py`` to configure your instance of immunity-controller.
 
 ``OPENWISP_SSH_AUTH_TIMEOUT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2738,9 +2738,9 @@ Configure timeout for the TCP connect when establishing a SSH connection.
 | **default**: | .. code-block:: python                                                                         |
 |              |                                                                                                |
 |              |   (                                                                                            |
-|              |     ('openwisp_controller.connection.connectors.ssh.Ssh', 'SSH'),                              |
-|              |     ('openwisp_controller.connection.connectors.openwrt.snmp.OpenWRTSnmp', 'OpenWRT SNMP'),    |
-|              |     ('openwisp_controller.connection.connectors.airos.snmp.AirOsSnmp', 'Ubiquiti AirOS SNMP'), |
+|              |     ('immunity_controller.connection.connectors.ssh.Ssh', 'SSH'),                              |
+|              |     ('immunity_controller.connection.connectors.openwrt.snmp.OpenWRTSnmp', 'OpenWRT SNMP'),    |
+|              |     ('immunity_controller.connection.connectors.airos.snmp.AirOsSnmp', 'Ubiquiti AirOS SNMP'), |
 |              |   )                                                                                            |
 +--------------+------------------------------------------------------------------------------------------------+
 
@@ -2756,7 +2756,7 @@ in which OpenWISP can connect to devices in order to launch commands.
 | **default**: | .. code-block:: python                                                                 |
 |              |                                                                                        |
 |              |   (                                                                                    |
-|              |     ('openwisp_controller.connection.connectors.openwrt.ssh.OpenWrt', 'OpenWRT SSH'),  |
+|              |     ('immunity_controller.connection.connectors.openwrt.ssh.OpenWrt', 'OpenWRT SSH'),  |
 |              |   )                                                                                    |
 +--------------+----------------------------------------------------------------------------------------+
 
@@ -2802,7 +2802,7 @@ update strategy field is left blank by the user.
 +--------------+-----------------------------------------------+
 
 Available configuration backends. For more information, see `netjsonconfig backends
-<http://netjsonconfig.openwisp.org/en/latest/general/basics.html#backend>`_.
+<http://netjsonconfig.immunity.org/en/latest/general/basics.html#backend>`_.
 
 ``OPENWISP_CONTROLLER_VPN_BACKENDS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2813,17 +2813,17 @@ Available configuration backends. For more information, see `netjsonconfig backe
 | **default**: | .. code-block:: python                                                           |
 |              |                                                                                  |
 |              |   (                                                                              |
-|              |     ('openwisp_controller.vpn_backends.OpenVpn', 'OpenVPN'),                     |
-|              |     ('openwisp_controller.vpn_backends.Wireguard', 'WireGuard'),                 |
-|              |     ('openwisp_controller.vpn_backends.VxlanWireguard', 'VXLAN over WireGuard'), |
-|              |     ('openwisp_controller.vpn_backends.ZeroTier', 'ZeroTier'),                   |
+|              |     ('immunity_controller.vpn_backends.OpenVpn', 'OpenVPN'),                     |
+|              |     ('immunity_controller.vpn_backends.Wireguard', 'WireGuard'),                 |
+|              |     ('immunity_controller.vpn_backends.VxlanWireguard', 'VXLAN over WireGuard'), |
+|              |     ('immunity_controller.vpn_backends.ZeroTier', 'ZeroTier'),                   |
 |              |   )                                                                              |
 +--------------+----------------------------------------------------------------------------------+
 
 Available VPN backends for VPN Server objects. For more information, see `netjsonconfig VPN backends
-<https://netjsonconfig.openwisp.org/en/latest/backends/vpn-backends.html>`_.
+<https://netjsonconfig.immunity.org/en/latest/backends/vpn-backends.html>`_.
 
-A VPN backend must follow some basic rules in order to be compatible with *openwisp-controller*:
+A VPN backend must follow some basic rules in order to be compatible with *immunity-controller*:
 
 * it MUST allow at minimum and at maximum one VPN instance
 * the main *NetJSON* property MUST match the lowercase version of the class name,
@@ -2860,7 +2860,7 @@ Setting it to ``None`` will force the user to choose explicitly.
 The preferred backend that will be used as initial value when adding new ``Vpn`` objects in the admin.
 
 This setting defaults to the raw value of the first item in the ``OPENWISP_CONTROLLER_VPN_BACKENDS`` setting,
-which is ``openwisp_controller.vpn_backends.OpenVpn``.
+which is ``immunity_controller.vpn_backends.OpenVpn``.
 
 Setting it to ``None`` will force the user to choose explicitly.
 
@@ -2877,8 +2877,8 @@ Whether devices can automatically register through the controller or not.
 
 This feature is enabled by default.
 
-Autoregistration must be supported on the devices in order to work, see `openwisp-config automatic
-registration <https://github.com/edge-servers/openwisp-config#automatic-registration>`_ for more information.
+Autoregistration must be supported on the devices in order to work, see `immunity-config automatic
+registration <https://github.com/edge-servers/immunity-config#automatic-registration>`_ for more information.
 
 ``OPENWISP_CONTROLLER_CONSISTENT_REGISTRATION``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2894,8 +2894,8 @@ the existing configuration without creating a new one.
 
 This feature is enabled by default.
 
-Autoregistration must be enabled also on the devices in order to work, see `openwisp-config
-consistent key generation <https://github.com/edge-servers/openwisp-config#consistent-key-generation>`_
+Autoregistration must be enabled also on the devices in order to work, see `immunity-config
+consistent key generation <https://github.com/edge-servers/immunity-config#consistent-key-generation>`_
 for more information.
 
 ``OPENWISP_CONTROLLER_REGISTRATION_SELF_CREATION``
@@ -2931,7 +2931,7 @@ see `How to use configuration variables <#how-to-use-configuration-variables>`_.
 
 For technical information about how variables are handled in the lower levels
 of OpenWISP, see `netjsonconfig context: configuration variables
-<http://netjsonconfig.openwisp.org/en/latest/general/basics.html#context-configuration-variables>`_.
+<http://netjsonconfig.immunity.org/en/latest/general/basics.html#context-configuration-variables>`_.
 
 ``OPENWISP_CONTROLLER_DEFAULT_AUTO_CERT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3140,8 +3140,8 @@ from being displayed on the changelist view of Subnet and IP admin.
 | **default**: | .. code-block:: python                                                                                  |
 |              |                                                                                                         |
 |              |    (                                                                                                    |
-|              |       ('openwisp_controller.subnet_division.rule_types.device.DeviceSubnetDivisionRuleType', 'Device'), |
-|              |       ('openwisp_controller.subnet_division.rule_types.vpn.VpnSubnetDivisionRuleType', 'VPN'),          |
+|              |       ('immunity_controller.subnet_division.rule_types.device.DeviceSubnetDivisionRuleType', 'Device'), |
+|              |       ('immunity_controller.subnet_division.rule_types.vpn.VpnSubnetDivisionRuleType', 'VPN'),          |
 |              |    )                                                                                                    |
 |              |                                                                                                         |
 +--------------+---------------------------------------------------------------------------------------------------------+
@@ -3281,7 +3281,7 @@ for DSA interfaces (Distributed Switch Architecture) introduced in OpenWrt 21 by
 reading the ``os`` field of the ``Device`` object. However, if the firmware you
 are using has a custom firmware identifier, the system will not be able to figure
 out whether it should use the new syntax and it will default to
-`OPENWISP_CONTROLLER_DSA_DEFAULT_FALLBACK <#openwisp_controller_dsa_default_fallback>`_.
+`OPENWISP_CONTROLLER_DSA_DEFAULT_FALLBACK <#immunity_controller_dsa_default_fallback>`_.
 
 If you want to make sure the system can parse your custom firmware
 identifier properly, you can follow the example below.
@@ -3318,7 +3318,7 @@ Example:
 +--------------+----------+
 
 The value of this setting decides whether to use DSA syntax
-(OpenWrt >=21 configuration syntax) if openwisp-controller fails
+(OpenWrt >=21 configuration syntax) if immunity-controller fails
 to make that decision automatically.
 
 ``OPENWISP_CONTROLLER_GROUP_PIE_CHART``
@@ -3332,7 +3332,7 @@ to make that decision automatically.
 
 Allows to show a pie chart like the one in the screenshot.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/devicegroups-piechart.png
+.. image:: https://raw.githubusercontent.com/immunity/immunity-controller/docs/docs/devicegroups-piechart.png
    :alt: device groups piechart
 
 Active groups are groups which have at least one device in them,
@@ -3377,7 +3377,7 @@ Signals
 ``config_modified``
 ~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.config.signals.config_modified``
+**Path**: ``immunity_controller.config.signals.config_modified``
 
 **Arguments**:
 
@@ -3419,7 +3419,7 @@ of the m2m manager.
 ``config_status_changed``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.config.signals.config_status_changed``
+**Path**: ``immunity_controller.config.signals.config_status_changed``
 
 **Arguments**:
 
@@ -3435,7 +3435,7 @@ in the previous section.
 ``config_backend_changed``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.config.signals.config_backend_changed``
+**Path**: ``immunity_controller.config.signals.config_backend_changed``
 **Arguments**:
 
 - ``instance``: instance of ``Config`` which got its ``backend`` changed
@@ -3447,7 +3447,7 @@ It is not emitted when the device or config is created.
 ``checksum_requested``
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.config.signals.checksum_requested``
+**Path**: ``immunity_controller.config.signals.checksum_requested``
 
 **Arguments**:
 
@@ -3463,7 +3463,7 @@ it is not sent if the response was not successful.
 ``config_download_requested``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.config.signals.config_download_requested``
+**Path**: ``immunity_controller.config.signals.config_download_requested``
 
 **Arguments**:
 
@@ -3480,7 +3480,7 @@ it is not sent if the response was not successful.
 ``is_working_changed``
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.connection.signals.is_working_changed``
+**Path**: ``immunity_controller.connection.signals.is_working_changed``
 
 **Arguments**:
 
@@ -3498,7 +3498,7 @@ It is not triggered when the device is created for the first time.
 ``management_ip_changed``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.config.signals.management_ip_changed``
+**Path**: ``immunity_controller.config.signals.management_ip_changed``
 
 **Arguments**:
 
@@ -3513,7 +3513,7 @@ It is not triggered when the device is created for the first time.
 ``device_registered``
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.config.signals.device_registered``
+**Path**: ``immunity_controller.config.signals.device_registered``
 
 **Arguments**:
 
@@ -3528,7 +3528,7 @@ HTTP API.
 ``device_name_changed``
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.config.signals.device_name_changed``
+**Path**: ``immunity_controller.config.signals.device_name_changed``
 
 **Arguments**:
 
@@ -3541,7 +3541,7 @@ It is not emitted when the device is created.
 ``device_group_changed``
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.config.signals.device_group_changed``
+**Path**: ``immunity_controller.config.signals.device_group_changed``
 
 **Arguments**:
 
@@ -3557,7 +3557,7 @@ It is not emitted when the device is created.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-**Path**: ``openwisp_controller.config.signals.group_templates_changed``
+**Path**: ``immunity_controller.config.signals.group_templates_changed``
 
 **Arguments**:
 
@@ -3572,7 +3572,7 @@ It is not emitted when the device is created.
 ``subnet_provisioned``
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.subnet_division.signals.subnet_provisioned``
+**Path**: ``immunity_controller.subnet_division.signals.subnet_provisioned``
 
 **Arguments**:
 
@@ -3587,7 +3587,7 @@ for a ``VpnClient`` for a VPN server with a subnet with
 ``vpn_server_modified``
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.config.signals.vpn_server_modified``
+**Path**: ``immunity_controller.config.signals.vpn_server_modified``
 
 **Arguments**:
 
@@ -3598,7 +3598,7 @@ The signal is emitted when the VPN server is modified.
 ``vpn_peers_changed``
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Path**: ``openwisp_controller.config.signals.vpn_peers_changed``
+**Path**: ``immunity_controller.config.signals.vpn_peers_changed``
 
 **Arguments**:
 
@@ -3609,27 +3609,27 @@ The signal is emitted when the peers of VPN server gets changed.
 It is only emitted for ``Vpn`` object with **WireGuard** or
 **VXLAN over WireGuard** backend.
 
-Extending openwisp-controller
+Extending immunity-controller
 -----------------------------
 
 One of the core values of the OpenWISP project is
-`Software Reusability <http://openwisp.io/docs/general/values.html#software-reusability-means-long-term-sustainability>`_,
-for this reason *openwisp-controller* provides a set of base classes
+`Software Reusability <http://immunity.io/docs/general/values.html#software-reusability-means-long-term-sustainability>`_,
+for this reason *immunity-controller* provides a set of base classes
 which can be imported, extended and reused to create derivative apps.
 
-In order to implement your custom version of *openwisp-controller*,
+In order to implement your custom version of *immunity-controller*,
 you need to perform the steps described in this section.
 
 When in doubt, the code in the
-`test project <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/>`_
+`test project <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/>`_
 will serve you as source of truth: just replicate and adapt that code
-to get a basic derivative of *openwisp-controller* working.
+to get a basic derivative of *immunity-controller* working.
 
 If you want to add new users fields, please follow the `tutorial to extend the
-openwisp-users <https://github.com/edge-servers/openwisp-users/#extend-openwisp-users>`_.
-As an example, we have extended *openwisp-users* to *sample_users* app and
+immunity-users <https://github.com/edge-servers/immunity-users/#extend-immunity-users>`_.
+As an example, we have extended *immunity-users* to *sample_users* app and
 added a field ``social_security_number`` in the `sample_users/models.py
-<https://github.com/edge-servers/openwisp-controller/blob/master/tests/immunity22/sample_users/models.py>`_.
+<https://github.com/edge-servers/immunity-controller/blob/master/tests/immunity22/sample_users/models.py>`_.
 
 **Premise**: if you plan on using a customized version of this module,
 we suggest to start with it since the beginning, because migrating your data
@@ -3643,11 +3643,11 @@ Firstly, to get started you need to create a django project::
     django-admin startproject mycontroller
 
 Now, you need to do is to create some new django apps which will
-contain your custom version of *openwisp-controller*.
+contain your custom version of *immunity-controller*.
 
 A django project is a collection of django apps. There are 4 django apps in the
-openwisp_controller project, namely config, pki, connection & geo.
-You'll need to create 4 apps in your project for each app in openwisp_controller.
+immunity_controller project, namely config, pki, connection & geo.
+You'll need to create 4 apps in your project for each app in immunity_controller.
 
 A django app is nothing more than a
 `python package <https://docs.python.org/3/tutorial/modules.html#packages>`_
@@ -3668,12 +3668,12 @@ so that you can then import the result into your project.
 For more information about how to work with django projects and django apps,
 please refer to the `django documentation <https://docs.djangoproject.com/en/dev/intro/tutorial01/>`_.
 
-2. Install ``openwisp-controller``
+2. Install ``immunity-controller``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Install (and add to the requirement of your project) openwisp-controller::
+Install (and add to the requirement of your project) immunity-controller::
 
-    pip install openwisp-controller
+    pip install immunity-controller
 
 3. Add your apps in INSTALLED_APPS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3682,16 +3682,16 @@ Now you need to add ``mycontroller.sample_config``,
 ``mycontroller.sample_pki``, ``mycontroller.sample_connection``,
 ``mycontroller.sample_geo`` & ``mycontroller.sample_subnet_division`` to
 ``INSTALLED_APPS`` in your ``settings.py``, ensuring also that
-``openwisp_controller.config``, ``openwisp_controller.geo``,
-``openwisp_controller.pki``, ``openwisp_controller.connnection`` &
-``openwisp_controller.subnet_division`` have been removed:
+``immunity_controller.config``, ``immunity_controller.geo``,
+``immunity_controller.pki``, ``immunity_controller.connnection`` &
+``immunity_controller.subnet_division`` have been removed:
 
 .. code-block:: python
 
     # Remember: Order in INSTALLED_APPS is important.
     INSTALLED_APPS = [
         # other django installed apps
-        'openwisp_utils.admin_theme',
+        'immunity_utils.admin_theme',
         'admin_auto_filters',
         # all-auth
         'django.contrib.sites',
@@ -3699,17 +3699,17 @@ Now you need to add ``mycontroller.sample_config``,
         'allauth.account',
         'allauth.socialaccount',
         # immunity22 module
-        # 'openwisp_controller.config', <-- comment out or delete this line
-        # 'openwisp_controller.pki', <-- comment out or delete this line
-        # 'openwisp_controller.geo', <-- comment out or delete this line
-        # 'openwisp_controller.connection', <-- comment out or delete this line
-        # 'openwisp_controller.subnet_division', <-- comment out or delete this line
+        # 'immunity_controller.config', <-- comment out or delete this line
+        # 'immunity_controller.pki', <-- comment out or delete this line
+        # 'immunity_controller.geo', <-- comment out or delete this line
+        # 'immunity_controller.connection', <-- comment out or delete this line
+        # 'immunity_controller.subnet_division', <-- comment out or delete this line
         'mycontroller.sample_config',
         'mycontroller.sample_pki',
         'mycontroller.sample_geo',
         'mycontroller.sample_connection',
         'mycontroller.sample_subnet_division',
-        'openwisp_users',
+        'immunity_users',
         # admin
         'django.contrib.admin',
         # other dependencies
@@ -3738,17 +3738,17 @@ Add the following to your ``settings.py``:
     EXTENDED_APPS = (
         'django_x509',
         'django_loci',
-        'openwisp_controller.config',
-        'openwisp_controller.pki',
-        'openwisp_controller.geo',
-        'openwisp_controller.connection',
-        'openwisp_controller.subnet_division',
+        'immunity_controller.config',
+        'immunity_controller.pki',
+        'immunity_controller.geo',
+        'immunity_controller.connection',
+        'immunity_controller.subnet_division',
     )
 
-5. Add ``openwisp_utils.staticfiles.DependencyFinder``
+5. Add ``immunity_utils.staticfiles.DependencyFinder``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add ``openwisp_utils.staticfiles.DependencyFinder`` to
+Add ``immunity_utils.staticfiles.DependencyFinder`` to
 ``STATICFILES_FINDERS`` in your ``settings.py``:
 
 .. code-block:: python
@@ -3756,13 +3756,13 @@ Add ``openwisp_utils.staticfiles.DependencyFinder`` to
     STATICFILES_FINDERS = [
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-        'openwisp_utils.staticfiles.DependencyFinder',
+        'immunity_utils.staticfiles.DependencyFinder',
     ]
 
-6. Add ``openwisp_utils.loaders.DependencyLoader``
+6. Add ``immunity_utils.loaders.DependencyLoader``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add ``openwisp_utils.loaders.DependencyLoader`` to ``TEMPLATES``
+Add ``immunity_utils.loaders.DependencyLoader`` to ``TEMPLATES``
 in your ``settings.py``, but ensure it comes before
 ``django.template.loaders.app_directories.Loader``:
 
@@ -3774,7 +3774,7 @@ in your ``settings.py``, but ensure it comes before
             'OPTIONS': {
                 'loaders': [
                     'django.template.loaders.filesystem.Loader',
-                    'openwisp_utils.loaders.DependencyLoader',
+                    'immunity_utils.loaders.DependencyLoader',
                     'django.template.loaders.app_directories.Loader',
                 ],
                 'context_processors': [
@@ -3782,8 +3782,8 @@ in your ``settings.py``, but ensure it comes before
                     'django.template.context_processors.request',
                     'django.contrib.auth.context_processors.auth',
                     'django.contrib.messages.context_processors.messages',
-                    'openwisp_utils.admin_theme.context_processor.menu_items',
-                    'openwisp_notifications.context_processors.notification_api_settings',
+                    'immunity_utils.admin_theme.context_processor.menu_items',
+                    'immunity_notifications.context_processors.notification_api_settings',
                 ],
             },
         }
@@ -3798,8 +3798,8 @@ Ensure you are using one of the available geodjango backends, eg:
 
     DATABASES = {
         'default': {
-            'ENGINE': 'openwisp_utils.db.backends.spatialite',
-            'NAME': 'openwisp-controller.db',
+            'ENGINE': 'immunity_utils.db.backends.spatialite',
+            'NAME': 'immunity-controller.db',
         }
     }
 
@@ -3817,7 +3817,7 @@ Create ``asgi.py`` in your project folder and add following lines in it:
     from channels.security.websocket import AllowedHostsOriginValidator
     from django.core.asgi import get_asgi_application
 
-    from openwisp_controller.routing import get_routes
+    from immunity_controller.routing import get_routes
     # You can also add your routes like this
     from my_app.routing import my_routes
 
@@ -3858,24 +3858,24 @@ For more information about CHANNEL_LAYERS setting, please refer to the
 Please refer to the following files in the sample app of the test project:
 
 - sample_config:
-    - `sample_config/__init__.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/__init__.py>`_.
-    - `sample_config/apps.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/apps.py>`_.
+    - `sample_config/__init__.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_config/__init__.py>`_.
+    - `sample_config/apps.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_config/apps.py>`_.
 
 - sample_geo:
-    - `sample_geo/__init__.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/__init__.py>`_.
-    - `sample_geo/apps.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/apps.py>`_.
+    - `sample_geo/__init__.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_geo/__init__.py>`_.
+    - `sample_geo/apps.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_geo/apps.py>`_.
 
 - sample_pki:
-    - `sample_pki/__init__.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/__init__.py>`_.
-    - `sample_pki/apps.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/apps.py>`_.
+    - `sample_pki/__init__.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_pki/__init__.py>`_.
+    - `sample_pki/apps.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_pki/apps.py>`_.
 
 - sample_connection:
-    - `sample_connection/__init__.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/__init__.py>`_.
-    - `sample_connection/apps.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/apps.py>`_.
+    - `sample_connection/__init__.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_connection/__init__.py>`_.
+    - `sample_connection/apps.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_connection/apps.py>`_.
 
 - sample_subnet_division:
-    - `sample_subnet_division/__init__.py <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/__init__.py>`_.
-    - `sample_subnet_division/apps.py <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/apps.py>`_.
+    - `sample_subnet_division/__init__.py <https://github.com/edge-servers/immunity-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/__init__.py>`_.
+    - `sample_subnet_division/apps.py <https://github.com/edge-servers/immunity-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/apps.py>`_.
 
 You have to replicate and adapt that code in your project.
 
@@ -3888,11 +3888,11 @@ the `"Applications" section in the django documentation <https://docs.djangoproj
 For the purpose of showing an example, we added a simple "details" field
 to the models of the sample app in the test project.
 
-- `sample_config models <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/models.py>`_
-- `sample_geo models <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/models.py>`_
-- `sample_pki models <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/models.py>`_
-- `sample_connection models <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/models.py>`_
-- `sample_subnet_division <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/models.py>`_
+- `sample_config models <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_config/models.py>`_
+- `sample_geo models <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_geo/models.py>`_
+- `sample_pki models <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_pki/models.py>`_
+- `sample_connection models <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_connection/models.py>`_
+- `sample_subnet_division <https://github.com/edge-servers/immunity-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/models.py>`_
 
 You can add fields in a similar way in your ``models.py`` file.
 
@@ -3939,14 +3939,14 @@ Create database migrations::
     ./manage.py makemigrations
 
 Now, to use the default ``administrator`` and ``operator`` user groups
-like the used in the openwisp_controller module, you'll manually need to make a
+like the used in the immunity_controller module, you'll manually need to make a
 migrations file which would look like:
 
-- `sample_config/migrations/0002_default_groups_permissions.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/migrations/0002_default_groups_permissions.py>`_
-- `sample_geo/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/migrations/0002_default_group_permissions.py>`_
-- `sample_pki/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/migrations/0002_default_group_permissions.py>`_
-- `sample_connection/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/migrations/0002_default_group_permissions.py>`_
-- `sample_subnet_division/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/migrations/0002_default_group_permissions.py>`_
+- `sample_config/migrations/0002_default_groups_permissions.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_config/migrations/0002_default_groups_permissions.py>`_
+- `sample_geo/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_geo/migrations/0002_default_group_permissions.py>`_
+- `sample_pki/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_pki/migrations/0002_default_group_permissions.py>`_
+- `sample_connection/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_connection/migrations/0002_default_group_permissions.py>`_
+- `sample_subnet_division/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/immunity-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/migrations/0002_default_group_permissions.py>`_
 
 Create database migrations::
 
@@ -3960,11 +3960,11 @@ For more information, refer to the
 
 Refer to the ``admin.py`` file of the sample app.
 
-- `sample_config admin.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/admin.py>`_.
-- `sample_geo admin.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/admin.py>`_.
-- `sample_pki admin.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/admin.py>`_.
-- `sample_connection admin.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/admin.py>`_.
-- `sample_subnet_division admin.py <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/admin.py>`_.
+- `sample_config admin.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_config/admin.py>`_.
+- `sample_geo admin.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_geo/admin.py>`_.
+- `sample_pki admin.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_pki/admin.py>`_.
+- `sample_connection admin.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_connection/admin.py>`_.
+- `sample_subnet_division admin.py <https://github.com/edge-servers/immunity-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/admin.py>`_.
 
 To introduce changes to the admin, you can do it in two main ways which are described below.
 
@@ -3983,7 +3983,7 @@ sample_config
 
 .. code-block:: python
 
-    from openwisp_controller.config.admin import (
+    from immunity_controller.config.admin import (
         DeviceAdmin,
         DeviceGroupAdmin,
         TemplateAdmin,
@@ -3997,7 +3997,7 @@ sample_connection
 
 .. code-block:: python
 
-    from openwisp_controller.connection.admin import CredentialsAdmin
+    from immunity_controller.connection.admin import CredentialsAdmin
 
     # CredentialsAdmin.fields += ['example'] <-- monkey patching example
 
@@ -4006,7 +4006,7 @@ sample_geo
 
 .. code-block:: python
 
-    from openwisp_controller.geo.admin import FloorPlanAdmin, LocationAdmin
+    from immunity_controller.geo.admin import FloorPlanAdmin, LocationAdmin
 
     # FloorPlanAdmin.fields += ['example'] <-- monkey patching example
 
@@ -4015,7 +4015,7 @@ sample_pki
 
 .. code-block:: python
 
-    from openwisp_controller.pki.admin import CaAdmin, CertAdmin
+    from immunity_controller.pki.admin import CaAdmin, CertAdmin
 
     # CaAdmin.fields += ['example'] <-- monkey patching example
 
@@ -4024,7 +4024,7 @@ sample_subnet_division
 
 .. code-block:: python
 
-    from openwisp_controller.subnet_division.admin import SubnetDivisionRuleInlineAdmin
+    from immunity_controller.subnet_division.admin import SubnetDivisionRuleInlineAdmin
 
     # SubnetDivisionRuleInlineAdmin.fields += ['example'] <-- monkey patching example
 
@@ -4040,17 +4040,17 @@ sample_config
 .. code-block:: python
 
     from django.contrib import admin
-    from openwisp_controller.config.admin import (
+    from immunity_controller.config.admin import (
         DeviceAdmin as BaseDeviceAdmin,
         TemplateAdmin as BaseTemplateAdmin,
         VpnAdmin as BaseVpnAdmin,
         DeviceGroupAdmin as BaseDeviceGroupAdmin,
     from swapper import load_model
 
-    Vpn = load_model('openwisp_controller', 'Vpn')
-    Device = load_model('openwisp_controller', 'Device')
-    DeviceGroup = load_model('openwisp_controller', 'DeviceGroup')
-    Template = load_model('openwisp_controller', 'Template')
+    Vpn = load_model('immunity_controller', 'Vpn')
+    Device = load_model('immunity_controller', 'Device')
+    DeviceGroup = load_model('immunity_controller', 'DeviceGroup')
+    Template = load_model('immunity_controller', 'Template')
 
     admin.site.unregister(Vpn)
     admin.site.unregister(Device)
@@ -4078,11 +4078,11 @@ sample_connection
 
 .. code-block:: python
 
-    from openwisp_controller.connection.admin import CredentialsAdmin as BaseCredentialsAdmin
+    from immunity_controller.connection.admin import CredentialsAdmin as BaseCredentialsAdmin
     from django.contrib import admin
     from swapper import load_model
 
-    Credentials = load_model('openwisp_controller', 'Credentials')
+    Credentials = load_model('immunity_controller', 'Credentials')
 
     admin.site.unregister(Credentials)
 
@@ -4095,15 +4095,15 @@ sample_geo
 
 .. code-block:: python
 
-    from openwisp_controller.geo.admin import (
+    from immunity_controller.geo.admin import (
         FloorPlanAdmin as BaseFloorPlanAdmin,
         LocationAdmin as BaseLocationAdmin
     )
     from django.contrib import admin
     from swapper import load_model
 
-    Location = load_model('openwisp_controller', 'Location')
-    FloorPlan = load_model('openwisp_controller', 'FloorPlan')
+    Location = load_model('immunity_controller', 'Location')
+    FloorPlan = load_model('immunity_controller', 'FloorPlan')
 
     admin.site.unregister(FloorPlan)
     admin.site.unregister(Location)
@@ -4121,15 +4121,15 @@ sample_pki
 
 .. code-block:: python
 
-    from openwisp_controller.geo.admin import (
+    from immunity_controller.geo.admin import (
         CaAdmin as BaseCaAdmin,
         CertAdmin as BaseCertAdmin
     )
     from django.contrib import admin
     from swapper import load_model
 
-    Ca = load_model('openwisp_controller', 'Ca')
-    Cert = load_model('openwisp_controller', 'Cert')
+    Ca = load_model('immunity_controller', 'Ca')
+    Cert = load_model('immunity_controller', 'Cert')
 
     admin.site.unregister(Ca)
     admin.site.unregister(Cert)
@@ -4147,7 +4147,7 @@ sample_subnet_division
 
 .. code-block:: python
 
-    from openwisp_controller.subnet_division.admin import (
+    from immunity_controller.subnet_division.admin import (
         SubnetAdmin as BaseSubnetAdmin,
         IpAddressAdmin as BaseIpAddressAdmin,
         SubnetDivisionRuleInlineAdmin as BaseSubnetDivisionRuleInlineAdmin,
@@ -4155,8 +4155,8 @@ sample_subnet_division
     from django.contrib import admin
     from swapper import load_model
 
-    Subnet = load_model('openwisp_ipam', 'Subnet')
-    IpAddress = load_model('openwisp_ipam', 'IpAddress')
+    Subnet = load_model('immunity_ipam', 'Subnet')
+    IpAddress = load_model('immunity_ipam', 'IpAddress')
     SubnetDivisionRule = load_model('subnet_division', 'SubnetDivisionRule')
 
     admin.site.unregister(Subnet)
@@ -4181,8 +4181,8 @@ sample_subnet_division
 .. code-block:: python
 
     from django.contrib import admin
-    from openwisp_controller.config.utils import get_controller_urls
-    from openwisp_controller.geo.utils import get_geo_urls
+    from immunity_controller.config.utils import get_controller_urls
+    from immunity_controller.geo.utils import get_geo_urls
     # from .sample_config import views as config_views
     # from .sample_geo import views as geo_views
 
@@ -4194,9 +4194,9 @@ sample_subnet_division
         # Use only when changing geo API views (discussed below)
         # url(r'^geo/', include((get_geo_urls(geo_views), 'geo'), namespace='geo')),
 
-        # openwisp-controller urls
-        url(r'', include(('openwisp_controller.config.urls', 'config'), namespace='config')),
-        url(r'', include('openwisp_controller.urls')),
+        # immunity-controller urls
+        url(r'', include(('immunity_controller.config.urls', 'config'), namespace='config')),
+        url(r'', include('immunity_controller.urls')),
     ]
 
 For more information about URL configuration in django, please refer to the
@@ -4207,24 +4207,24 @@ For more information about URL configuration in django, please refer to the
 
 When developing a custom application based on this module, it's a good
 idea to import and run the base tests too, so that you can be sure the changes
-you're introducing are not breaking some of the existing features of *openwisp-controller*.
+you're introducing are not breaking some of the existing features of *immunity-controller*.
 
 In case you need to add breaking changes, you can overwrite the tests defined
 in the base classes to test your own behavior.
 
 See the tests in sample_app to find out how to do this.
 
-- `project common tests.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/tests.py>`_
-- `sample_config tests.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/tests.py>`_
-- `sample_geo tests.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/tests.py>`_
-- `sample_geo pytest.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/pytest.py>`_
-- `sample_pki tests.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/tests.py>`_
-- `sample_connection tests.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/tests.py>`_
-- `sample_subnet_division tests.py <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/tests.py>`_
+- `project common tests.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/tests.py>`_
+- `sample_config tests.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_config/tests.py>`_
+- `sample_geo tests.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_geo/tests.py>`_
+- `sample_geo pytest.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_geo/pytest.py>`_
+- `sample_pki tests.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_pki/tests.py>`_
+- `sample_connection tests.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_connection/tests.py>`_
+- `sample_subnet_division tests.py <https://github.com/edge-servers/immunity-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/tests.py>`_
 
 For running the tests, you need to copy fixtures as well:
 
-- Change `sample_config` to your config app's name in `sample_config fixtures <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/fixtures/>`_ and paste it in the ``sample_config/fixtures/`` directory.
+- Change `sample_config` to your config app's name in `sample_config fixtures <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_config/fixtures/>`_ and paste it in the ``sample_config/fixtures/`` directory.
 
 You can then run tests with::
 
@@ -4244,7 +4244,7 @@ The following steps are not required and are intended for more advanced customiz
 1. Extending the Controller API Views
 #####################################
 
-Extending the `sample_config/views.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/views.py>`_
+Extending the `sample_config/views.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_config/views.py>`_
 is required only when you want to make changes in the controller API,
 Remember to change ``config_views`` location in ``urls.py`` in point 11 for extending views.
 
@@ -4253,7 +4253,7 @@ For more information about django views, please refer to the `views section in t
 2. Extending the Geo API Views
 ##############################
 
-Extending the `sample_geo/views.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/views.py>`_
+Extending the `sample_geo/views.py <https://github.com/edge-servers/immunity-controller/tree/master/tests/immunity22/sample_geo/views.py>`_
 is required only when you want to make changes in the geo API,
 Remember to change ``geo_views`` location in ``urls.py`` in point 11 for extending views.
 
@@ -4267,7 +4267,7 @@ The rule type determines when subnets and IPs will be provisioned and when they
 will be destroyed.
 
 You can create your custom rule types by extending
-``openwisp_controller.subnet_division.rule_types.base.BaseSubnetDivisionRuleType``.
+``immunity_controller.subnet_division.rule_types.base.BaseSubnetDivisionRuleType``.
 
 Below is an example to create a subnet division rule type that will provision
 subnets and IPs when a new device is created and will delete them upon deletion
@@ -4280,7 +4280,7 @@ for that device.
     from django.db.models.signals import post_delete, post_save
     from swapper import load_model
 
-    from openwisp_controller.subnet_division.rule_types.base import (
+    from immunity_controller.subnet_division.rule_types.base import (
         BaseSubnetDivisionRuleType,
     )
 
@@ -4331,14 +4331,14 @@ for that device.
                 cls.provision_receiver(device, created=True)
 
 After creating a class for your custom rule type, you will need to set
-`OPENWISP_CONTROLLER_SUBNET_DIVISION_TYPES <#openwisp-controller-subnet-division-types>`_
+`OPENWISP_CONTROLLER_SUBNET_DIVISION_TYPES <#immunity-controller-subnet-division-types>`_
 setting as follows:
 
 .. code-block:: python
 
     OPENWISP_CONTROLLER_SUBNET_DIVISION_TYPES = (                                                                                           |
-       ('openwisp_controller.subnet_division.rule_types.vpn.VpnSubnetDivisionRuleType', 'VPN'),
-       ('openwisp_controller.subnet_division.rule_types.device.DeviceSubnetDivisionRuleType', 'Device'),
+       ('immunity_controller.subnet_division.rule_types.vpn.VpnSubnetDivisionRuleType', 'VPN'),
+       ('immunity_controller.subnet_division.rule_types.device.DeviceSubnetDivisionRuleType', 'Device'),
        ('mycontroller.sample_subnet_division.rules_types.custom.CustomRuleType', 'Custom Rule'),
     )
 
@@ -4349,30 +4349,30 @@ You can define your own notification types using
 ``register_notification_type`` function from OpenWISP Notifications.
 
 For more information, see the relevant `documentation section about
-registering notification types in openwisp-notifications
-<https://github.com/edge-servers/openwisp-notifications#registering--unregistering-notification-types>`_.
+registering notification types in immunity-notifications
+<https://github.com/edge-servers/immunity-notifications#registering--unregistering-notification-types>`_.
 
 Once a new notification type is registered, you have to use the
-`"notify" signal provided in openwisp-notifications
-<https://github.com/edge-servers/openwisp-notifications#sending-notifications>`_
+`"notify" signal provided in immunity-notifications
+<https://github.com/edge-servers/immunity-notifications#sending-notifications>`_
 to send notifications for this type.
 
 Contributing
 ------------
 
-Please refer to the `OpenWISP contributing guidelines <http://openwisp.io/docs/developer/contributing.html>`_.
+Please refer to the `OpenWISP contributing guidelines <http://immunity.io/docs/developer/contributing.html>`_.
 
 Changelog
 ---------
 
-See `CHANGES <https://github.com/edge-servers/openwisp-controller/blob/master/CHANGES.rst>`_.
+See `CHANGES <https://github.com/edge-servers/immunity-controller/blob/master/CHANGES.rst>`_.
 
 License
 -------
 
-See `LICENSE <https://github.com/edge-servers/openwisp-controller/blob/master/LICENSE>`_.
+See `LICENSE <https://github.com/edge-servers/immunity-controller/blob/master/LICENSE>`_.
 
 Support
 -------
 
-See `OpenWISP Support Channels <http://openwisp.org/support.html>`_.
+See `OpenWISP Support Channels <http://immunity.org/support.html>`_.

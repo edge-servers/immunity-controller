@@ -6,14 +6,14 @@ SUBNET_DIVISION_TYPES = getattr(
     (
         (
             (
-                'openwisp_controller.subnet_division.rule_types.'
+                'immunity_controller.subnet_division.rule_types.'
                 'vpn.VpnSubnetDivisionRuleType'
             ),
             'VPN',
         ),
         (
             (
-                'openwisp_controller.subnet_division.rule_types.'
+                'immunity_controller.subnet_division.rule_types.'
                 'device.DeviceSubnetDivisionRuleType'
             ),
             'Device',

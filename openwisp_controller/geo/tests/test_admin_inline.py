@@ -49,7 +49,7 @@ class TestAdminInline(TestGeoMixin, BaseTestAdminInline, TestCase):
         params['organization'] = self.organization.pk
         return params
 
-    @mock.patch('openwisp_controller.config.settings.HARDWARE_ID_AS_NAME', False)
+    @mock.patch('immunity_controller.config.settings.HARDWARE_ID_AS_NAME', False)
     def test_add_mobile(self):
         self._login_as_admin()
         prefix = self._get_prefix()

@@ -4,7 +4,7 @@ from swapper import load_model
 from .base import BaseSubnetDivisionRuleType
 
 Config = load_model('config', 'Config')
-Subnet = load_model('openwisp_ipam', 'Subnet')
+Subnet = load_model('immunity_ipam', 'Subnet')
 
 
 class DeviceSubnetDivisionRuleType(BaseSubnetDivisionRuleType):

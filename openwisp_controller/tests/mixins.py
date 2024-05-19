@@ -1,4 +1,4 @@
-# Mixins used for unit tests of openwisp_controller
+# Mixins used for unit tests of immunity_controller
 
 
 class GetEditFormInlineMixin(object):

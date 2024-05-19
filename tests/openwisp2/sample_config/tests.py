@@ -1,37 +1,37 @@
-from openwisp_controller.config.tests.test_admin import TestAdmin as BaseTestAdmin
-from openwisp_controller.config.tests.test_admin import (
+from immunity_controller.config.tests.test_admin import TestAdmin as BaseTestAdmin
+from immunity_controller.config.tests.test_admin import (
     TestDeviceGroupAdmin as BaseTestDeviceGroupAdmin,
 )
-from openwisp_controller.config.tests.test_api import TestConfigApi as BaseTestConfigApi
-from openwisp_controller.config.tests.test_apps import TestApps as BaseTestApps
-from openwisp_controller.config.tests.test_config import TestConfig as BaseTestConfig
-from openwisp_controller.config.tests.test_config import (
+from immunity_controller.config.tests.test_api import TestConfigApi as BaseTestConfigApi
+from immunity_controller.config.tests.test_apps import TestApps as BaseTestApps
+from immunity_controller.config.tests.test_config import TestConfig as BaseTestConfig
+from immunity_controller.config.tests.test_config import (
     TestTransactionConfig as BaseTestTransactionConfig,
 )
-from openwisp_controller.config.tests.test_controller import (
+from immunity_controller.config.tests.test_controller import (
     TestController as BaseTestController,
 )
-from openwisp_controller.config.tests.test_device import TestDevice as BaseTestDevice
-from openwisp_controller.config.tests.test_device_group import (
+from immunity_controller.config.tests.test_device import TestDevice as BaseTestDevice
+from immunity_controller.config.tests.test_device_group import (
     TestDeviceGroup as BaseTestDeviceGroup,
 )
-from openwisp_controller.config.tests.test_notifications import (
+from immunity_controller.config.tests.test_notifications import (
     TestNotifications as BaseTestNotifications,
 )
-from openwisp_controller.config.tests.test_tag import TestTag as BaseTestTag
-from openwisp_controller.config.tests.test_template import (
+from immunity_controller.config.tests.test_tag import TestTag as BaseTestTag
+from immunity_controller.config.tests.test_template import (
     TestTemplate as BaseTestTemplate,
 )
-from openwisp_controller.config.tests.test_template import (
+from immunity_controller.config.tests.test_template import (
     TestTemplateTransaction as BaseTestTemplateTransaction,
 )
-from openwisp_controller.config.tests.test_views import TestViews as BaseTestViews
-from openwisp_controller.config.tests.test_vpn import TestVpn as BaseTestVpn
-from openwisp_controller.config.tests.test_vpn import (
+from immunity_controller.config.tests.test_views import TestViews as BaseTestViews
+from immunity_controller.config.tests.test_vpn import TestVpn as BaseTestVpn
+from immunity_controller.config.tests.test_vpn import (
     TestVpnTransaction as BaseTestVpnTransaction,
 )
-from openwisp_controller.config.tests.test_vpn import TestVxlan as BaseTestVxlan
-from openwisp_controller.config.tests.test_vpn import TestWireguard as BaseTestWireguard
+from immunity_controller.config.tests.test_vpn import TestVxlan as BaseTestVxlan
+from immunity_controller.config.tests.test_vpn import TestWireguard as BaseTestWireguard
 
 
 class TestAdmin(BaseTestAdmin):

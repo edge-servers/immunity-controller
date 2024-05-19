@@ -1,6 +1,6 @@
 from django.db import connection
 from django.test import TestCase, tag
-from openwisp_ipam.tests import CreateModelsMixin as SubnetIpamMixin
+from immunity_ipam.tests import CreateModelsMixin as SubnetIpamMixin
 from swapper import load_model
 
 from ..rule_types.base import BaseSubnetDivisionRuleType

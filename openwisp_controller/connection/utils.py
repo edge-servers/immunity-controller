@@ -1,4 +1,4 @@
-from openwisp_notifications.utils import _get_object_link
+from immunity_notifications.utils import _get_object_link
 
 
 def get_connection_working_notification_target_url(obj, field, absolute_url=True):

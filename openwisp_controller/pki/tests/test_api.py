@@ -2,10 +2,10 @@ from django.test import TestCase
 from django.urls import reverse
 from swapper import load_model
 
-from openwisp_controller.tests.utils import TestAdminMixin
-from openwisp_users.tests.test_api import AuthenticationMixin
-from openwisp_users.tests.utils import TestOrganizationMixin
-from openwisp_utils.tests import AssertNumQueriesSubTestMixin, capture_any_output
+from immunity_controller.tests.utils import TestAdminMixin
+from immunity_users.tests.test_api import AuthenticationMixin
+from immunity_users.tests.utils import TestOrganizationMixin
+from immunity_utils.tests import AssertNumQueriesSubTestMixin, capture_any_output
 
 from .utils import TestPkiMixin
 

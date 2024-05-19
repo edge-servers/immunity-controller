@@ -4,7 +4,7 @@ from django_x509.base.models import AbstractCa as BaseCa
 from django_x509.base.models import AbstractCert as BaseCert
 from swapper import get_model_name
 
-from openwisp_users.mixins import ShareableOrgMixin
+from immunity_users.mixins import ShareableOrgMixin
 
 from ..utils import UnqiueCommonNameMixin
 

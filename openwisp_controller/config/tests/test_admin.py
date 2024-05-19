@@ -13,8 +13,8 @@ from django.test import TestCase, TransactionTestCase
 from django.urls import reverse
 from swapper import load_model
 
-from openwisp_users.tests.utils import TestOrganizationMixin
-from openwisp_utils.tests import catch_signal
+from immunity_users.tests.utils import TestOrganizationMixin
+from immunity_utils.tests import catch_signal
 
 from ...geo.tests.utils import TestGeoMixin
 from ...tests.utils import TestAdminMixin
@@ -44,7 +44,7 @@ Cert = load_model('django_x509', 'Cert')
 User = get_user_model()
 Location = load_model('geo', 'Location')
 DeviceLocation = load_model('geo', 'DeviceLocation')
-Group = load_model('openwisp_users', 'Group')
+Group = load_model('immunity_users', 'Group')
 
 
 class TestImportExportMixin:
@@ -261,7 +261,7 @@ class TestAdmin(
         'config-INITIAL_FORMS': 0,
         'config-MIN_NUM_FORMS': 0,
         'config-MAX_NUM_FORMS': 1,
-        # openwisp_controller.connection
+        # immunity_controller.connection
         'deviceconnection_set-TOTAL_FORMS': 0,
         'deviceconnection_set-INITIAL_FORMS': 0,
         'deviceconnection_set-MIN_NUM_FORMS': 0,
@@ -1140,7 +1140,7 @@ class TestAdmin(
         response = self.client.get(path)
         self.assertEqual(response.status_code, 404)
 
-    @patch('openwisp_controller.config.settings.HARDWARE_ID_ENABLED', True)
+    @patch('immunity_controller.config.settings.HARDWARE_ID_ENABLED', True)
     def test_preview_device_config(self):
         templates = Template.objects.all()
         path = reverse(f'admin:{self.app_label}_device_preview')
@@ -1543,7 +1543,7 @@ class TestAdmin(
         path = reverse(f'admin:{self.app_label}_vpn_add')
         response = self.client.get(path)
         self.assertContains(
-            response, 'value="openwisp_controller.vpn_backends.OpenVpn" selected'
+            response, 'value="immunity_controller.vpn_backends.OpenVpn" selected'
         )
 
     def test_vpn_clients_deleted(self):
@@ -1642,7 +1642,7 @@ class TestAdmin(
         response = self.client.get(path)
         self.assertContains(response, 'last_ip')
 
-    @patch('openwisp_controller.config.settings.HARDWARE_ID_ENABLED', True)
+    @patch('immunity_controller.config.settings.HARDWARE_ID_ENABLED', True)
     def test_hardware_id_in_change_device(self):
         d = self._create_device()
         t = Template.objects.first()
@@ -1670,7 +1670,7 @@ class TestAdmin(
         path = reverse(f'admin:{self.app_label}_device_preview')
         config = json.dumps(
             {
-                'openwisp': [
+                'immunity': [
                     {
                         'config_name': 'controller',
                         'config_value': 'http',
@@ -1982,7 +1982,7 @@ class TestDeviceGroupAdmin(
         self.assertNotContains(response, 'Device Group 2')
 
     def test_admin_menu_groups(self):
-        # Test menu group (openwisp-utils menu group) for Device Group, Template
+        # Test menu group (immunity-utils menu group) for Device Group, Template
         # and Vpn models
         models = ['devicegroup', 'template', 'vpn']
         self.client.force_login(self._get_admin())

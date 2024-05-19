@@ -5,10 +5,10 @@ netjsonconfig @ https://github.com/edge-servers/netjsonconfig/tarball/master
 django-x509 @ https://github.com/edge-servers/django-x509/tarball/master
 django-loci @ https://github.com/edge-servers/django-loci/tarball/master
 django-flat-json-widget @ https://github.com/edge-servers/django-flat-json-widget/tarball/master
-openwisp-users @ https://github.com/edge-servers/openwisp-users/tarball/master
-openwisp-utils[celery] @ https://github.com/edge-servers/openwisp-utils/tarball/master
-openwisp-notifications @ https://github.com/edge-servers/openwisp-notifications/tarball/master
-openwisp-ipam @ https://github.com/edge-servers/openwisp-ipam/tarball/master
+immunity-users @ https://github.com/edge-servers/immunity-users/tarball/master
+immunity-utils[celery] @ https://github.com/edge-servers/immunity-utils/tarball/master
+immunity-notifications @ https://github.com/edge-servers/immunity-notifications/tarball/master
+immunity-ipam @ https://github.com/edge-servers/immunity-ipam/tarball/master
 djangorestframework-gis~=0.18.0
 paramiko[ed25519]~=3.2.0
 scp~=0.14.2

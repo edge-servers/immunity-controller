@@ -7,7 +7,7 @@ from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from swapper import load_model
 
-from openwisp_utils.tasks import OpenwispCeleryTask
+from immunity_utils.tasks import OpenwispCeleryTask
 
 logger = logging.getLogger(__name__)
 

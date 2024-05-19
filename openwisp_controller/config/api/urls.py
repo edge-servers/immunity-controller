@@ -4,7 +4,7 @@ from django.urls import path
 from . import download_views as api_download_views
 from . import views as api_views
 
-app_name = 'openwisp_controller'
+app_name = 'immunity_controller'
 
 
 def get_api_urls(api_views):

@@ -8,7 +8,7 @@ from django.utils import timezone
 from django.utils.module_loading import import_string
 from swapper import load_model
 
-from openwisp_controller.connection.tests.utils import CreateCommandMixin
+from immunity_controller.connection.tests.utils import CreateCommandMixin
 
 from .test_models import BaseTestModels
 

@@ -10,9 +10,9 @@ from rest_framework.response import Response
 from rest_framework_gis.pagination import GeoJsonPagination
 from swapper import load_model
 
-from openwisp_controller.config.api.views import DeviceListCreateView
-from openwisp_users.api.filters import OrganizationManagedFilter
-from openwisp_users.api.mixins import FilterByOrganizationManaged, FilterByParentManaged
+from immunity_controller.config.api.views import DeviceListCreateView
+from immunity_users.api.filters import OrganizationManagedFilter
+from immunity_users.api.mixins import FilterByOrganizationManaged, FilterByParentManaged
 
 from ...mixins import ProtectedAPIMixin
 from .filters import DeviceListFilter

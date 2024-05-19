@@ -1,4 +1,4 @@
-from openwisp_controller.geo.tests.pytest import TestChannels as BaseTestChannels
+from immunity_controller.geo.tests.pytest import TestChannels as BaseTestChannels
 
 
 class TestChannels(BaseTestChannels):

@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                         primary_key=True,
                         serialize=False,
                         related_name='config_limits',
-                        to=swapper.get_model_name('openwisp_users', 'organization'),
+                        to=swapper.get_model_name('immunity_users', 'organization'),
                         verbose_name='organization',
                     ),
                 ),

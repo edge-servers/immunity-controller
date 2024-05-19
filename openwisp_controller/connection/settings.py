@@ -1,13 +1,13 @@
 from django.conf import settings
 
 DEFAULT_CONNECTORS = (
-    ('openwisp_controller.connection.connectors.ssh.Ssh', 'SSH'),
+    ('immunity_controller.connection.connectors.ssh.Ssh', 'SSH'),
     (
-        'openwisp_controller.connection.connectors.openwrt.snmp.OpenWRTSnmp',
+        'immunity_controller.connection.connectors.openwrt.snmp.OpenWRTSnmp',
         'OpenWRT SNMP',
     ),
     (
-        'openwisp_controller.connection.connectors.airos.snmp.AirOsSnmp',
+        'immunity_controller.connection.connectors.airos.snmp.AirOsSnmp',
         'Ubiquiti AirOS SNMP',
     ),
 )
@@ -15,9 +15,9 @@ DEFAULT_CONNECTORS = (
 CONNECTORS = getattr(settings, 'OPENWISP_CONNECTORS', DEFAULT_CONNECTORS)
 
 DEFAULT_UPDATE_STRATEGIES = (
-    ('openwisp_controller.connection.connectors.openwrt.ssh.OpenWrt', 'OpenWRT SSH'),
+    ('immunity_controller.connection.connectors.openwrt.ssh.OpenWrt', 'OpenWRT SSH'),
     (
-        'openwisp_controller.connection.connectors.openwrt.ssh.OpenWisp1',
+        'immunity_controller.connection.connectors.openwrt.ssh.OpenWisp1',
         'OpenWISP 1.x SSH',
     ),
 )
@@ -40,7 +40,7 @@ SSH_BANNER_TIMEOUT = getattr(settings, 'OPENWISP_SSH_BANNER_TIMEOUT', 60)
 SSH_COMMAND_TIMEOUT = getattr(settings, 'OPENWISP_SSH_COMMAND_TIMEOUT', 30)
 SSH_CONNECTION_TIMEOUT = getattr(settings, 'OPENWISP_SSH_CONNECTION_TIMEOUT', 5)
 
-# this may get overridden by openwisp-monitoring
+# this may get overridden by immunity-monitoring
 UPDATE_CONFIG_MODEL = getattr(settings, 'OPENWISP_UPDATE_CONFIG_MODEL', 'config.Device')
 USER_COMMANDS = getattr(settings, 'OPENWISP_CONTROLLER_USER_COMMANDS', [])
 ORGANIZATION_ENABLED_COMMANDS = getattr(

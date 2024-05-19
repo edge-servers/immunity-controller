@@ -19,7 +19,7 @@ Device = load_model('config', 'Device')
 Location = load_model('geo', 'Location')
 DeviceLocation = load_model('geo', 'DeviceLocation')
 User = get_user_model()
-OrganizationUser = load_model('openwisp_users', 'OrganizationUser')
+OrganizationUser = load_model('immunity_users', 'OrganizationUser')
 
 
 @skipIf(os.environ.get('SAMPLE_APP', False), 'Running tests on SAMPLE_APP')

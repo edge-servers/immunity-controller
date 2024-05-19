@@ -9,7 +9,7 @@ from .utils import get_subnet_division_config_context, subnet_division_vpnclient
 
 
 class SubnetDivisionConfig(AppConfig):
-    name = 'openwisp_controller.subnet_division'
+    name = 'immunity_controller.subnet_division'
     verbose_name = _('Subnet Division')
     default_auto_field = 'django.db.models.AutoField'
 
@@ -54,7 +54,7 @@ class SubnetDivisionConfig(AppConfig):
         )
 
     def _add_config_context_method(self):
-        from openwisp_controller.config.tests import CreateConfigTemplateMixin
+        from immunity_controller.config.tests import CreateConfigTemplateMixin
 
         from .tests.helpers import subnetdivision_patched_assertNumQueries
 
@@ -68,7 +68,7 @@ class SubnetDivisionConfig(AppConfig):
         # subnet_division app updates context of the Config object
         # which creates additional database queries.
         # Usage of subnet_division app is optional hence, tests in
-        # "openwisp_controller.config" are written assuming
+        # "immunity_controller.config" are written assuming
         # subnet_division is not used. But when it is used, the number
         # of queries should be increased.
         CreateConfigTemplateMixin.assertNumQueries = (

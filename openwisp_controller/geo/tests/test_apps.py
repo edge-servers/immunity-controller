@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from openwisp_utils.admin_theme.dashboard import DASHBOARD_CHARTS
+from immunity_utils.admin_theme.dashboard import DASHBOARD_CHARTS
 
 
 class TestApps(TestCase):

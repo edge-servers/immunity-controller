@@ -35,7 +35,7 @@ DeviceGroup = load_model('config', 'DeviceGroup')
 Config = load_model('config', 'Config')
 VpnClient = load_model('config', 'VpnClient')
 Cert = load_model('django_x509', 'Cert')
-Organization = load_model('openwisp_users', 'Organization')
+Organization = load_model('immunity_users', 'Organization')
 
 
 class ListViewPagination(pagination.PageNumberPagination):

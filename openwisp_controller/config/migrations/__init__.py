@@ -28,7 +28,7 @@ def assign_permissions_to_groups(apps, schema_editor):
     operators_and_admins_can_change = ['device', 'config', 'template']
     operators_read_only_admins_manage = ['vpn']
     manage_operations = ['add', 'change', 'delete']
-    Group = get_swapped_model(apps, 'openwisp_users', 'Group')
+    Group = get_swapped_model(apps, 'immunity_users', 'Group')
 
     try:
         admin = Group.objects.get(name='Administrator')
@@ -63,7 +63,7 @@ def assign_permissions_to_groups(apps, schema_editor):
 def assign_devicegroup_permissions_to_groups(apps, schema_editor):
     create_default_permissions(apps, schema_editor)
     operator_and_admin_operations = ['add', 'change', 'delete', 'view']
-    Group = get_swapped_model(apps, 'openwisp_users', 'Group')
+    Group = get_swapped_model(apps, 'immunity_users', 'Group')
 
     try:
         admin = Group.objects.get(name='Administrator')
@@ -85,7 +85,7 @@ def assign_organization_config_settings_permissions_to_groups(apps, schema_edito
     create_default_permissions(apps, schema_editor)
     operator_operations = ['view']
     admin_operations = operator_operations + ['change']
-    Group = get_swapped_model(apps, 'openwisp_users', 'Group')
+    Group = get_swapped_model(apps, 'immunity_users', 'Group')
     try:
         admin = Group.objects.get(name='Administrator')
         operator = Group.objects.get(name='Operator')
@@ -103,7 +103,7 @@ def assign_organization_config_settings_permissions_to_groups(apps, schema_edito
 
 
 def populate_organization_allowed_device(apps, schema_editor):
-    organization_model = load_model('openwisp_users', 'Organization')
+    organization_model = load_model('immunity_users', 'Organization')
     org_limit_model = load_model('config', 'OrganizationLimits')
     orgs = organization_model.objects.all().select_related('config_limits')
     for org in orgs:

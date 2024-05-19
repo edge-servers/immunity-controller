@@ -1,7 +1,7 @@
 # API download views are stored separately from the main API view file
 # to avoid import issues when importing the main views from other modules,
 # eg: OpenWISP Monitoring. Find out more information at
-# https://github.com/edge-servers/openwisp-monitoring/pull/480#issuecomment-1475240768
+# https://github.com/edge-servers/immunity-monitoring/pull/480#issuecomment-1475240768
 
 from rest_framework.generics import RetrieveAPIView
 from swapper import load_model

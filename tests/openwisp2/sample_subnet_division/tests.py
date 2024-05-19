@@ -1,13 +1,13 @@
-from openwisp_controller.subnet_division.tests.test_admin import (
+from immunity_controller.subnet_division.tests.test_admin import (
     TestDeviceAdmin as BaseTestDeviceAdmin,
 )
-from openwisp_controller.subnet_division.tests.test_admin import (
+from immunity_controller.subnet_division.tests.test_admin import (
     TestIPAdmin as BaseTestIPAdmin,
 )
-from openwisp_controller.subnet_division.tests.test_admin import (
+from immunity_controller.subnet_division.tests.test_admin import (
     TestSubnetAdmin as BaseTestSubnetAdmin,
 )
-from openwisp_controller.subnet_division.tests.test_models import (
+from immunity_controller.subnet_division.tests.test_models import (
     TestSubnetDivisionRule as BaseTestSubnetDivisionRule,
 )
 

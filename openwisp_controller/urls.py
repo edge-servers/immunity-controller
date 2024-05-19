@@ -5,37 +5,37 @@ url_metadata = [
     # allauth proxy
     {
         'regexp': 'accounts/',
-        'app': 'openwisp_users',
-        'include': {'module': 'openwisp_users.accounts.urls'},
+        'app': 'immunity_users',
+        'include': {'module': 'immunity_users.accounts.urls'},
     },
-    # openwisp_notifications
+    # immunity_notifications
     {
         'regexp': '',
-        'app': 'openwisp_notifications',
-        'include': {'module': 'openwisp_notifications.urls'},
+        'app': 'immunity_notifications',
+        'include': {'module': 'immunity_notifications.urls'},
     },
-    # openwisp_ipam
+    # immunity_ipam
     {
         'regexp': '',
-        'app': 'openwisp_ipam',
-        'include': {'module': 'openwisp_ipam.urls'},
+        'app': 'immunity_ipam',
+        'include': {'module': 'immunity_ipam.urls'},
     },
-    # openwisp_controller.pki (CRL view)
+    # immunity_controller.pki (CRL view)
     {
         'regexp': '',
-        'app': 'openwisp_controller.pki',
+        'app': 'immunity_controller.pki',
         'include': {'module': '{app}.urls', 'namespace': 'x509'},
     },
-    # openwisp_controller.pki.api
+    # immunity_controller.pki.api
     {
         'regexp': 'api/v1/',
-        'app': 'openwisp_controller.pki',
+        'app': 'immunity_controller.pki',
         'include': {'module': '{app}.api.urls', 'namespace': 'pki_api'},
     },
-    # openwisp_controller controller
+    # immunity_controller controller
     {
         'regexp': '',
-        'app': 'openwisp_controller.config',
+        'app': 'immunity_controller.config',
         'include': {'module': '{app}.controller.urls', 'namespace': 'controller'},
     },
     # owm_legacy
@@ -44,28 +44,28 @@ url_metadata = [
         'app': 'owm_legacy',
         'include': {'module': '{app}.urls', 'namespace': 'owm'},
     },
-    # openwisp_controller.geo
+    # immunity_controller.geo
     {
         'regexp': '',
-        'app': 'openwisp_controller.geo',
+        'app': 'immunity_controller.geo',
         'include': {'module': '{app}.api.urls', 'namespace': 'geo_api'},
     },
-    # openwisp_controller.config
+    # immunity_controller.config
     {
         'regexp': '',
-        'app': 'openwisp_controller.config',
+        'app': 'immunity_controller.config',
         'include': {'module': '{app}.urls', 'namespace': 'config'},
     },
-    # openwisp_controller.config.api
+    # immunity_controller.config.api
     {
         'regexp': 'api/v1/',
-        'app': 'openwisp_controller.config',
+        'app': 'immunity_controller.config',
         'include': {'module': '{app}.api.urls', 'namespace': 'config_api'},
     },
-    # openwisp_controller.connection
+    # immunity_controller.connection
     {
         'regexp': '',
-        'app': 'openwisp_controller.connection',
+        'app': 'immunity_controller.connection',
         'include': {'module': '{app}.api.urls', 'namespace': 'connection_api'},
     },
 ]

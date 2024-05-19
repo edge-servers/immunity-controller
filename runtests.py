@@ -18,7 +18,7 @@ if __name__ == '__main__':
     args.insert(1, 'test')
 
     if not os.environ.get('SAMPLE_APP', False):
-        args.insert(2, 'openwisp_controller')
+        args.insert(2, 'immunity_controller')
     else:
         args.insert(2, 'immunity22')
 
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     execute_from_command_line(args)
 
     if not os.environ.get('SAMPLE_APP', False):
-        app_dir = 'openwisp_controller/'
+        app_dir = 'immunity_controller/'
     else:
         app_dir = 'tests/immunity22/'
 

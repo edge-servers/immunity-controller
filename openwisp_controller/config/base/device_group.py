@@ -9,8 +9,8 @@ from jsonfield import JSONField
 from jsonschema.exceptions import ValidationError as SchemaError
 from swapper import get_model_name, load_model
 
-from openwisp_users.mixins import OrgMixin
-from openwisp_utils.base import TimeStampedEditableModel
+from immunity_users.mixins import OrgMixin
+from immunity_utils.base import TimeStampedEditableModel
 
 from .. import settings as app_settings
 from ..signals import group_templates_changed

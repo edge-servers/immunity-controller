@@ -9,11 +9,11 @@ from django.db.models.signals import post_save
 from django.db.utils import IntegrityError
 from django.http.response import HttpResponse, HttpResponseNotFound
 from django.test import TestCase, TransactionTestCase
-from openwisp_ipam.tests import CreateModelsMixin as CreateIpamModelsMixin
+from immunity_ipam.tests import CreateModelsMixin as CreateIpamModelsMixin
 from requests.exceptions import ConnectionError, RequestException, Timeout
 from swapper import load_model
 
-from openwisp_utils.tests import catch_signal
+from immunity_utils.tests import catch_signal
 
 from ...vpn_backends import OpenVpn
 from .. import settings as app_settings
@@ -36,8 +36,8 @@ Vpn = load_model('config', 'Vpn')
 VpnClient = load_model('config', 'VpnClient')
 Ca = load_model('django_x509', 'Ca')
 Cert = load_model('django_x509', 'Cert')
-Subnet = load_model('openwisp_ipam', 'Subnet')
-IpAddress = load_model('openwisp_ipam', 'IpAddress')
+Subnet = load_model('immunity_ipam', 'Subnet')
+IpAddress = load_model('immunity_ipam', 'IpAddress')
 
 
 class BaseTestVpn(CreateIpamModelsMixin, TestVpnX509Mixin, CreateConfigTemplateMixin):
@@ -171,7 +171,7 @@ class TestVpn(BaseTestVpn, TestCase):
             city='Rome',
             organization_name='OpenWISP',
             email='test@test.com',
-            common_name='openwisp.org',
+            common_name='immunity.org',
         )
         cert.full_clean()
         cert.save()
@@ -325,7 +325,7 @@ class TestVpn(BaseTestVpn, TestCase):
         self.assertEqual(v.get_context(), expected)
         self.assertNotEqual(v.get_context(), app_settings.CONTEXT)
 
-    @mock.patch('openwisp_controller.config.base.vpn.AbstractVpn.dhparam')
+    @mock.patch('immunity_controller.config.base.vpn.AbstractVpn.dhparam')
     def test_dh(self, mocked_dhparam):
         mocked_dhparam.return_value = self._dh
         v = self._create_vpn()
@@ -782,7 +782,7 @@ class TestWireguardTransaction(BaseTestVpn, TestWireguardVpnMixin, TransactionTe
             vpn_client.refresh_from_db()
 
             with mock.patch(
-                'openwisp_controller.config.tasks.logger.info'
+                'immunity_controller.config.tasks.logger.info'
             ) as mocked_logger, mock.patch(
                 'requests.post', return_value=HttpResponse()
             ):
@@ -1008,8 +1008,8 @@ class TestVxlanTransaction(
 
 
 class TestZeroTier(BaseTestVpn, TestZeroTierVpnMixin, TestCase):
-    _ZT_SERVICE_REQUESTS = 'openwisp_controller.config.api.zerotier_service.requests'
-    _ZT_GENERATE_IDENTITY_SUBPROCESS = 'openwisp_controller.config.base.vpn.subprocess'
+    _ZT_SERVICE_REQUESTS = 'immunity_controller.config.api.zerotier_service.requests'
+    _ZT_GENERATE_IDENTITY_SUBPROCESS = 'immunity_controller.config.base.vpn.subprocess'
 
     def _set_subprocess_mock(self, mock_sub):
         mock_stdout = mock.MagicMock()
@@ -1383,13 +1383,13 @@ class TestZeroTier(BaseTestVpn, TestZeroTierVpnMixin, TestCase):
 class TestZeroTierTransaction(
     BaseTestVpn, TestZeroTierVpnMixin, TestWireguardVpnMixin, TransactionTestCase
 ):
-    _ZT_SERVICE_REQUESTS = 'openwisp_controller.config.api.zerotier_service.requests'
-    _ZT_API_TASKS_INFO_LOGGER = 'openwisp_controller.config.tasks_zerotier.logger.info'
-    _ZT_API_TASKS_WARN_LOGGER = 'openwisp_controller.config.tasks_zerotier.logger.warn'
-    _ZT_API_TASKS_ERR_LOGGER = 'openwisp_controller.config.tasks_zerotier.logger.error'
+    _ZT_SERVICE_REQUESTS = 'immunity_controller.config.api.zerotier_service.requests'
+    _ZT_API_TASKS_INFO_LOGGER = 'immunity_controller.config.tasks_zerotier.logger.info'
+    _ZT_API_TASKS_WARN_LOGGER = 'immunity_controller.config.tasks_zerotier.logger.warn'
+    _ZT_API_TASKS_ERR_LOGGER = 'immunity_controller.config.tasks_zerotier.logger.error'
     # As the locmem cache does not support the redis backend cache.keys() method
     _ZT_API_TASKS_LOCMEM_CACHE_KEYS = f"{settings.CACHES['default']['BACKEND']}.keys"
-    _ZT_GENERATE_IDENTITY_SUBPROCESS = 'openwisp_controller.config.base.vpn.subprocess'
+    _ZT_GENERATE_IDENTITY_SUBPROCESS = 'immunity_controller.config.base.vpn.subprocess'
 
     @mock.patch(_ZT_GENERATE_IDENTITY_SUBPROCESS)
     @mock.patch(_ZT_SERVICE_REQUESTS)

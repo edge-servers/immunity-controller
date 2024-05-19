@@ -1,11 +1,11 @@
-from openwisp_controller.config.tests.test_apps import TestApps as BaseTestApps
-from openwisp_controller.geo.tests.test_admin import TestAdmin as BaseTestAdmin
-from openwisp_controller.geo.tests.test_admin_inline import (
+from immunity_controller.config.tests.test_apps import TestApps as BaseTestApps
+from immunity_controller.geo.tests.test_admin import TestAdmin as BaseTestAdmin
+from immunity_controller.geo.tests.test_admin_inline import (
     TestAdminInline as BaseTestAdminInline,
 )
-from openwisp_controller.geo.tests.test_api import TestApi as BaseTestApi
-from openwisp_controller.geo.tests.test_api import TestGeoApi as BaseTestGeoApi
-from openwisp_controller.geo.tests.test_models import TestModels as BaseTestModels
+from immunity_controller.geo.tests.test_api import TestApi as BaseTestApi
+from immunity_controller.geo.tests.test_api import TestGeoApi as BaseTestGeoApi
+from immunity_controller.geo.tests.test_models import TestModels as BaseTestModels
 
 
 class TestAdmin(BaseTestAdmin):

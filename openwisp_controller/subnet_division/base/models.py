@@ -7,8 +7,8 @@ from django.db import models, transaction
 from django.utils.module_loading import import_string
 from django.utils.translation import gettext_lazy as _
 
-from openwisp_users.mixins import OrgMixin
-from openwisp_utils.base import TimeStampedEditableModel
+from immunity_users.mixins import OrgMixin
+from immunity_utils.base import TimeStampedEditableModel
 
 from .. import settings as app_settings
 
@@ -27,7 +27,7 @@ class AbstractSubnetDivisionRule(TimeStampedEditableModel, OrgMixin):
 
     type = models.CharField(max_length=200, choices=app_settings.SUBNET_DIVISION_TYPES)
     master_subnet = models.ForeignKey(
-        swapper.get_model_name('openwisp_ipam', 'Subnet'), on_delete=models.CASCADE
+        swapper.get_model_name('immunity_ipam', 'Subnet'), on_delete=models.CASCADE
     )
     label = models.CharField(
         max_length=30,
@@ -200,7 +200,7 @@ class AbstractSubnetDivisionRule(TimeStampedEditableModel, OrgMixin):
         # These indexes are used delete subnets that were provisioned by the
         # deleted rule. Deleting a Subnet object will automatically delete
         # related IpAddress objects.
-        Subnet = swapper.load_model('openwisp_ipam', 'Subnet')
+        Subnet = swapper.load_model('immunity_ipam', 'Subnet')
         SubnetDivisionIndex = swapper.load_model(
             'subnet_division', 'SubnetDivisionIndex'
         )
@@ -234,13 +234,13 @@ class AbstractSubnetDivisionRule(TimeStampedEditableModel, OrgMixin):
 class AbstractSubnetDivisionIndex(models.Model):
     keyword = models.CharField(max_length=30)
     subnet = models.ForeignKey(
-        swapper.get_model_name('openwisp_ipam', 'Subnet'),
+        swapper.get_model_name('immunity_ipam', 'Subnet'),
         on_delete=models.CASCADE,
         null=True,
         blank=True,
     )
     ip = models.ForeignKey(
-        swapper.get_model_name('openwisp_ipam', 'IpAddress'),
+        swapper.get_model_name('immunity_ipam', 'IpAddress'),
         on_delete=models.CASCADE,
         null=True,
         blank=True,

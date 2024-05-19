@@ -1,6 +1,6 @@
 from django.db import models
 
-from openwisp_controller.geo.base.models import (
+from immunity_controller.geo.base.models import (
     BaseDeviceLocation,
     BaseFloorPlan,
     BaseLocation,

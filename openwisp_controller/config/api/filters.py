@@ -6,7 +6,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.exceptions import ValidationError
 from swapper import load_model
 
-from openwisp_users.api.filters import OrganizationManagedFilter
+from immunity_users.api.filters import OrganizationManagedFilter
 
 Template = load_model('config', 'Template')
 Vpn = load_model('config', 'Vpn')

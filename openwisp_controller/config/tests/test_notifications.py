@@ -4,22 +4,22 @@ from celery.exceptions import Retry
 from django.apps.registry import apps
 from django.conf import settings
 from django.test import TransactionTestCase
-from openwisp_ipam.tests import CreateModelsMixin as CreateIpamModelsMixin
+from immunity_ipam.tests import CreateModelsMixin as CreateIpamModelsMixin
 from requests.exceptions import RequestException
 from swapper import load_model
 
-from openwisp_controller.config.tests.utils import (
+from immunity_controller.config.tests.utils import (
     CreateConfigMixin,
     TestZeroTierVpnMixin,
 )
-from openwisp_users.tests.utils import TestOrganizationMixin
+from immunity_users.tests.utils import TestOrganizationMixin
 
 from ..settings import API_TASK_RETRY_OPTIONS
 from ..signals import device_registered
 
 Vpn = load_model('config', 'Vpn')
 Device = load_model('config', 'Device')
-Notification = load_model('openwisp_notifications', 'Notification')
+Notification = load_model('immunity_notifications', 'Notification')
 
 notification_qs = Notification.objects.all()
 
@@ -32,10 +32,10 @@ class TestNotifications(
     TransactionTestCase,
 ):
     app_label = 'config'
-    _ZT_SERVICE_REQUESTS = 'openwisp_controller.config.api.zerotier_service.requests'
-    _ZT_API_TASKS_INFO_LOGGER = 'openwisp_controller.config.tasks_zerotier.logger.info'
-    _ZT_API_TASKS_WARN_LOGGER = 'openwisp_controller.config.tasks_zerotier.logger.warn'
-    _ZT_API_TASKS_ERR_LOGGER = 'openwisp_controller.config.tasks_zerotier.logger.error'
+    _ZT_SERVICE_REQUESTS = 'immunity_controller.config.api.zerotier_service.requests'
+    _ZT_API_TASKS_INFO_LOGGER = 'immunity_controller.config.tasks_zerotier.logger.info'
+    _ZT_API_TASKS_WARN_LOGGER = 'immunity_controller.config.tasks_zerotier.logger.warn'
+    _ZT_API_TASKS_ERR_LOGGER = 'immunity_controller.config.tasks_zerotier.logger.error'
     # As the locmem cache does not support the redis backend cache.keys() method
     _ZT_API_TASKS_LOCMEM_CACHE_KEYS = f"{settings.CACHES['default']['BACKEND']}.keys"
 
@@ -88,9 +88,9 @@ class TestNotifications(
             notification = notification_qs.first()
             self.assertIn('The existing device', notification.message)
 
-    @patch('openwisp_notifications.types.NOTIFICATION_TYPES', {})
-    @patch('openwisp_utils.admin_theme.dashboard.DASHBOARD_CHARTS', {})
-    @patch('openwisp_utils.admin_theme.menu.MENU', {})
+    @patch('immunity_notifications.types.NOTIFICATION_TYPES', {})
+    @patch('immunity_utils.admin_theme.dashboard.DASHBOARD_CHARTS', {})
+    @patch('immunity_utils.admin_theme.menu.MENU', {})
     def test_default_notification_type_already_unregistered(self):
         # Simulates if 'default notification type is already unregistered
         # by some other module

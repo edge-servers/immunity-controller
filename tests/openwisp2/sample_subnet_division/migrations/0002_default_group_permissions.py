@@ -1,6 +1,6 @@
 from django.db import migrations
 
-from openwisp_controller.subnet_division.migrations import assign_permissions_to_groups
+from immunity_controller.subnet_division.migrations import assign_permissions_to_groups
 
 
 class Migration(migrations.Migration):

@@ -9,8 +9,8 @@ from django.test import TestCase, TransactionTestCase
 from netjsonconfig import OpenWrt
 from swapper import load_model
 
-from openwisp_users.tests.utils import TestOrganizationMixin
-from openwisp_utils.tests import catch_signal
+from immunity_users.tests.utils import TestOrganizationMixin
+from immunity_utils.tests import catch_signal
 
 from ...tests.utils import TransactionTestMixin
 from .. import settings as app_settings
@@ -87,14 +87,14 @@ class TestTemplate(
             name='default-openwrt', backend='netjsonconfig.OpenWrt', default=True
         )
         t2 = self._create_template(
-            name='default-openwisp', backend='netjsonconfig.OpenWisp', default=True
+            name='default-immunity', backend='netjsonconfig.OpenWisp', default=True
         )
         c1 = self._create_config(
             device=self._create_device(name='test-openwrt'),
             backend='netjsonconfig.OpenWrt',
         )
         d2 = self._create_device(
-            name='test-openwisp', mac_address=self.TEST_MAC_ADDRESS.replace('55', '56')
+            name='test-immunity', mac_address=self.TEST_MAC_ADDRESS.replace('55', '56')
         )
         c2 = self._create_config(device=d2, backend='netjsonconfig.OpenWisp')
         # ensure OpenWRT device has only the default OpenWRT backend

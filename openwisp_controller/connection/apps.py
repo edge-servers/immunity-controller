@@ -5,20 +5,20 @@ from django.apps import AppConfig
 from django.db import transaction
 from django.db.models.signals import post_save
 from django.utils.translation import gettext_lazy as _
-from openwisp_notifications.signals import notify
-from openwisp_notifications.types import register_notification_type
+from immunity_notifications.signals import notify
+from immunity_notifications.types import register_notification_type
 from swapper import get_model_name, load_model
 
-from openwisp_utils.admin_theme.menu import register_menu_subitem
+from immunity_utils.admin_theme.menu import register_menu_subitem
 
 from ..config.signals import config_modified
 from .signals import is_working_changed
 
-_TASK_NAME = 'openwisp_controller.connection.tasks.update_config'
+_TASK_NAME = 'immunity_controller.connection.tasks.update_config'
 
 
 class ConnectionConfig(AppConfig):
-    name = 'openwisp_controller.connection'
+    name = 'immunity_controller.connection'
     label = 'connection'
     verbose_name = _('Network Device Credentials')
     # List of reasons for which notifications should
@@ -155,7 +155,7 @@ class ConnectionConfig(AppConfig):
                     'is {notification.verb}. {notification.actor.failure_reason}'
                 ),
                 'target_link': (
-                    'openwisp_controller.connection.utils'
+                    'immunity_controller.connection.utils'
                     '.get_connection_working_notification_target_url'
                 ),
             },
@@ -177,7 +177,7 @@ class ConnectionConfig(AppConfig):
                     'is {notification.verb}. {notification.actor.failure_reason}'
                 ),
                 'target_link': (
-                    'openwisp_controller.connection.utils'
+                    'immunity_controller.connection.utils'
                     '.get_connection_working_notification_target_url'
                 ),
             },
@@ -185,7 +185,7 @@ class ConnectionConfig(AppConfig):
         )
 
     def notification_cache_update(self):
-        from openwisp_notifications.handlers import register_notification_cache_update
+        from immunity_notifications.handlers import register_notification_cache_update
 
         register_notification_cache_update(
             model=load_model('connection', 'DeviceConnection'),

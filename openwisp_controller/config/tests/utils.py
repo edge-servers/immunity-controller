@@ -86,10 +86,10 @@ class CreateVpnMixin(object):
     ca_model = Ca
     cert_model = Cert
     _BACKENDS = {
-        'openvpn': 'openwisp_controller.vpn_backends.OpenVpn',
-        'wireguard': 'openwisp_controller.vpn_backends.Wireguard',
-        'vxlan': 'openwisp_controller.vpn_backends.VxlanWireguard',
-        'zerotier': 'openwisp_controller.vpn_backends.ZeroTier',
+        'openvpn': 'immunity_controller.vpn_backends.OpenVpn',
+        'wireguard': 'immunity_controller.vpn_backends.Wireguard',
+        'vxlan': 'immunity_controller.vpn_backends.VxlanWireguard',
+        'zerotier': 'immunity_controller.vpn_backends.ZeroTier',
     }
 
     _dh = """-----BEGIN DH PARAMETERS-----
@@ -119,7 +119,7 @@ UqzLuoNWCyj8KCicbA7tiBxX+2zgQpch8wIBAg==
     }
 
     @mock.patch(
-        'openwisp_controller.config.base.vpn.AbstractVpn.dhparam',
+        'immunity_controller.config.base.vpn.AbstractVpn.dhparam',
         mock.MagicMock(return_value=_dh),
     )
     def _create_vpn(self, ca_options={}, **kwargs):
@@ -149,7 +149,7 @@ class TestWireguardVpnMixin:
                 name='wireguard test', subnet='10.0.0.0/16', organization=org
             )
         vpn_options = {
-            'backend': 'openwisp_controller.vpn_backends.Wireguard',
+            'backend': 'immunity_controller.vpn_backends.Wireguard',
             'config': config,
             'name': 'test',
             'host': 'vpn1.test.com',
@@ -338,7 +338,7 @@ class TestZeroTierVpnMixin:
                 name='test-zerotier-subnet', subnet='10.0.0.0/16', organization=org
             )
         vpn_options = {
-            'backend': 'openwisp_controller.vpn_backends.ZeroTier',
+            'backend': 'immunity_controller.vpn_backends.ZeroTier',
             'config': config,
             'name': 'test-zerotier-vpn',
             'host': 'localhost:9993',
@@ -379,8 +379,8 @@ class TestVpnX509Mixin(CreateVpnMixin, TestPkiMixin):
 class CreateConfigTemplateMixin(CreateTemplateMixin, CreateConfigMixin):
     def assertNumQueries(self, num, func=None, *args, using=DEFAULT_DB_ALIAS, **kwargs):
         # NOTE: Do not remove this. It is required by
-        # "openwisp_controller.subnet_division". Check
-        # "openwisp_controller.subnet_division.apps" for details.
+        # "immunity_controller.subnet_division". Check
+        # "immunity_controller.subnet_division.apps" for details.
         return super().assertNumQueries(num, func=func, *args, using=using, **kwargs)
 
     def _create_config(self, **kwargs):

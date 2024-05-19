@@ -1,11 +1,11 @@
-from openwisp_notifications.websockets.routing import (
+from immunity_notifications.websockets.routing import (
     get_routes as get_notification_routes,
 )
 
-from openwisp_controller.connection.channels.routing import (
+from immunity_controller.connection.channels.routing import (
     get_routes as get_connection_routes,
 )
-from openwisp_controller.geo.channels.routing import get_routes as get_geo_routes
+from immunity_controller.geo.channels.routing import get_routes as get_geo_routes
 
 
 def get_routes():

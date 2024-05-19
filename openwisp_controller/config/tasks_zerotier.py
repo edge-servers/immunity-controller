@@ -5,12 +5,12 @@ from time import sleep
 from celery import shared_task
 from django.core.cache import cache
 from django.core.exceptions import ObjectDoesNotExist
-from openwisp_notifications.signals import notify
+from immunity_notifications.signals import notify
 from requests.exceptions import RequestException
 from swapper import load_model
 
-from openwisp_controller.config.api.zerotier_service import ZerotierService
-from openwisp_utils.tasks import OpenwispCeleryTask
+from immunity_controller.config.api.zerotier_service import ZerotierService
+from immunity_utils.tasks import OpenwispCeleryTask
 
 from .settings import API_TASK_RETRY_OPTIONS
 
@@ -34,7 +34,7 @@ class OpenwispApiTask(OpenwispCeleryTask):
         # Adding some delay here to prevent overlapping
         # of the django success message container
         # with the ow-notification container
-        # https://github.com/edge-servers/openwisp-notifications/issues/264
+        # https://github.com/edge-servers/immunity-notifications/issues/264
         sleep(2)
         notify.send(
             type=f'api_task_{type}',

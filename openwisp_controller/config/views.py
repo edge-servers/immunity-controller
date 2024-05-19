@@ -13,7 +13,7 @@ from swapper import load_model
 from .settings import BACKENDS, VPN_BACKENDS
 from .utils import get_object_or_404
 
-Organization = load_model('openwisp_users', 'Organization')
+Organization = load_model('immunity_users', 'Organization')
 Template = load_model('config', 'Template')
 DeviceGroup = load_model('config', 'DeviceGroup')
 OrganizationConfigSettings = load_model('config', 'OrganizationConfigSettings')
