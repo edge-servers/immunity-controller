@@ -23,8 +23,8 @@ services:
   postgres:
     image: postgis/postgis:13-3.3-alpine
     environment:
-      POSTGRES_PASSWORD: openwisp2
-      POSTGRES_USER: openwisp2
-      POSTGRES_DB: openwisp2
+      POSTGRES_PASSWORD: immunity22
+      POSTGRES_USER: immunity22
+      POSTGRES_DB: immunity22
     ports:
       - 5432:5432

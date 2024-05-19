@@ -1,8 +1,8 @@
 openwisp-controller
 ===================
 
-.. image:: https://github.com/openwisp/openwisp-controller/workflows/OpenWISP%20Controller%20CI%20Build/badge.svg?branch=master
-   :target: https://github.com/openwisp/openwisp-controller/actions?query=workflow%3A%22OpenWISP+Controller+CI+Build%22
+.. image:: https://github.com/edge-servers/openwisp-controller/workflows/OpenWISP%20Controller%20CI%20Build/badge.svg?branch=master
+   :target: https://github.com/edge-servers/openwisp-controller/actions?query=workflow%3A%22OpenWISP+Controller+CI+Build%22
    :alt: CI build status
 
 .. image:: https://coveralls.io/repos/openwisp/openwisp-controller/badge.svg
@@ -30,7 +30,7 @@ openwisp-controller
    :alt: code style: black
 
 .. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/controller_demo.gif
-   :target: https://github.com/openwisp/openwisp-controller/tree/docs/docs/controller_demo.gif
+   :target: https://github.com/edge-servers/openwisp-controller/tree/docs/docs/controller_demo.gif
    :alt: Feature Highlights
 
 ------------
@@ -48,22 +48,22 @@ on top of its building blocks.
 
 Other popular building blocks that are part of the OpenWISP ecosystem are:
 
-- `openwisp-monitoring <https://github.com/openwisp/openwisp-monitoring>`_:
+- `openwisp-monitoring <https://github.com/edge-servers/openwisp-monitoring>`_:
   provides device status monitoring, collection of metrics, charts, alerts,
   possibility to define custom checks
-- `openwisp-firmware-upgrader <https://github.com/openwisp/openwisp-firmware-upgrader>`_:
+- `openwisp-firmware-upgrader <https://github.com/edge-servers/openwisp-firmware-upgrader>`_:
   automated firmware upgrades (single devices or mass network upgrades)
-- `openwisp-radius <https://github.com/openwisp/openwisp-radius>`_:
+- `openwisp-radius <https://github.com/edge-servers/openwisp-radius>`_:
   based on FreeRADIUS, allows to implement network access authentication systems like
   802.1x WPA2 Enterprise, captive portal authentication, Hotspot 2.0 (802.11u)
-- `openwisp-network-topology <https://github.com/openwisp/openwisp-network-topology>`_:
+- `openwisp-network-topology <https://github.com/edge-servers/openwisp-network-topology>`_:
   provides way to collect and visualize network topology data from
   dynamic mesh routing daemons or other network software (eg: OpenVPN);
   it can be used in conjunction with openwisp-monitoring to get a better idea
   of the state of the network
-- `openwisp-ipam <https://github.com/openwisp/openwisp-ipam>`_:
+- `openwisp-ipam <https://github.com/edge-servers/openwisp-ipam>`_:
   allows to manage the assignment of IP addresses used in the network
-- `openwisp-notifications <https://github.com/openwisp/openwisp-notifications>`_:
+- `openwisp-notifications <https://github.com/edge-servers/openwisp-notifications>`_:
   allows users to be aware of important events happening in the network.
 
 **For a more complete overview of the OpenWISP modules and architecture**,
@@ -71,7 +71,7 @@ see the
 `OpenWISP Architecture Overview
 <https://openwisp.io/docs/general/architecture.html>`_.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp2-docs/master/assets/design/openwisp-logo-black.svg
+.. image:: https://raw.githubusercontent.com/openwisp/immunity22-docs/master/assets/design/openwisp-logo-black.svg
   :target: http://openwisp.org
   :alt: OpenWISP
 
@@ -96,7 +96,7 @@ Config App
 
 * **configuration management** for embedded devices supporting different firmwares:
     - `OpenWRT <http://openwrt.org>`_
-    - `OpenWISP Firmware <https://github.com/openwisp/OpenWISP-Firmware>`_
+    - `OpenWISP Firmware <https://github.com/edge-servers/OpenWISP-Firmware>`_
     - support for additional firmware can be added by `specifying custom backends <#netjsonconfig-backends>`_
 * **configuration editor** based on `JSON-Schema editor <https://github.com/jdorn/json-editor>`_
 * **advanced edit mode**: edit `NetJSON  <http://netjson.org>`_ *DeviceConfiguration* objects for maximum flexibility
@@ -116,7 +116,7 @@ Config App
 PKI App
 ~~~~~~~
 
-The PKI app is based on `django-x509 <https://github.com/openwisp/django-x509>`_,
+The PKI app is based on `django-x509 <https://github.com/edge-servers/django-x509>`_,
 it allows to create, import and view x509 CAs and certificates directly from
 the administration dashboard, it also adds different endpoints to the
 `REST API <#rest-api-reference>`_.
@@ -136,7 +136,7 @@ in order perform `push operations <#how-to-configure-push-updates>`__:
 
 - Sending configuration updates.
 - `Executing shell commands <#sending-commands-to-devices>`_.
-- Perform `firmware upgrades via the additional firmware upgrade module <https://github.com/openwisp/openwisp-firmware-upgrader>`_.
+- Perform `firmware upgrades via the additional firmware upgrade module <https://github.com/edge-servers/openwisp-firmware-upgrader>`_.
 - `REST API <#rest-api-reference>`_
 
 The default connection protocol implemented is SSH, but other protocol
@@ -152,12 +152,12 @@ SNMP
 
 The SNMP connector is useful to collect monitoring information and it's used in
 `openwisp-monitoring`_ for performing checks to collect monitoring information.
-`Read more <https://github.com/openwisp/openwisp-monitoring/pull/309#discussion_r692566202>`_ on how to use it.
+`Read more <https://github.com/edge-servers/openwisp-monitoring/pull/309#discussion_r692566202>`_ on how to use it.
 
 Geo App
 ~~~~~~~
 
-The geographic app is based on `django-loci <https://github.com/openwisp/django-loci>`_
+The geographic app is based on `django-loci <https://github.com/edge-servers/django-loci>`_
 and allows to define the geographic coordinates of the devices,
 as well as their indoor coordinates on floorplan images.
 
@@ -188,8 +188,8 @@ Deploy it in production
 
 See:
 
-- `ansible-openwisp2 <https://github.com/openwisp/ansible-openwisp2>`_
-- `docker-openwisp <https://github.com/openwisp/docker-openwisp>`_
+- `ansible-immunity22 <https://github.com/edge-servers/ansible-immunity22>`_
+- `docker-openwisp <https://github.com/edge-servers/docker-openwisp>`_
 
 Dependencies
 ~~~~~~~~~~~~
@@ -213,13 +213,13 @@ Install tarball:
 
 .. code-block:: shell
 
-    pip install https://github.com/openwisp/openwisp-controller/tarball/master
+    pip install https://github.com/edge-servers/openwisp-controller/tarball/master
 
 Alternatively you can install via pip using git:
 
 .. code-block:: shell
 
-    pip install -e git+git://github.com/openwisp/openwisp-controller#egg=openwisp_controller
+    pip install -e git+git://github.com/edge-servers/openwisp-controller#egg=openwisp_controller
 
 If you want to contribute, follow the instructions in
 `Installing for development <#installing-for-development>`_.
@@ -290,7 +290,7 @@ Launch celery worker (for background jobs):
 
 .. code-block:: shell
 
-    celery -A openwisp2 worker -l info
+    celery -A immunity22 worker -l info
 
 Launch development server:
 
@@ -319,7 +319,7 @@ Install and run on docker
 
 NOTE: This Docker image is for development purposes only.
 For the official OpenWISP Docker images, see: `docker-openwisp
-<https://github.com/openwisp/docker-openwisp>`_.
+<https://github.com/edge-servers/docker-openwisp>`_.
 
 Build from the Dockerfile:
 
@@ -365,7 +365,7 @@ Add ``openwisp_controller`` applications to ``INSTALLED_APPS``:
 
     INSTALLED_APPS = [
         ...
-        # openwisp2 modules
+        # immunity22 modules
         'openwisp_controller.config',
         'openwisp_controller.pki',
         'openwisp_controller.geo',
@@ -375,7 +375,7 @@ Add ``openwisp_controller`` applications to ``INSTALLED_APPS``:
         'openwisp_users',
         'openwisp_notifications',
         'openwisp_ipam',
-        # openwisp2 admin theme
+        # immunity22 admin theme
         # (must be loaded here)
         'openwisp_utils.admin_theme',
         'admin_auto_filters',
@@ -680,9 +680,9 @@ Follow the procedure described below to enable secure SSH access from OpenWISP t
 devices, this is required to enable push updates (whenever the configuration is changed,
 OpenWISP will trigger the update in the background) and/or
 `firmware upgrades (via the additional module openwisp-firmware-upgrader)
-<https://github.com/openwisp/openwisp-firmware-upgrader>`_.
+<https://github.com/edge-servers/openwisp-firmware-upgrader>`_.
 
-**Note**: If you have installed OpenWISP with `openwisp2 Ansbile role <https://galaxy.ansible.com/openwisp/openwisp2>`_
+**Note**: If you have installed OpenWISP with `immunity22 Ansbile role <https://galaxy.ansible.com/openwisp/immunity22>`_
 then you can skip the following steps. The Ansible role automatically creates a
 default template to update ``authorized_keys`` on networking devices using the
 default access credentials.
@@ -779,7 +779,7 @@ While the first two options are self-explanatory, the **custom command** option
 allows you to execute any command on the device as shown in the example below.
 
 .. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/commands_demo.gif
-   :target: https://github.com/openwisp/openwisp-controller/tree/docs/docs/commands_demo.gif
+   :target: https://github.com/edge-servers/openwisp-controller/tree/docs/docs/commands_demo.gif
    :alt: Executing commands on device example
 
 **Note**: in order for this feature to work, a device needs to have at least
@@ -849,7 +849,7 @@ The above code will add the "Ping" command in the user interface as show
 in the GIF below:
 
 .. image:: https://raw.githubusercontent.com/openwisp/openwisp-controller/docs/docs/ping_command_example.gif
-   :target: https://github.com/openwisp/openwisp-controller/tree/docs/docs/ping_command_example.gif
+   :target: https://github.com/edge-servers/openwisp-controller/tree/docs/docs/ping_command_example.gif
    :alt: Adding a "ping" command
 
 The ``OPENWISP_CONTROLLER_USER_COMMANDS`` setting takes a ``list`` of ``tuple``
@@ -1129,7 +1129,7 @@ organization.
 ##############################
 
 If you haven't already setup WireGuard on your VPN server, this will be a good
-time do so. We recommend using the `ansible-wireguard-openwisp <https://github.com/openwisp/ansible-wireguard-openwisp>`_
+time do so. We recommend using the `ansible-wireguard-openwisp <https://github.com/edge-servers/ansible-wireguard-openwisp>`_
 role for installing WireGuard since it also installs scripts that allows
 OpenWISP to manage WireGuard VPN server.
 
@@ -1232,7 +1232,7 @@ organization.
 ####################################
 
 If you haven't already setup WireGuard on your VPN server, this will be a good
-time do so. We recommend using the `ansible-wireguard-openwisp <https://github.com/openwisp/ansible-wireguard-openwisp>`_
+time do so. We recommend using the `ansible-wireguard-openwisp <https://github.com/edge-servers/ansible-wireguard-openwisp>`_
 role for installing WireGuard since it also installs scripts that allows
 OpenWISP to manage WireGuard VPN server along with VXLAN tunnels.
 
@@ -1566,7 +1566,7 @@ Authentication
 ~~~~~~~~~~~~~~
 
 See openwisp-users: `authenticating with the user token
-<https://github.com/openwisp/openwisp-users#authenticating-with-the-user-token>`_.
+<https://github.com/edge-servers/openwisp-users#authenticating-with-the-user-token>`_.
 
 When browsing the API via the `Live documentation <#live-documentation>`_
 or the `Browsable web page <#browsable-web-interface>`_, you can also use
@@ -2878,7 +2878,7 @@ Whether devices can automatically register through the controller or not.
 This feature is enabled by default.
 
 Autoregistration must be supported on the devices in order to work, see `openwisp-config automatic
-registration <https://github.com/openwisp/openwisp-config#automatic-registration>`_ for more information.
+registration <https://github.com/edge-servers/openwisp-config#automatic-registration>`_ for more information.
 
 ``OPENWISP_CONTROLLER_CONSISTENT_REGISTRATION``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2895,7 +2895,7 @@ the existing configuration without creating a new one.
 This feature is enabled by default.
 
 Autoregistration must be enabled also on the devices in order to work, see `openwisp-config
-consistent key generation <https://github.com/openwisp/openwisp-config#consistent-key-generation>`_
+consistent key generation <https://github.com/edge-servers/openwisp-config#consistent-key-generation>`_
 for more information.
 
 ``OPENWISP_CONTROLLER_REGISTRATION_SELF_CREATION``
@@ -3621,15 +3621,15 @@ In order to implement your custom version of *openwisp-controller*,
 you need to perform the steps described in this section.
 
 When in doubt, the code in the
-`test project <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/>`_
+`test project <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/>`_
 will serve you as source of truth: just replicate and adapt that code
 to get a basic derivative of *openwisp-controller* working.
 
 If you want to add new users fields, please follow the `tutorial to extend the
-openwisp-users <https://github.com/openwisp/openwisp-users/#extend-openwisp-users>`_.
+openwisp-users <https://github.com/edge-servers/openwisp-users/#extend-openwisp-users>`_.
 As an example, we have extended *openwisp-users* to *sample_users* app and
 added a field ``social_security_number`` in the `sample_users/models.py
-<https://github.com/openwisp/openwisp-controller/blob/master/tests/openwisp2/sample_users/models.py>`_.
+<https://github.com/edge-servers/openwisp-controller/blob/master/tests/immunity22/sample_users/models.py>`_.
 
 **Premise**: if you plan on using a customized version of this module,
 we suggest to start with it since the beginning, because migrating your data
@@ -3698,7 +3698,7 @@ Now you need to add ``mycontroller.sample_config``,
         'allauth',
         'allauth.account',
         'allauth.socialaccount',
-        # openwisp2 module
+        # immunity22 module
         # 'openwisp_controller.config', <-- comment out or delete this line
         # 'openwisp_controller.pki', <-- comment out or delete this line
         # 'openwisp_controller.geo', <-- comment out or delete this line
@@ -3858,24 +3858,24 @@ For more information about CHANNEL_LAYERS setting, please refer to the
 Please refer to the following files in the sample app of the test project:
 
 - sample_config:
-    - `sample_config/__init__.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_config/__init__.py>`_.
-    - `sample_config/apps.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_config/apps.py>`_.
+    - `sample_config/__init__.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/__init__.py>`_.
+    - `sample_config/apps.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/apps.py>`_.
 
 - sample_geo:
-    - `sample_geo/__init__.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_geo/__init__.py>`_.
-    - `sample_geo/apps.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_geo/apps.py>`_.
+    - `sample_geo/__init__.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/__init__.py>`_.
+    - `sample_geo/apps.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/apps.py>`_.
 
 - sample_pki:
-    - `sample_pki/__init__.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_pki/__init__.py>`_.
-    - `sample_pki/apps.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_pki/apps.py>`_.
+    - `sample_pki/__init__.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/__init__.py>`_.
+    - `sample_pki/apps.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/apps.py>`_.
 
 - sample_connection:
-    - `sample_connection/__init__.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_connection/__init__.py>`_.
-    - `sample_connection/apps.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_connection/apps.py>`_.
+    - `sample_connection/__init__.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/__init__.py>`_.
+    - `sample_connection/apps.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/apps.py>`_.
 
 - sample_subnet_division:
-    - `sample_subnet_division/__init__.py <https://github.com/openwisp/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/openwisp2/sample_subnet_division/__init__.py>`_.
-    - `sample_subnet_division/apps.py <https://github.com/openwisp/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/openwisp2/sample_subnet_division/apps.py>`_.
+    - `sample_subnet_division/__init__.py <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/__init__.py>`_.
+    - `sample_subnet_division/apps.py <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/apps.py>`_.
 
 You have to replicate and adapt that code in your project.
 
@@ -3888,11 +3888,11 @@ the `"Applications" section in the django documentation <https://docs.djangoproj
 For the purpose of showing an example, we added a simple "details" field
 to the models of the sample app in the test project.
 
-- `sample_config models <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_config/models.py>`_
-- `sample_geo models <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_geo/models.py>`_
-- `sample_pki models <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_pki/models.py>`_
-- `sample_connection models <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_connection/models.py>`_
-- `sample_subnet_division <https://github.com/openwisp/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/openwisp2/sample_subnet_division/models.py>`_
+- `sample_config models <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/models.py>`_
+- `sample_geo models <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/models.py>`_
+- `sample_pki models <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/models.py>`_
+- `sample_connection models <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/models.py>`_
+- `sample_subnet_division <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/models.py>`_
 
 You can add fields in a similar way in your ``models.py`` file.
 
@@ -3942,11 +3942,11 @@ Now, to use the default ``administrator`` and ``operator`` user groups
 like the used in the openwisp_controller module, you'll manually need to make a
 migrations file which would look like:
 
-- `sample_config/migrations/0002_default_groups_permissions.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_config/migrations/0002_default_groups_permissions.py>`_
-- `sample_geo/migrations/0002_default_group_permissions.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_geo/migrations/0002_default_group_permissions.py>`_
-- `sample_pki/migrations/0002_default_group_permissions.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_pki/migrations/0002_default_group_permissions.py>`_
-- `sample_connection/migrations/0002_default_group_permissions.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_connection/migrations/0002_default_group_permissions.py>`_
-- `sample_subnet_division/migrations/0002_default_group_permissions.py <https://github.com/openwisp/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/openwisp2/sample_subnet_division/migrations/0002_default_group_permissions.py>`_
+- `sample_config/migrations/0002_default_groups_permissions.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/migrations/0002_default_groups_permissions.py>`_
+- `sample_geo/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/migrations/0002_default_group_permissions.py>`_
+- `sample_pki/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/migrations/0002_default_group_permissions.py>`_
+- `sample_connection/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/migrations/0002_default_group_permissions.py>`_
+- `sample_subnet_division/migrations/0002_default_group_permissions.py <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/migrations/0002_default_group_permissions.py>`_
 
 Create database migrations::
 
@@ -3960,11 +3960,11 @@ For more information, refer to the
 
 Refer to the ``admin.py`` file of the sample app.
 
-- `sample_config admin.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_config/admin.py>`_.
-- `sample_geo admin.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_geo/admin.py>`_.
-- `sample_pki admin.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_pki/admin.py>`_.
-- `sample_connection admin.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_connection/admin.py>`_.
-- `sample_subnet_division admin.py <https://github.com/openwisp/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/openwisp2/sample_subnet_division/admin.py>`_.
+- `sample_config admin.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/admin.py>`_.
+- `sample_geo admin.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/admin.py>`_.
+- `sample_pki admin.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/admin.py>`_.
+- `sample_connection admin.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/admin.py>`_.
+- `sample_subnet_division admin.py <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/admin.py>`_.
 
 To introduce changes to the admin, you can do it in two main ways which are described below.
 
@@ -4214,17 +4214,17 @@ in the base classes to test your own behavior.
 
 See the tests in sample_app to find out how to do this.
 
-- `project common tests.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/tests.py>`_
-- `sample_config tests.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_config/tests.py>`_
-- `sample_geo tests.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_geo/tests.py>`_
-- `sample_geo pytest.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_geo/pytest.py>`_
-- `sample_pki tests.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_pki/tests.py>`_
-- `sample_connection tests.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_connection/tests.py>`_
-- `sample_subnet_division tests.py <https://github.com/openwisp/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/openwisp2/sample_subnet_division/tests.py>`_
+- `project common tests.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/tests.py>`_
+- `sample_config tests.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/tests.py>`_
+- `sample_geo tests.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/tests.py>`_
+- `sample_geo pytest.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/pytest.py>`_
+- `sample_pki tests.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_pki/tests.py>`_
+- `sample_connection tests.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_connection/tests.py>`_
+- `sample_subnet_division tests.py <https://github.com/edge-servers/openwisp-controller/tree/issues/400-subnet-subdivision-rule/tests/immunity22/sample_subnet_division/tests.py>`_
 
 For running the tests, you need to copy fixtures as well:
 
-- Change `sample_config` to your config app's name in `sample_config fixtures <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_config/fixtures/>`_ and paste it in the ``sample_config/fixtures/`` directory.
+- Change `sample_config` to your config app's name in `sample_config fixtures <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/fixtures/>`_ and paste it in the ``sample_config/fixtures/`` directory.
 
 You can then run tests with::
 
@@ -4244,7 +4244,7 @@ The following steps are not required and are intended for more advanced customiz
 1. Extending the Controller API Views
 #####################################
 
-Extending the `sample_config/views.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_config/views.py>`_
+Extending the `sample_config/views.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_config/views.py>`_
 is required only when you want to make changes in the controller API,
 Remember to change ``config_views`` location in ``urls.py`` in point 11 for extending views.
 
@@ -4253,7 +4253,7 @@ For more information about django views, please refer to the `views section in t
 2. Extending the Geo API Views
 ##############################
 
-Extending the `sample_geo/views.py <https://github.com/openwisp/openwisp-controller/tree/master/tests/openwisp2/sample_geo/views.py>`_
+Extending the `sample_geo/views.py <https://github.com/edge-servers/openwisp-controller/tree/master/tests/immunity22/sample_geo/views.py>`_
 is required only when you want to make changes in the geo API,
 Remember to change ``geo_views`` location in ``urls.py`` in point 11 for extending views.
 
@@ -4350,11 +4350,11 @@ You can define your own notification types using
 
 For more information, see the relevant `documentation section about
 registering notification types in openwisp-notifications
-<https://github.com/openwisp/openwisp-notifications#registering--unregistering-notification-types>`_.
+<https://github.com/edge-servers/openwisp-notifications#registering--unregistering-notification-types>`_.
 
 Once a new notification type is registered, you have to use the
 `"notify" signal provided in openwisp-notifications
-<https://github.com/openwisp/openwisp-notifications#sending-notifications>`_
+<https://github.com/edge-servers/openwisp-notifications#sending-notifications>`_
 to send notifications for this type.
 
 Contributing
@@ -4365,12 +4365,12 @@ Please refer to the `OpenWISP contributing guidelines <http://openwisp.io/docs/d
 Changelog
 ---------
 
-See `CHANGES <https://github.com/openwisp/openwisp-controller/blob/master/CHANGES.rst>`_.
+See `CHANGES <https://github.com/edge-servers/openwisp-controller/blob/master/CHANGES.rst>`_.
 
 License
 -------
 
-See `LICENSE <https://github.com/openwisp/openwisp-controller/blob/master/LICENSE>`_.
+See `LICENSE <https://github.com/edge-servers/openwisp-controller/blob/master/LICENSE>`_.
 
 Support
 -------

@@ -159,7 +159,7 @@ class DeviceConfigMixin(object):
         ):
             # Do not create Config object if config_data only
             # contains the default value.
-            # See https://github.com/openwisp/openwisp-controller/issues/699
+            # See https://github.com/edge-servers/openwisp-controller/issues/699
             return
         if not device._has_config():
             return self._create_config(device, config_data)

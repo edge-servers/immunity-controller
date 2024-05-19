@@ -1,7 +1,7 @@
 pytest-django~=4.5.2
 pytest-asyncio~=0.21.0
 pytest-cov~=4.1.0
-openwisp-utils[qa,selenium] @ https://github.com/openwisp/openwisp-utils/tarball/master
+openwisp-utils[qa,selenium] @ https://github.com/edge-servers/openwisp-utils/tarball/master
 channels_redis~=4.1.0
 django_redis~=5.2.0
 mock-ssh-server~=0.9.1

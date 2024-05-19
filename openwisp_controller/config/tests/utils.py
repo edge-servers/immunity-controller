@@ -1,6 +1,6 @@
 """
 test utilities shared among test classes
-these mixins are reused also in openwisp2
+these mixins are reused also in immunity22
 change with care.
 """
 from copy import deepcopy

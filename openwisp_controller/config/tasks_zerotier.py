@@ -34,7 +34,7 @@ class OpenwispApiTask(OpenwispCeleryTask):
         # Adding some delay here to prevent overlapping
         # of the django success message container
         # with the ow-notification container
-        # https://github.com/openwisp/openwisp-notifications/issues/264
+        # https://github.com/edge-servers/openwisp-notifications/issues/264
         sleep(2)
         notify.send(
             type=f'api_task_{type}',

@@ -2,7 +2,7 @@ from openwisp_controller.geo.apps import GeoConfig
 
 
 class SampleGeoConfig(GeoConfig):
-    name = 'openwisp2.sample_geo'
+    name = 'immunity22.sample_geo'
     label = 'sample_geo'
 
 

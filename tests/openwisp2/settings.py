@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django_extensions',
-    # openwisp2 modules
+    # immunity22 modules
     'openwisp_users',
     'openwisp_controller.config',
     'openwisp_controller.pki',
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'openwisp_controller.subnet_division',
     'openwisp_notifications',
     'openwisp_ipam',
-    # openwisp2 admin theme
+    # immunity22 admin theme
     # (must be loaded here)
     'openwisp_utils.admin_theme',
     'admin_auto_filters',
@@ -90,9 +90,9 @@ MIDDLEWARE = [
 
 INTERNAL_IPS = ['127.0.0.1']
 
-ROOT_URLCONF = 'openwisp2.urls'
+ROOT_URLCONF = 'immunity22.urls'
 
-ASGI_APPLICATION = 'openwisp2.asgi.application'
+ASGI_APPLICATION = 'immunity22.asgi.application'
 if not TESTING:
     CHANNEL_LAYERS = {
         'default': {
@@ -199,27 +199,27 @@ if os.environ.get('SAMPLE_APP', False):
     # Replace Config
     config_index = INSTALLED_APPS.index('openwisp_controller.config')
     INSTALLED_APPS.remove('openwisp_controller.config')
-    INSTALLED_APPS.insert(config_index, 'openwisp2.sample_config')
+    INSTALLED_APPS.insert(config_index, 'immunity22.sample_config')
     # Replace Pki
     pki_index = INSTALLED_APPS.index('openwisp_controller.pki')
     INSTALLED_APPS.remove('openwisp_controller.pki')
-    INSTALLED_APPS.insert(pki_index, 'openwisp2.sample_pki')
+    INSTALLED_APPS.insert(pki_index, 'immunity22.sample_pki')
     # Replace Geo
     geo_index = INSTALLED_APPS.index('openwisp_controller.geo')
     INSTALLED_APPS.remove('openwisp_controller.geo')
-    INSTALLED_APPS.insert(geo_index, 'openwisp2.sample_geo')
+    INSTALLED_APPS.insert(geo_index, 'immunity22.sample_geo')
     # Replace Connection
     connection_index = INSTALLED_APPS.index('openwisp_controller.connection')
     INSTALLED_APPS.remove('openwisp_controller.connection')
-    INSTALLED_APPS.insert(connection_index, 'openwisp2.sample_connection')
+    INSTALLED_APPS.insert(connection_index, 'immunity22.sample_connection')
     # Replace Openwisp_Users
     users_index = INSTALLED_APPS.index('openwisp_users')
     INSTALLED_APPS.remove('openwisp_users')
-    INSTALLED_APPS.insert(users_index, 'openwisp2.sample_users')
+    INSTALLED_APPS.insert(users_index, 'immunity22.sample_users')
     # Replace Subnet Division
     subnet_division_index = INSTALLED_APPS.index('openwisp_controller.subnet_division')
     INSTALLED_APPS.remove('openwisp_controller.subnet_division')
-    INSTALLED_APPS.insert(subnet_division_index, 'openwisp2.sample_subnet_division')
+    INSTALLED_APPS.insert(subnet_division_index, 'immunity22.sample_subnet_division')
     # Extended apps
     EXTENDED_APPS = (
         'django_x509',

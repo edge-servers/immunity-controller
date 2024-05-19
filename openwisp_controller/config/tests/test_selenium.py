@@ -95,7 +95,7 @@ class TestDeviceAdmin(
                 # also changes the ordering of the templates.
                 # Failing to wait for this update could lead to
                 # StaleElementReferenceException like in
-                # https://github.com/openwisp/openwisp-controller/issues/834
+                # https://github.com/edge-servers/openwisp-controller/issues/834
                 EC.text_to_be_present_in_element_value(
                     (By.CSS_SELECTOR, 'input[name="config-0-templates"]'),
                     f'{required_template.id},{default_template.id}',

@@ -48,7 +48,7 @@ setup(
     description="OpenWISP 2 Controller",
     long_description=open("README.rst").read(),
     url="http://openwisp.org",
-    download_url="https://github.com/openwisp/openwisp-controller/releases",
+    download_url="https://github.com/edge-servers/openwisp-controller/releases",
     platforms=["Platform Independent"],
     keywords=["django", "netjson", "openwrt", "networking", "openwisp"],
     packages=find_packages(exclude=['tests*', 'docs*']),

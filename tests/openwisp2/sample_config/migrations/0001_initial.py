@@ -369,7 +369,7 @@ class Migration(migrations.Migration):
                         blank=True,
                         help_text=(
                             'Webhook to trigger for updating server configuration '
-                            '(e.g. https://openwisp2.mydomain.com:8081/trigger-update)'
+                            '(e.g. https://immunity22.mydomain.com:8081/trigger-update)'
                         ),
                         null=True,
                         verbose_name='Webhook Endpoint',

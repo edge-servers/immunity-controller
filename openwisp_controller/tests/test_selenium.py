@@ -72,7 +72,7 @@ class TestDeviceConnectionInlineAdmin(
         # does not support websockets (channels). This causes multiple errors to
         # be logged when trying to establish a WebSocket connection at SEVERE level,
         # which is problematic because the error for the issue described in
-        # https://github.com/openwisp/openwisp-controller/issues/681
+        # https://github.com/edge-servers/openwisp-controller/issues/681
         # is logged at WARNING level.
         # By checking that there are no WARNING level errors logged in the
         # browser console, we ensure that this issue is not happening.

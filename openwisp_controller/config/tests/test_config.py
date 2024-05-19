@@ -267,7 +267,7 @@ class TestConfig(
     def test_backend_import_error(self):
         """
         see issue #5
-        https://github.com/openwisp/django-netjsonconfig/issues/5
+        https://github.com/edge-servers/django-netjsonconfig/issues/5
         """
         c = Config(device=self._create_device())
         with self.assertRaises(ValidationError):

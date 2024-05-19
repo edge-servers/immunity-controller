@@ -32,7 +32,7 @@ class SubnetDivisionRuleInlineAdmin(
             '"Number of IPs" will not be possible.'
         ),
         'documentation_url': (
-            'https://github.com/openwisp/openwisp-controller'
+            'https://github.com/edge-servers/openwisp-controller'
             '#limitations-of-subnet-division'
         ),
     }

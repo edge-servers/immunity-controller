@@ -6,9 +6,9 @@ rm -rf ./openwisp_controller/geo/tests/.pytest_cache \
        ./openwisp_controller/config/tests/.pytest_cache/ \
        ./openwisp_controller/connection/tests/.pytest_cache/ \
        ./openwisp_controller/.pytest_cache/ \
-       ./tests/openwisp2/sample_geo/.pytest_cache \
+       ./tests/immunity22/sample_geo/.pytest_cache \
        ./tests/.pytest_cache \
-       ./tests/openwisp2/.pytest_cache/ \
+       ./tests/immunity22/.pytest_cache/ \
        ./htmlcov/ 2> /dev/null || true
 
 openwisp-qa-check \
@@ -29,8 +29,8 @@ SAMPLE_APP=1 openwisp-qa-check \
   --skip-black \
   --skip-checkendline \
   --skip-checkcommit \
-  --migration-path "./tests/openwisp2/sample_config/migrations/
-                    ./tests/openwisp2/sample_pki/migrations/
-                    ./tests/openwisp2/sample_connection/migrations/
-                    ./tests/openwisp2/sample_geo/migrations/
-                    ./tests/openwisp2/sample_subnet_division/migrations/"
+  --migration-path "./tests/immunity22/sample_config/migrations/
+                    ./tests/immunity22/sample_pki/migrations/
+                    ./tests/immunity22/sample_connection/migrations/
+                    ./tests/immunity22/sample_geo/migrations/
+                    ./tests/immunity22/sample_subnet_division/migrations/"
