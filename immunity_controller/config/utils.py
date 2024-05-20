@@ -29,7 +29,7 @@ class ControllerResponse(HttpResponse):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self['X-Openwisp-Controller'] = 'true'
+        self['X-Immunity-Controller'] = 'true'
 
 
 def send_file(filename, contents):

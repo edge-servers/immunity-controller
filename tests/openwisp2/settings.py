@@ -212,7 +212,7 @@ if os.environ.get('SAMPLE_APP', False):
     connection_index = INSTALLED_APPS.index('immunity_controller.connection')
     INSTALLED_APPS.remove('immunity_controller.connection')
     INSTALLED_APPS.insert(connection_index, 'immunity22.sample_connection')
-    # Replace Openwisp_Users
+    # Replace Immunity_Users
     users_index = INSTALLED_APPS.index('immunity_users')
     INSTALLED_APPS.remove('immunity_users')
     INSTALLED_APPS.insert(users_index, 'immunity22.sample_users')

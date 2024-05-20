@@ -1,9 +1,9 @@
-from immunity_users.apps import OpenwispUsersConfig
+from immunity_users.apps import ImmunityUsersConfig
 
 
-class SampleUsersConfig(OpenwispUsersConfig):
+class SampleUsersConfig(ImmunityUsersConfig):
     name = 'immunity22.sample_users'
     label = 'sample_users'
 
 
-del OpenwispUsersConfig
+del ImmunityUsersConfig

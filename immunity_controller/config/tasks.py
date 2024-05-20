@@ -7,7 +7,7 @@ from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from swapper import load_model
 
-from immunity_utils.tasks import OpenwispCeleryTask
+from immunity_utils.tasks import ImmunityCeleryTask
 
 logger = logging.getLogger(__name__)
 
@@ -56,7 +56,7 @@ def create_vpn_dh(vpn_pk):
         vpn.save()
 
 
-@shared_task(base=OpenwispCeleryTask)
+@shared_task(base=ImmunityCeleryTask)
 def invalidate_devicegroup_cache_change(instance_id, model_name):
     from .api.views import DeviceGroupCommonName
 
@@ -72,7 +72,7 @@ def invalidate_devicegroup_cache_change(instance_id, model_name):
         DeviceGroupCommonName.certificate_change_invalidates_cache(instance_id)
 
 
-@shared_task(base=OpenwispCeleryTask)
+@shared_task(base=ImmunityCeleryTask)
 def invalidate_vpn_server_devices_cache_change(vpn_pk):
     Vpn = load_model('config', 'Vpn')
     VpnClient = load_model('config', 'VpnClient')
@@ -80,7 +80,7 @@ def invalidate_vpn_server_devices_cache_change(vpn_pk):
     VpnClient.invalidate_clients_cache(vpn)
 
 
-@shared_task(base=OpenwispCeleryTask)
+@shared_task(base=ImmunityCeleryTask)
 def invalidate_devicegroup_cache_delete(instance_id, model_name, **kwargs):
     from .api.views import DeviceGroupCommonName
 
@@ -97,7 +97,7 @@ def invalidate_devicegroup_cache_delete(instance_id, model_name, **kwargs):
         )
 
 
-@shared_task(base=OpenwispCeleryTask)
+@shared_task(base=ImmunityCeleryTask)
 def trigger_vpn_server_endpoint(endpoint, auth_token, vpn_id):
     response = requests.post(
         endpoint,
@@ -148,7 +148,7 @@ def bulk_invalidate_config_get_cached_checksum(query_params):
     Config.bulk_invalidate_get_cached_checksum(query_params)
 
 
-@shared_task(base=OpenwispCeleryTask)
+@shared_task(base=ImmunityCeleryTask)
 def invalidate_device_checksum_view_cache(organization_id):
     from .controller.views import DeviceChecksumView
 

@@ -58,7 +58,7 @@ class TestController(
         return org
 
     def _check_header(self, response):
-        self.assertEqual(response['X-Openwisp-Controller'], 'true')
+        self.assertEqual(response['X-Immunity-Controller'], 'true')
 
     def _test_view_organization_disabled(
         self, obj, url, http_method='get', org=None, data=None

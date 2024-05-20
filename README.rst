@@ -3159,7 +3159,7 @@ For more information on how to write your own types, read
 | **default**: | ``True``  |
 +--------------+-----------+
 
-Indicates whether the API for Openwisp Controller is enabled or not.
+Indicates whether the API for Immunity Controller is enabled or not.
 To disable the API by default add `IMMUNITY_CONTROLLER_API = False` in `settings.py` file.
 
 ``IMMUNITY_CONTROLLER_API_HOST``

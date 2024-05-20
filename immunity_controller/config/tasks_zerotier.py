@@ -10,14 +10,14 @@ from requests.exceptions import RequestException
 from swapper import load_model
 
 from immunity_controller.config.api.zerotier_service import ZerotierService
-from immunity_utils.tasks import OpenwispCeleryTask
+from immunity_utils.tasks import ImmunityCeleryTask
 
 from .settings import API_TASK_RETRY_OPTIONS
 
 logger = logging.getLogger(__name__)
 
 
-class OpenwispApiTask(OpenwispCeleryTask):
+class ImmunityApiTask(ImmunityCeleryTask):
 
     _RECOVERABLE_API_CODES = [
         HTTPStatus.TOO_MANY_REQUESTS,  # 429
@@ -108,7 +108,7 @@ class OpenwispApiTask(OpenwispCeleryTask):
 
 @shared_task(
     bind=True,
-    base=OpenwispApiTask,
+    base=ImmunityApiTask,
     autoretry_for=(RequestException,),
     **API_TASK_RETRY_OPTIONS,
 )
@@ -143,7 +143,7 @@ def trigger_zerotier_server_update(self, config, vpn_id):
 
 @shared_task(
     bind=True,
-    base=OpenwispApiTask,
+    base=ImmunityApiTask,
     autoretry_for=(RequestException,),
     **API_TASK_RETRY_OPTIONS,
 )
@@ -179,7 +179,7 @@ def trigger_zerotier_server_update_member(self, vpn_id, ip=None, node_id=None):
 
 @shared_task(
     bind=True,
-    base=OpenwispApiTask,
+    base=ImmunityApiTask,
     autoretry_for=(RequestException,),
     **API_TASK_RETRY_OPTIONS,
 )
@@ -222,7 +222,7 @@ def trigger_zerotier_server_remove_member(self, node_id=None, **vpn_kwargs):
 
 @shared_task(
     bind=True,
-    base=OpenwispApiTask,
+    base=ImmunityApiTask,
     autoretry_for=(RequestException,),
     **API_TASK_RETRY_OPTIONS,
 )
@@ -255,7 +255,7 @@ def trigger_zerotier_server_join(self, vpn_id):
 
 @shared_task(
     bind=True,
-    base=OpenwispApiTask,
+    base=ImmunityApiTask,
     autoretry_for=(RequestException,),
     **API_TASK_RETRY_OPTIONS,
 )
@@ -283,7 +283,7 @@ def trigger_zerotier_server_delete(self, host, auth_token, network_id, vpn_id):
 
 @shared_task(
     bind=True,
-    base=OpenwispApiTask,
+    base=ImmunityApiTask,
     autoretry_for=(RequestException,),
     **API_TASK_RETRY_OPTIONS,
 )
