@@ -29,7 +29,8 @@ BACKENDS = get_settings_value(
     'BACKENDS',
     (
         ('netjsonconfig.OpenWrt', 'OpenWRT'),
-        ('netjsonconfig.OpenWisp', 'Immunity Firmware 1.x'),
+        ('netjsonconfig.Immunity
+', 'Immunity Firmware 1.x'),
     ),
 )
 

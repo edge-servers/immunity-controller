@@ -87,7 +87,8 @@ class TestTemplate(
             name='default-openwrt', backend='netjsonconfig.OpenWrt', default=True
         )
         t2 = self._create_template(
-            name='default-immunity', backend='netjsonconfig.OpenWisp', default=True
+            name='default-immunity', backend='netjsonconfig.Immunity
+', default=True
         )
         c1 = self._create_config(
             device=self._create_device(name='test-openwrt'),
@@ -96,7 +97,8 @@ class TestTemplate(
         d2 = self._create_device(
             name='test-immunity', mac_address=self.TEST_MAC_ADDRESS.replace('55', '56')
         )
-        c2 = self._create_config(device=d2, backend='netjsonconfig.OpenWisp')
+        c2 = self._create_config(device=d2, backend='netjsonconfig.Immunity
+')
         # ensure OpenWRT device has only the default OpenWRT backend
         self.assertEqual(c1.templates.count(), 1)
         self.assertEqual(c1.templates.first().id, t1.id)
@@ -468,7 +470,8 @@ class TestTemplate(
             self.assertTrue(config.templates.filter(pk=t2.pk).exists())
 
         with self.subTest('required template honours backend of config'):
-            config.backend = 'netjsonconfig.OpenWisp'
+            config.backend = 'netjsonconfig.Immunity
+'
             config.save()
             self.assertEqual(config.templates.count(), 3)
 

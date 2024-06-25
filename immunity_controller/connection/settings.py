@@ -17,7 +17,8 @@ CONNECTORS = getattr(settings, 'IMMUNITY_CONNECTORS', DEFAULT_CONNECTORS)
 DEFAULT_UPDATE_STRATEGIES = (
     ('immunity_controller.connection.connectors.openwrt.ssh.OpenWrt', 'OpenWRT SSH'),
     (
-        'immunity_controller.connection.connectors.openwrt.ssh.OpenWisp1',
+        'immunity_controller.connection.connectors.openwrt.ssh.Immunity
+1',
         'Immunity 1.x SSH',
     ),
 )
@@ -31,7 +32,8 @@ CONFIG_UPDATE_MAPPING = getattr(
     'IMMUNITY_CONFIG_UPDATE_MAPPING',
     {
         'netjsonconfig.OpenWrt': DEFAULT_UPDATE_STRATEGIES[0][0],
-        'netjsonconfig.OpenWisp': DEFAULT_UPDATE_STRATEGIES[1][0],
+        'netjsonconfig.Immunity
+': DEFAULT_UPDATE_STRATEGIES[1][0],
     },
 )
 

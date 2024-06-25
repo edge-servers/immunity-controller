@@ -127,7 +127,8 @@ class TestViews(
             name='t2',
             organization=org1,
             default=True,
-            backend='netjsonconfig.OpenWisp',
+            backend='netjsonconfig.Immunity
+',
             required=True,
         )
         self._login()
@@ -154,7 +155,8 @@ class TestViews(
 
         response = self.client.get(
             reverse('admin:get_relevant_templates', args=[org1.pk]),
-            {'backend': 'netjsonconfig.OpenWisp'},
+            {'backend': 'netjsonconfig.Immunity
+'},
         )
         templates = response.json()
         self.assertEqual(len(templates), 1)

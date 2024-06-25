@@ -216,7 +216,8 @@ class TestConfigApi(
             mac_address='00:11:22:33:44:66', group=dg2, organization=org2
         )
         t2 = self._create_template(name='t2', organization=org2)
-        c2 = self._create_config(device=d2, backend='netjsonconfig.OpenWisp')
+        c2 = self._create_config(device=d2, backend='netjsonconfig.Immunity
+')
         c2.templates.add(t2)
         c2.status = 'applied'
         c2.full_clean()
@@ -244,7 +245,8 @@ class TestConfigApi(
         with self.subTest('Test filtering using config backend'):
             r1 = self.client.get(f'{path}?config__backend=netjsonconfig.OpenWrt')
             _assert_device_list_filter(response=r1, device=d1)
-            r2 = self.client.get(f'{path}?config__backend=netjsonconfig.OpenWisp')
+            r2 = self.client.get(f'{path}?config__backend=netjsonconfig.Immunity
+')
             _assert_device_list_filter(response=r2, device=d2)
 
         with self.subTest('Test filtering using config status'):
@@ -339,7 +341,8 @@ class TestConfigApi(
             'organization': org.pk,
             'mac_address': d1.mac_address,
             'config': {
-                'backend': 'netjsonconfig.OpenWisp',
+                'backend': 'netjsonconfig.Immunity
+',
                 'status': 'modified',
                 'templates': [],
                 'context': '{}',
@@ -351,11 +354,13 @@ class TestConfigApi(
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.data['name'], 'change-test-device')
         self.assertEqual(r.data['organization'], org.pk)
-        self.assertEqual(r.data['config']['backend'], 'netjsonconfig.OpenWisp')
+        self.assertEqual(r.data['config']['backend'], 'netjsonconfig.Immunity
+')
         d1.refresh_from_db()
         self.assertEqual(d1.name, 'change-test-device')
         self.assertEqual(d1.organization, org)
-        self.assertEqual(d1.config.backend, 'netjsonconfig.OpenWisp')
+        self.assertEqual(d1.config.backend, 'netjsonconfig.Immunity
+')
 
     def test_device_put_api_with_default_config_values(self):
         device = self._create_device(name='test-device')
@@ -384,7 +389,8 @@ class TestConfigApi(
 
     def test_device_api_change_config_backend(self):
         t1 = self._create_template(name='t1', backend='netjsonconfig.OpenWrt')
-        t2 = self._create_template(name='t2', backend='netjsonconfig.OpenWisp')
+        t2 = self._create_template(name='t2', backend='netjsonconfig.Immunity
+')
         dg1 = self._create_device_group(name='dg-1')
         dg1.templates.add(t1, t2)
         d1 = self._create_device(name='test-device', group=dg1)
@@ -396,7 +402,8 @@ class TestConfigApi(
             'mac_address': d1.mac_address,
             'group': dg1.pk,
             'config': {
-                'backend': 'netjsonconfig.OpenWisp',
+                'backend': 'netjsonconfig.Immunity
+',
                 'status': 'modified',
                 'templates': [],
                 'context': {},
@@ -406,7 +413,8 @@ class TestConfigApi(
         r = self.client.put(path, data, content_type='application/json')
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.data['group'], dg1.pk)
-        self.assertEqual(r.data['config']['backend'], 'netjsonconfig.OpenWisp')
+        self.assertEqual(r.data['config']['backend'], 'netjsonconfig.Immunity
+')
         self.assertNotIn(t1, d1.config.templates.all())
         self.assertIn(t2, d1.config.templates.all())
 
@@ -575,7 +583,8 @@ class TestConfigApi(
         t2 = self._create_template(
             name='t2',
             organization=org2,
-            backend='netjsonconfig.OpenWisp',
+            backend='netjsonconfig.Immunity
+',
             default=True,
             required=True,
         )
@@ -613,7 +622,8 @@ class TestConfigApi(
         with self.subTest('Test filtering using template backend'):
             r1 = self.client.get(f'{path}?backend=netjsonconfig.OpenWrt')
             _assert_template_list_filter(response=r1, template=t1)
-            r2 = self.client.get(f'{path}?backend=netjsonconfig.OpenWisp')
+            r2 = self.client.get(f'{path}?backend=netjsonconfig.Immunity
+')
             _assert_template_list_filter(response=r2, template=t2)
 
         with self.subTest('Test filtering using template type'):

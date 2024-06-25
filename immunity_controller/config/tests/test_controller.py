@@ -525,7 +525,8 @@ class TestController(
     def test_default_template_selection_with_backend_filtering(self):
         self._create_template(
             name='t1',
-            backend='netjsonconfig.OpenWisp',
+            backend='netjsonconfig.Immunity
+',
             organization=self._get_org(),
             default=True,
         )

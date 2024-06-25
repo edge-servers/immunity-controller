@@ -821,7 +821,8 @@ class TestConfig(
     def test_config_backend_changed(self):
         org = self._get_org()
         old_backend = 'netjsonconfig.OpenWrt'
-        backend = 'netjsonconfig.OpenWisp'
+        backend = 'netjsonconfig.Immunity
+'
         group = self._create_device_group(organization=org)
         t1 = self._create_template(name='t1', backend=old_backend)
         t2 = self._create_template(name='t2', backend=backend)

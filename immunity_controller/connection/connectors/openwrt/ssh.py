@@ -48,7 +48,8 @@ class OpenWrt(Ssh):
         )
 
 
-class OpenWisp1(Ssh):
+class Immunity
+1(Ssh):
     """
     Dummy legacy backend.
     Used for migrating Immunity 1 systems to Immunity 2.

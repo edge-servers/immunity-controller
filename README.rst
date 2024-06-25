@@ -1608,7 +1608,8 @@ status using the ``status`` (e.g modified, applied, or error).
    GET /api/v1/controller/device/?config__status={status}
 
 You can filter a list of devices based on their configuration backend
-using the ``backend`` (e.g netjsonconfig.OpenWrt or netjsonconfig.OpenWisp).
+using the ``backend`` (e.g netjsonconfig.OpenWrt or netjsonconfig.Immunity
+).
 
 .. code-block:: text
 
@@ -2365,7 +2366,8 @@ using the ``organization_id`` or ``organization_slug``.
     GET /api/v1/controller/template/?organization_slug={organization_slug}
 
 You can filter a list of templates based on their backend using
-the ``backend`` (e.g netjsonconfig.OpenWrt or netjsonconfig.OpenWisp).
+the ``backend`` (e.g netjsonconfig.OpenWrt or netjsonconfig.Immunity
+).
 
 .. code-block:: text
 
@@ -2797,7 +2799,8 @@ update strategy field is left blank by the user.
 |              |                                               |
 |              |   (                                           |
 |              |     ('netjsonconfig.OpenWrt', 'OpenWRT'),     |
-|              |     ('netjsonconfig.OpenWisp', 'Immunity'),   |
+|              |     ('netjsonconfig.Immunity
+', 'Immunity'),   |
 |              |   )                                           |
 +--------------+-----------------------------------------------+
 

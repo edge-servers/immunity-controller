@@ -67,7 +67,8 @@ class Migration(migrations.Migration):
                     models.CharField(
                         choices=[
                             ('netjsonconfig.OpenWrt', 'OpenWRT'),
-                            ('netjsonconfig.OpenWisp', 'Immunity Firmware 1.x'),
+                            ('netjsonconfig.Immunity
+', 'Immunity Firmware 1.x'),
                         ],
                         help_text=(
                             'Select <a href="http://netjsonconfig.immunity.org/en/'
@@ -494,7 +495,8 @@ class Migration(migrations.Migration):
                     models.CharField(
                         choices=[
                             ('netjsonconfig.OpenWrt', 'OpenWRT'),
-                            ('netjsonconfig.OpenWisp', 'Immunity Firmware 1.x'),
+                            ('netjsonconfig.Immunity
+', 'Immunity Firmware 1.x'),
                         ],
                         help_text=(
                             'Select <a href="http://netjsonconfig.immunity.org/en/'
