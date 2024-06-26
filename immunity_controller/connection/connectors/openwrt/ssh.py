@@ -48,8 +48,7 @@ class OpenWrt(Ssh):
         )
 
 
-class Immunity
-1(Ssh):
+class Immunity(Ssh):
     """
     Dummy legacy backend.
     Used for migrating Immunity 1 systems to Immunity 2.

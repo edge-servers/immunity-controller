@@ -2799,8 +2799,7 @@ update strategy field is left blank by the user.
 |              |                                               |
 |              |   (                                           |
 |              |     ('netjsonconfig.OpenWrt', 'OpenWRT'),     |
-|              |     ('netjsonconfig.Immunity
-', 'Immunity'),   |
+|              |     ('netjsonconfig.Immunity', 'Immunity'),   |
 |              |   )                                           |
 +--------------+-----------------------------------------------+
 

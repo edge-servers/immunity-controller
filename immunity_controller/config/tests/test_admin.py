@@ -1413,12 +1413,10 @@ class TestAdmin(
 
     def test_existing_device_backend(self):
         d = self._create_device()
-        self._create_config(device=d, backend='netjsonconfig.Immunity
-')
+        self._create_config(device=d, backend='netjsonconfig.Immunity')
         path = reverse(f'admin:{self.app_label}_device_change', args=[d.pk])
         response = self.client.get(path)
-        self.assertContains(response, '<option value="netjsonconfig.Immunity
-" selected')
+        self.assertContains(response, '<option value="netjsonconfig.Immunity" selected')
 
     def test_device_search(self):
         d = self._create_device(name='admin-search-test')
@@ -1447,8 +1445,7 @@ class TestAdmin(
 
     def test_existing_template_backend(self):
         t = Template.objects.first()
-        t.backend = 'netjsonconfig.Immunity
-'
+        t.backend = 'netjsonconfig.Immunity'
         t.config = {
             'general': {'hostname': '{{ hostname}}'},
         }
@@ -1457,8 +1454,7 @@ class TestAdmin(
         t.save()
         path = reverse(f'admin:{self.app_label}_template_change', args=[t.pk])
         response = self.client.get(path)
-        self.assertContains(response, '<option value="netjsonconfig.Immunity
-" selected')
+        self.assertContains(response, '<option value="netjsonconfig.Immunity" selected')
 
     def test_preview_variables(self):
         path = reverse(f'admin:{self.app_label}_device_preview')
@@ -2077,8 +2073,7 @@ class TestDeviceGroupAdminTransaction(
     def test_group_templates_apply(self):
         t1 = self._create_template(name='t1')
         t2 = self._create_template(name='t2')
-        t3 = self._create_template(name='t3', backend='netjsonconfig.Immunity
-')
+        t3 = self._create_template(name='t3', backend='netjsonconfig.Immunity')
         org1 = self._get_org()
         dg = self._create_device_group(organization=org1)
         device = self._create_device_config(device_opts=dict(group=dg))
